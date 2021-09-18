@@ -1,0 +1,25 @@
+@import 'root.css';
+
+.bg-blue-primary{
+
+    background-color: var(--blue-primary);
+
+}
+
+.bg-blue-light{
+
+    background-color: var(--blue-light);
+
+}
+
+.bg-blue-aqua{
+
+    background-color: var(--blue-aqua);
+
+}
+
+.bg-blue-secondary{
+
+    background-color: var(--blue-secondary);
+
+}

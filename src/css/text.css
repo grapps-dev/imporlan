@@ -1,0 +1,8 @@
+@import 'root.css';
+
+.navbar a{
+
+    color: var(--navbar-text-color) !important;
+    font-weight: 600 !important;
+
+}
