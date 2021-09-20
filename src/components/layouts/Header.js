@@ -12,13 +12,13 @@ export default function Navbar() {
     return(
 
         <div className='py-3'>
-                <div className='col-12 d-block d-lg-flex align-items-center'>
+                <div className='col-12 d-block d-lg-flex align-items-center pr-0'>
                     <div className='col-lg-3'>
                         <a className='navbar-brand'>
                             <img src={ Logotipo } className='img-fluid' />
                         </a>
                     </div>
-                    <div className='col-12 col-lg-9 ml-auto d-flex justify-content-end px-0 px-md-4 mt-3 mt-xl-0'>
+                    <div className='col-12 col-lg-9 ml-auto d-flex justify-content-end px-0 pl-md-4 pr-md-0 mt-3 mt-xl-0 align-self-right'>
                         <div className='col-3 d-none d-md-flex justify-content-between px-0'>
                             <div className='border-circle text-white' style={{ 'background': '#546CE9 25%'}}>
                                 <FontAwesomeIcon icon={ faFacebookF } />

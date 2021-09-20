@@ -23,3 +23,9 @@
     background-color: var(--blue-secondary);
 
 }
+
+.bg-main-white{
+
+    background-color: var(--white-main-div-background);
+
+}

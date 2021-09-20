@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import CompareIcon from '../../assets/img/compare-icon.svg';
 import HeartIcon from '../../assets/img/heart-icon.png';
@@ -35,6 +38,11 @@ export default function Navbar() {
                         Information
                     </a>
                 </li>
+            </ul>
+            <ul className='navbar-nav mr-auto d-flex d-md-none'>
+                <button type="button" className='btn'>
+                    <FontAwesomeIcon icon={ faBars } />
+                </button>
             </ul>
             <div className='col-auto ml-auto'>
                 <div className='d-inline-flex'>
