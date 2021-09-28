@@ -1,0 +1,41 @@
+@import 'root.css';
+
+h2{
+
+    font-weight: bold;
+
+}
+
+h1, h2, h3, h4, h5{
+
+    line-height: normal;
+
+}
+
+.navbar a{
+
+    color: var(--navbar-text-color) !important;
+    font-weight: 600 !important;
+
+}
+
+.text-gradient-blue{
+
+    background: -webkit-linear-gradient(296.99deg, rgba(128, 240, 255, 0.7) 5.47%, rgba(118, 97, 247, 0.7) 84.96%), -webkit-linear-gradient(0deg, #443970, #443970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--blue-primary);
+
+}
+
+.text-blue-steps{
+
+    color: var(--blue-steps);
+
+}
+
+.text-blue-steps-names{
+
+    color: var(--blue-steps-names);
+
+}
