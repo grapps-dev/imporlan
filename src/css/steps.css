@@ -1,0 +1,70 @@
+.steps{
+
+    overflow-x: auto;
+    padding: 1rem;
+    white-space: nowrap;
+
+}
+
+.step-div{
+
+    display: inline-block !important;
+    height: auto;
+    margin: 0 .5rem;
+    width: 18%;
+
+}
+
+.step-div:first-child{
+
+    margin-left: 0px;
+
+}
+
+.step-div:last-child{
+
+    margin-right: 0px;
+
+}
+
+@media (max-width: 1199px){
+
+    .step-div{
+
+        width: 30%;
+
+    }
+    
+    .step-div:first-child{
+
+        margin-left: 0;
+
+    }
+
+    .step-div:last-child{
+
+        margin-right: 0;
+
+    }
+
+}
+
+@media (max-width: 767px){
+
+    .step-div{
+
+        width: 50%;
+
+    }
+
+}
+
+@media (max-width: 425px){
+
+    .step-div{
+
+        width: 100%;
+
+    }
+
+}
