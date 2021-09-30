@@ -29,3 +29,10 @@
     background-color: var(--white-main-div-background);
 
 }
+
+.bg-img-blue-boat{
+
+    background: linear-gradient(344.41deg, rgba(118, 97, 247, 0.7) -13.39%, rgba(128, 240, 255, 0.7) 124.74%), #3A58E0;
+    color: white;
+
+}

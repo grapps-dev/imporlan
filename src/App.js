@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import $ from 'jquery';
+import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
@@ -10,9 +12,36 @@ import Navbar from './components/layouts/Navbar';
 import Index from './components/pages/Index';
 
 function App() {
+
+  const getURL = async() => {
+
+    const url = encodeURIComponent('https://www.amazon.com/dp/B00JITDVD2');
+    const token = "iq81foGMoa6wHKdzCxAOtA";
+
+
+    await axios.get("https://api.proxycrawl.com/scraper?token=" + token + "&url=" + url)
+    .then(res => {
+
+      console.log(res);
+
+    })
+    .catch(e => {
+
+      console.log(e)
+
+    })
+
+  }
+
+  useEffect(() => {
+
+    getURL();
+
+  })
+
   return (
     
-    <div className='container'>
+    <div id='main' className='container'>
       <Router>
         <Header />
         <Navbar />
