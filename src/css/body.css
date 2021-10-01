@@ -4,3 +4,17 @@ body{
     /*font-family: Roboto;*/
     
 }
+
+ul{
+
+    list-style: none;
+    padding-left: 0;
+
+}
+
+ul li{
+
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
+}

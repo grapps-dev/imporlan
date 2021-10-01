@@ -36,3 +36,10 @@
     color: white;
 
 }
+
+.bg-aqua{
+
+    background-color: var(--blue-aqua);
+    color: white;
+
+}

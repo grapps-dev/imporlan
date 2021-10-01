@@ -24,7 +24,7 @@ export default function CheckForm() {
 
     return(
 
-        <div className='col-12 mt-3 px-0'>
+        <div className='col-12 mt-5 px-0'>
             <div className='row px-0'>
                 <div className='col-lg-4'>
                     <div className='col-12 p-4 bg-img-blue-boat border-radius'>
@@ -81,7 +81,7 @@ export default function CheckForm() {
                         </form>
                     </div>
                 </div>
-                <div className='col-lg-8'>
+                <div className='col-lg-8 mt-3 mt-lg-0'>
                     <div className='col-12 p-4 bg-img-blue-boat border-radius'>
                         <form>
                             <div className='form-group'>

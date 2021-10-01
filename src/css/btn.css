@@ -1,0 +1,8 @@
+@import 'root.css';
+
+.btn-aqua{
+
+    background-color: var(--blue-aqua);
+    color: black;
+
+}

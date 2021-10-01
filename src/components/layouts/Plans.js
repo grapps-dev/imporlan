@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Plan from './Plan';
+
 export default function Plans() {
 
     const plans = [
@@ -31,7 +33,7 @@ export default function Plans() {
             ]
         },
         {
-            id: 1,
+            id: 2,
             name: 'Plan Almirante',
             actualPrice: '189.600',
             oldPrice: '219.900',
@@ -52,6 +54,9 @@ export default function Plans() {
             <h4 className='text-gradient-blue text-center'>
                 Nosotros haremos la búsqueda por ti y te enviamos las mejores opciones del momento en USA
             </h4>
+            <div className='row mt-3'>
+                { plans.map(plan => <Plan plan={ plan } />) }
+            </div>
         </div>
 
     )

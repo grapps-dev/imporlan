@@ -205,7 +205,7 @@ export default function Index() {
                 </div>
             </div>
             <CheckForm />
-            <div className='col-12 mt-3 bg-img-blue-boat border-radius pt-3' style={{ 'paddingBottom': '20rem' }}>
+            <div className='col-12 mt-5 bg-img-blue-boat border-radius pt-3' style={{ 'paddingBottom': '20rem' }}>
                 <h1 className='text-center'>
                     En ImporLan
                 </h1>
@@ -218,21 +218,21 @@ export default function Index() {
                         ¿Cómo funciona?
                     </h2>
                     <div className='row justify-content-around mt-5 w-100' style={{ 'position': 'absolute', 'height': '384px' }}>
-                        <div className='col-4 bg-white border-radius shadow d-flex align-items-center'>
+                        <div className='col-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
                         <div className='col-12' style={{ 'height': '100%' }}>
-                                <div className='d-flex align-items-center' style={{ 'height': '80%' }}>
+                                <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
                                     <img src={ BuyUSA } className='img-fluid' />
                                 </div>
-                                <div style={{ 'height': '20%' }}>
+                                <div style={{ 'height': '10%' }}>
                                     <h2 className='text-dark d-block mt-auto'>
                                         Compra USA
                                     </h2>
                                 </div>
                             </div>
                         </div>
-                        <div className='col-4 bg-white border-radius shadow d-flex align-items-center'>
+                        <div className='col-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
                             <div className='col-12' style={{ 'height': '100%' }}>
-                                <div className='d-flex align-items-center' style={{ 'height': '80%' }}>
+                                <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
                                     <img src={ InfoChile } className='img-fluid' />
                                 </div>
                                 <div style={{ 'height': '20%' }}>
