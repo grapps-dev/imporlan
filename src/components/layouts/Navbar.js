@@ -88,11 +88,13 @@ export default function Navbar() {
             </nav>
             <div className='col-12 px-0 d-md-none' id='mobileMenu'>
                 <div className='col-7 px-0 bg-white'>
-                    <div className='w-100 pt-5 d-flex justify-content-center align-items-center' style={{ "height": '23%' }}>
-                        <button className='btn' style={{ 'position': 'absolute', 'top': '.3rem', 'right': '1.5rem', 'fontSize': '2rem' }} onClick={ hiddeMenu }>
+                    <div className='w-100 d-flex justify-content-end align-items-center'>
+                        <button className='btn' onClick={ hiddeMenu } style={{ 'fontSize': '1.5rem' }}>
                             <FontAwesomeIcon icon={ faTimes } />
                         </button>
-                        <img src={ Logotipo } style={{ 'width': '200px', 'heigth': '120px' }} />
+                    </div>
+                    <div className='w-100 text-center'>
+                        <img src={ Logotipo } style={{ 'width': '180px', 'heigth': '120px' }} />
                     </div>
                     <ul className='navbar-nav d-flex px-4 mt-3' style={{ 'justifyContent': 'space-evenly', 'height': '40%' }}>
                         <li className='nav-item'>

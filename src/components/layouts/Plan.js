@@ -21,7 +21,7 @@ export default function Plan(props) {
                             { plan.content.map((content, i) => <li><img src={ ListCheck } /> { content }</li>) }
                         </ul>
                     </div>
-                    <div className='w-100 ml-0 mx-auto  text-center' style={{ 'position': 'absolute', 'left': 0, 'bottom': '-3.5rem' }}>
+                    <div className='w-100 ml-0 mx-auto position-absolute-md text-center' style={{ 'left': 0, 'bottom': '-3.5rem' }}>
                         <button className='btn btn-aqua border-radius px-5'>
                             ¡Contratar ahora!
                         </button>

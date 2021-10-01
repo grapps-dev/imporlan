@@ -205,7 +205,7 @@ export default function Index() {
                 </div>
             </div>
             <CheckForm />
-            <div className='col-12 mt-5 bg-img-blue-boat border-radius pt-3' style={{ 'paddingBottom': '20rem' }}>
+            <div className='col-12 d-none d-md-block mt-5 bg-img-blue-boat border-radius pt-3' style={{ 'paddingBottom': '20rem' }}>
                 <h1 className='text-center'>
                     En ImporLan
                 </h1>
@@ -218,8 +218,8 @@ export default function Index() {
                         ¿Cómo funciona?
                     </h2>
                     <div className='row justify-content-around mt-5 w-100' style={{ 'position': 'absolute', 'height': '384px' }}>
-                        <div className='col-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
-                        <div className='col-12' style={{ 'height': '100%' }}>
+                        <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
+                            <div className='col-12' style={{ 'height': '100%' }}>
                                 <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
                                     <img src={ BuyUSA } className='img-fluid' />
                                 </div>
@@ -230,12 +230,52 @@ export default function Index() {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
+                        <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
                             <div className='col-12' style={{ 'height': '100%' }}>
                                 <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
                                     <img src={ InfoChile } className='img-fluid' />
                                 </div>
                                 <div style={{ 'height': '20%' }}>
+                                    <h2 className='text-dark d-block mt-auto'>
+                                        Info ImporLan
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='col-12 d-block d-md-none mt-5 bg-img-blue-boat border-radius pt-3' style={{ 'marginBottom': '-7rem' }}>
+                <h1 className='text-center'>
+                    En ImporLan
+                </h1>
+                <p className='text-center col-10 mx-auto'>
+                    Te asesoramos con los consejos y ayuda que necesitas, para escoger la lancha o embarcación que más se acomode a tus necesidades y presupuesto.
+                    <br />En Imporlan te ayudamos a tomar la mejor decisión a la hora de comprar lanchas usadas en USA!
+                </p>
+                <div className='col-12 text-center'>
+                    <h2 clasName=''>
+                        ¿Cómo funciona?
+                    </h2>
+                    <div className='row justify-content-around mt-5'>
+                        <div className='col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex px-0 align-items-center'>
+                            <div className='col-12' style={{ 'height': '100%' }}>
+                                <div className='d-block align-items-center' style={{ 'height': '70%' }}>
+                                    <img src={ BuyUSA } className='img-fluid' />
+                                </div>
+                                <div style={{ 'height': '10%' }}>
+                                    <h2 className='text-dark d-block mt-auto'>
+                                        Compra USA
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow mt-3 d-flex align-items-center'>
+                            <div className='col-12' style={{ 'height': '300px', 'marginTop': '.8rem' }}>
+                                <div className='d-block align-items-center' style={{ 'height': '70%' }}>
+                                    <img src={ InfoChile } className='img-fluid' />
+                                </div>
+                                <div className='d-block' style={{ 'height': '30%' }}>
                                     <h2 className='text-dark d-block mt-auto'>
                                         Info ImporLan
                                     </h2>
