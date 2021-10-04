@@ -2,6 +2,7 @@ import React from 'react';
 
 import CheckForm from '../layouts/CheckForm';
 import Plans from '../layouts/Plans';
+import ServicesIndex from '../layouts/ServicesIndex';
 
 import Boat from '../../assets/img/boat.png';
 import BoatSecondStep from '../../assets/img/boat-step-2.png';
@@ -245,11 +246,11 @@ export default function Index() {
                     </div>
                 </div>
             </div>
-            <div className='col-12 d-block d-md-none mt-5 bg-img-blue-boat border-radius pt-3' style={{ 'marginBottom': '-7rem' }}>
+            <div className='col-12 d-block d-md-none mt-5 bg-img-blue-boat border-radius py-3' style={{ 'marginBottom': '-7rem' }}>
                 <h1 className='text-center'>
                     En ImporLan
                 </h1>
-                <p className='text-center col-10 mx-auto'>
+                <p className='text-center col-10 px-0 mx-auto'>
                     Te asesoramos con los consejos y ayuda que necesitas, para escoger la lancha o embarcación que más se acomode a tus necesidades y presupuesto.
                     <br />En Imporlan te ayudamos a tomar la mejor decisión a la hora de comprar lanchas usadas en USA!
                 </p>
@@ -286,6 +287,7 @@ export default function Index() {
                 </div>
             </div>
             <Plans />
+            <ServicesIndex />
         </div>
 
     )

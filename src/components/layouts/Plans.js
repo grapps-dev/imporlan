@@ -50,7 +50,7 @@ export default function Plans() {
 
     return(
 
-        <div className='col-12' style={{ 'marginTop': '10rem' }}>
+        <div className='col-12 px-0' style={{ 'marginTop': '10rem' }}>
             <h4 className='text-gradient-blue text-center'>
                 Nosotros haremos la búsqueda por ti y te enviamos las mejores opciones del momento en USA
             </h4>
