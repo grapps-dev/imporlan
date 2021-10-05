@@ -3,6 +3,7 @@ import React from 'react';
 import CheckForm from '../layouts/CheckForm';
 import Plans from '../layouts/Plans';
 import ServicesIndex from '../layouts/ServicesIndex';
+import Reviews from '../layouts/Reviews';
 
 import Boat from '../../assets/img/boat.png';
 import BoatSecondStep from '../../assets/img/boat-step-2.png';
@@ -288,6 +289,7 @@ export default function Index() {
             </div>
             <Plans />
             <ServicesIndex />
+            <Reviews />
         </div>
 
     )

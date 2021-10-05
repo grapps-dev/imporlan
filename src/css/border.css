@@ -37,3 +37,9 @@
     height: 24px;
 
 }
+
+.border-circle{
+
+    border-radius: 60%;
+
+}

@@ -45,3 +45,15 @@ h1, h2, h3, h4, h5{
     color: var(--blue-aqua);
 
 }
+
+.text-purple{
+
+    color: var(--purple-primary);
+
+}
+
+.text-gray{
+
+    color: var(--gray-primary);
+
+}
