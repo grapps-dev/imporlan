@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import Review from './Review';
 
@@ -47,6 +50,14 @@ export default function Reviews() {
                 {
                     clients.map(client => <Review client={ client } key={ client.id } />)
                 }
+            </div>
+            <div className='w-100 justify-content-center d-flex mt-3'>
+                <button className='btn bg-white mr-2 border-circle'>
+                    <FontAwesomeIcon icon={ faArrowLeft } />
+                </button>
+                <button className='btn bg-white ml-2 border-circle'>
+                    <FontAwesomeIcon icon={ faArrowRight } />
+                </button>
             </div>
         </div>
 
