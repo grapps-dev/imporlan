@@ -1,0 +1,21 @@
+.review{
+
+    width: 25%;
+
+}
+
+@media (max-width:  425px){
+
+    #slider{
+
+        width: 500% !important;
+
+    }
+
+    .review{
+
+        width: 20%;
+
+    }
+
+}

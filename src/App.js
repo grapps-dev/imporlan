@@ -8,6 +8,7 @@ import './css/app.css';
 
 import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
+import Footer from './components/layouts/Footer';
 
 import Index from './components/pages/Index';
 
@@ -41,7 +42,7 @@ function App() {
 
   return (
     
-    <div id='main' className='container'>
+    <div id='main' className='container pb-4'>
       <Router>
         <Header />
         <Navbar />
@@ -50,6 +51,7 @@ function App() {
             <Route path='/imporlan/' component={ Index } />
           </Switch>
         </div>
+        <Footer />
       </Router>
     </div>
 

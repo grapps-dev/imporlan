@@ -6,3 +6,10 @@
     color: black;
 
 }
+
+.btn-blue-ig{
+
+    background-color: var(--blue-ig);
+    color: white;
+
+}

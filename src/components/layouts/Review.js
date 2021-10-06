@@ -4,10 +4,10 @@ export default function Review(props) {
 
     return(
 
-        <div style={{ "width": "50%" }} className='d-inline-block'>
+        <div className='d-inline-block review'>
             <div style={{ 'width': '90%', 'minHeight': '100%' }} className='bg-white p-3 mx-auto'>
-                <div style={{ 'width': '100%' }} className='d-flex align-items-center'>
-                    <div className>
+                <div style={{ 'width': '100%' }} className='d-block d-md-flex align-items-center text-center'>
+                    <div className=''>
                         <img src={ client.img } className='img-fluid mr-3' />
                     </div>
                     <div>

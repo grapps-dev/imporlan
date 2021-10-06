@@ -1,90 +1,84 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
 
+import SampleImg from '../../assets/img/sample.jpg';
+
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import Review from './Review';
+import ArticleIndex from "./ArticleIndex";
 
-import ClientPhoto from '../../assets/img/client-photo.png';
+export default function ArticlesIndex() {
 
-export default function Reviews() {
+    const news = [
 
-    const clients = [
-        
         {
             id: 0,
-            name: "Brayan Rodríguez",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'Developer',
-            enterprise: 'Graphic Apps'
+            img: SampleImg
         },
         {
             id: 1,
-            name: "Marcos Guánchez",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'Designer',
-            enterprise: 'Graphic Apps'
+            img: SampleImg
         },
         {
             id: 2,
-            name: "Juan Pablo",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'CEO',
-            enterprise: 'ImporLan'
+            img: SampleImg
         },
         {
             id: 3,
-            name: "Juan Pablo",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'CEO',
-            enterprise: 'ImporLan'
+            img: SampleImg
         },
         {
             id: 4,
-            name: "Juan Pablo",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'CEO',
-            enterprise: 'ImporLan'
+            img: SampleImg
         },
         {
             id: 5,
-            name: "Juan Pablo",
-            img: ClientPhoto,
+            title: "Importar embarcaciones desde USA ¿Cómo funciona?",
+            date: "09.07.2021",
             content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            ocupation: 'CEO',
-            enterprise: 'ImporLan'
+            img: SampleImg
         }
 
     ]
 
+
     var margin = 0;
     const moveLeft = () => {
 
-        var marginLeft = parseInt($('#slider').css('marginLeft'));
-        var sliderWidth = parseInt($('#slider').width())
-        var reviewWidth = parseInt($('.review').width());
-        var itemWidth = (sliderWidth * reviewWidth) / 100;
+        var marginLeft = parseInt($('#sliderArticles').css('marginLeft'));
+        var sliderWidth = parseInt($('#sliderArticles').width())
+        var itemWidth = (sliderWidth * 50) / 100;
         
         if(margin < 0){
 
             margin += 100;
             console.log(margin)
-            $('#slider').css('marginLeft', margin + '%')
+            $('#sliderArticles').css('marginLeft', margin + '%')
 
         }
 
     }
     const moveRight = () => {
 
-        var marginLeft = parseInt($('#slider').css('marginLeft'));
-        var sliderWidth = parseInt($('#slider').width())
-        
+        var marginLeft = parseInt($('#sliderArticles').css('marginLeft'));
+        var sliderWidth = parseInt($('#sliderArticles').width());
+
         if($(window).width() > 425){
 
             var reviewWidth = 50;
@@ -97,11 +91,10 @@ export default function Reviews() {
 
         var itemWidth = (sliderWidth * reviewWidth) / 100;
         var v = -(sliderWidth / itemWidth) * 100;
-        console.log(v)
         if(margin > v){
 
             margin -= 100;
-            $('#slider').css('marginLeft', margin + '%')
+            $('#sliderArticles').css('marginLeft', margin + '%')
 
         }
 
@@ -112,13 +105,12 @@ export default function Reviews() {
         <div className='col-12 px-0' style={{ 'marginTop': '5rem' }}>
             <div className='col-12 px-0 text-center'>
                 <h2 className='text-gradient-blue'>
-                    Drives Reviews
+                    Lastest News
                 </h2>
-            </div>
-            <div className='w-100 mt-5 overflow-hidden' style={{ 'whiteSpace': 'nowrap' }}>
-                <div style={{ 'width': '200%', 'transitionDuration': '500ms' }} id='slider'>
+                <div className='w-100 mt-5 overflow-hidden' style={{ 'whiteSpace': 'nowrap' }}>
+                <div style={{ 'width': '200%', 'transitionDuration': '500ms' }} id='sliderArticles'>
                     {
-                        clients.map(client => <Review client={ client } key={ client.id } />)
+                        news.map(article => <ArticleIndex article={ article } key={ article.id } />)
                     }
                 </div>
             </div>
@@ -130,8 +122,9 @@ export default function Reviews() {
                     <FontAwesomeIcon icon={ faArrowRight } onClick={ moveRight } />
                 </button>
             </div>
+            </div>
         </div>
 
     )
-
+    
 }

@@ -1,0 +1,21 @@
+.article{
+
+    width: 25%;
+
+}
+
+@media (max-width:  425px){
+
+    #sliderArticles{
+
+        width: 500% !important;
+
+    }
+
+    .article{
+
+        width: 20%;
+
+    }
+
+}

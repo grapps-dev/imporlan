@@ -27,7 +27,7 @@ export default function CheckForm() {
         <div className='col-12 mt-5 px-0'>
             <div className='row px-0'>
                 <div className='col-lg-4'>
-                    <div className='col-12 p-4 bg-img-blue-boat border-radius'>
+                    <div className='col-12 d-flex align-items-center p-4 bg-img-blue-boat border-radius' style={{ 'height': '100%' }}>
                         <form>
                             <div className='form-group'>
                                 <h4 className='w-100 text-center my-4'>
@@ -124,7 +124,7 @@ export default function CheckForm() {
                                 </div>
                             </div>
                             <div className='row mt-5'>
-                                <div className='col-6'>
+                                <div className='col-md-6'>
                                     <div className='col-12'>
                                         <h4 className='d-block'>
                                             Total
@@ -134,8 +134,13 @@ export default function CheckForm() {
                                         </h1>
                                     </div>
                                 </div>
-                                <div className='col-6'>
-                                    Hla
+                                <div className='col-md-6'>
+                                    <h4>
+                                        Terms and Conditions
+                                    </h4>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    </p>
                                 </div>
                             </div>
                             <div className='col-12 mt-3'>
