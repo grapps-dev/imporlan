@@ -14,35 +14,25 @@ import Index from './components/pages/Index';
 
 function App() {
 
-  const getURL = async() => {
+  $(document).ready(() => {
 
-    const url = encodeURIComponent('https://www.amazon.com/dp/B00JITDVD2');
-    const token = "iq81foGMoa6wHKdzCxAOtA";
+    $(window).scroll(e => {
 
-
-    await axios.get("https://api.proxycrawl.com/scraper?token=" + token + "&url=" + url)
-    .then(res => {
-
-      console.log(res);
-
-    })
-    .catch(e => {
-
-      console.log(e)
+      // BARRA DE PROGRESO
+      var documentHeight = $(document).height();
+      var topScroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      $('#pageSize').css('width', (topScroll / (documentHeight - windowHeight)) * 100 + '%')
 
     })
-
-  }
-
-  useEffect(() => {
-
-    getURL();
 
   })
 
   return (
     
     <div id='main' className='container pb-4'>
+      <div className='fixed-top bg-blue-primary' style={{ 'height': '6px' }} id='pageSize'>
+      </div>
       <Router>
         <Header />
         <Navbar />

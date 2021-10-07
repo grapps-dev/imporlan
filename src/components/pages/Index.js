@@ -217,7 +217,7 @@ export default function Index() {
                         <br />En Imporlan te ayudamos a tomar la mejor decisión a la hora de comprar lanchas usadas en USA!
                     </p>
                     <div className='col-12 text-center'>
-                        <h2 clasName=''>
+                        <h2 className=''>
                             ¿Cómo funciona?
                         </h2>
                         <div className='row justify-content-around mt-5 w-100' style={{ 'position': 'absolute', 'height': '384px' }}>
@@ -257,7 +257,7 @@ export default function Index() {
                         <br />En Imporlan te ayudamos a tomar la mejor decisión a la hora de comprar lanchas usadas en USA!
                     </p>
                     <div className='col-12 text-center'>
-                        <h2 clasName=''>
+                        <h2 className=''>
                             ¿Cómo funciona?
                         </h2>
                         <div className='row justify-content-around mt-5'>

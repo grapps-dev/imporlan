@@ -66,15 +66,12 @@ export default function Reviews() {
     var margin = 0;
     const moveLeft = () => {
 
-        var marginLeft = parseInt($('#slider').css('marginLeft'));
         var sliderWidth = parseInt($('#slider').width())
         var reviewWidth = parseInt($('.review').width());
-        var itemWidth = (sliderWidth * reviewWidth) / 100;
         
         if(margin < 0){
 
             margin += 100;
-            console.log(margin)
             $('#slider').css('marginLeft', margin + '%')
 
         }
@@ -82,22 +79,21 @@ export default function Reviews() {
     }
     const moveRight = () => {
 
-        var marginLeft = parseInt($('#slider').css('marginLeft'));
         var sliderWidth = parseInt($('#slider').width())
+        var reviewWidth
         
         if($(window).width() > 425){
 
-            var reviewWidth = 50;
+            reviewWidth = 50;
 
         } else {
 
-            var reviewWidth = 20;
+            reviewWidth = 20;
 
         }
 
         var itemWidth = (sliderWidth * reviewWidth) / 100;
         var v = -(sliderWidth / itemWidth) * 100;
-        console.log(v)
         if(margin > v){
 
             margin -= 100;

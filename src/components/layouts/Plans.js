@@ -55,7 +55,7 @@ export default function Plans() {
                 Nosotros haremos la búsqueda por ti y te enviamos las mejores opciones del momento en USA
             </h4>
             <div className='row mt-3'>
-                { plans.map(plan => <Plan plan={ plan } />) }
+                { plans.map(plan => <Plan plan={ plan } key={ plan.id } />) }
             </div>
         </div>
 

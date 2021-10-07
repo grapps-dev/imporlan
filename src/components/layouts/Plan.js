@@ -17,8 +17,8 @@ export default function Plan(props) {
                         Antes { plan.oldPrice }
                     </span>
                     <div className='col-12 px-0 mt-3'>
-                        <ul className='text-center' style={{ 'font-size': '.8rem' }}>
-                            { plan.content.map((content, i) => <li><img src={ ListCheck } /> { content }</li>) }
+                        <ul className='text-center' style={{ 'fontSize': '.8rem' }}>
+                            { plan.content.map((content, i) => <li key={ i }><img src={ ListCheck } /> { content }</li>) }
                         </ul>
                     </div>
                     <div className='w-100 ml-0 mx-auto position-absolute-md text-center' style={{ 'left': 0, 'bottom': '-3.5rem' }}>
