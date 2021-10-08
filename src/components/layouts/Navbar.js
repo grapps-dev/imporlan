@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
 
@@ -29,9 +30,9 @@ export default function Navbar() {
             <nav className='navbar navbar-expand bg-light border-radius-top'>
                 <ul className='navbar-nav mr-auto d-none d-md-flex'>
                     <li className='nav-item'>
-                        <a className='nav-link'>
-                            Start
-                        </a>
+                        <Link to='/imporlan/' className='nav-link'>
+                            Home
+                        </Link>
                     </li>
                     <li className='nav-item'>
                         <a className='nav-link'>
@@ -49,9 +50,9 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li className='nav-item'>
-                        <a className='nav-link'>
+                        <Link to='/imporlan/information' className='nav-link'>
                             Information
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <ul className='navbar-nav mr-auto d-flex d-md-none'>

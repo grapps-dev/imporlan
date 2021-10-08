@@ -24,6 +24,12 @@
 
 }
 
+.border-radius-soft{
+
+    border-radius: var(--border-radius-soft);
+
+}
+
 .border-gray{
 
     border: 10px solid rgba(231, 231, 231, 0.74);

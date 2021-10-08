@@ -1,6 +1,6 @@
 :root{
 
-    --blue-primary: #00174A;
+    --blue-primary: rgb(0, 23, 74);
     --blue-light: #345BDC;
     --blue-aqua: #5BEBFF;
     --blue-secondary: #345BDC;
@@ -13,5 +13,6 @@
     --navbar-text-color: #3B3764;
 
     --border-radius: 15px;
+    --border-radius-soft: 8px;
 
 }

@@ -11,6 +11,7 @@ import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 
 import Index from './components/pages/Index';
+import Information from './components/pages/Information';
 
 function App() {
 
@@ -38,7 +39,8 @@ function App() {
         <Navbar />
         <div className='container bg-main-white mt-5 border-gray border-radius py-3 px-5'>
           <Switch>
-            <Route path='/imporlan/' component={ Index } />
+            <Route exact path='/imporlan/' component={ Index } />
+            <Route exact path='/imporlan/information' component={ Information } />
           </Switch>
         </div>
         <Footer />
