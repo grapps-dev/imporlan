@@ -18,3 +18,21 @@ ul li{
     margin-bottom: .5rem;
 
 }
+
+.toggle-container{
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    transition-duration: 500ms;
+
+}
+
+.show{
+
+    opacity: 1;
+    max-height: 400px;
+    margin-top: 1.25rem;
+
+}

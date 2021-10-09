@@ -3,3 +3,40 @@
     height: 50px;
 
 }
+
+select{
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 18px !important;
+    padding: 1rem !important;
+
+}
+
+select:hover{
+
+    cursor: pointer;
+
+}
+
+.select-container i{
+
+    position: absolute;
+    right: 30px;
+    top: calc(50% - 13px);
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: rotate(-45deg);
+    transition: all 0.25s ease;
+
+}
+
+.select-container:hover i{
+
+    margin-top: 3px;
+
+}

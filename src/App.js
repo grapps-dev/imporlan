@@ -12,6 +12,7 @@ import Footer from './components/layouts/Footer';
 
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
+import Buy from './components/pages/SaleShips';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
           <Switch>
             <Route exact path='/imporlan/' component={ Index } />
             <Route exact path='/imporlan/information' component={ Information } />
+            <Route exact path='/imporlan/buy' component={ Buy } />
           </Switch>
         </div>
         <Footer />

@@ -35,13 +35,13 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <a className='nav-link'>
-                            Top Buy
-                        </a>
+                        <Link to='/imporlan/buy' className='nav-link'>
+                            Buy
+                        </Link>
                     </li>
                     <li className='nav-item'>
                         <a className='nav-link'>
-                            To Sell
+                            Sell
                         </a>
                     </li>
                     <li className='nav-item'>
