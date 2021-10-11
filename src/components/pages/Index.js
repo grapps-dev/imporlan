@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import CheckForm from '../layouts/CheckForm';
 import Plans from '../layouts/Plans';
@@ -11,13 +12,20 @@ import BoatSecondStep from '../../assets/img/boat-step-2.png';
 import BoatThirdStep from '../../assets/img/boat-step-3.png';
 import BoatFourthStep from '../../assets/img/boat-step-4.png';
 import BoatFifthStep from '../../assets/img/boat-step-5.png';
-import IphoneX from '../../assets/img/iphone-x-1.png';
+import IphoneX1 from '../../assets/img/iphone-x-1.png';
+import IphoneX2 from '../../assets/img/iphone-x-2.png';
+import IphoneX3 from '../../assets/img/iphone-x-3.png';
+import IphoneX4 from '../../assets/img/iphone-x-4.png';
+import IphoneX5 from '../../assets/img/iphone-x-5.png';
 import BoatTraderIcon from '../../assets/img/boat-trader-icon.png'
 import BoatsComIcon from '../../assets/img/boats-com-icon.png';
 import PopYachtsIcon from '../../assets/img/pop-yachts-icon.png';
 import YachtworldlIcon from '../../assets/img/yachtworld-icon.png';
 import BuyUSA from '../../assets/img/buy-usa.png';
 import InfoChile from '../../assets/img/info-chile.png';
+
+import InfoImporlanDoc from '../../assets/docs/info-imporlan.pdf';
+import BuyUSADoc from '../../assets/docs/buy-usa.pdf';
 
 export default function Index() {
 
@@ -69,8 +77,8 @@ export default function Index() {
                                     1
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
-                                <img src={ IphoneX } className='img-fluid' />
+                            <div className='col-12 mt-3 text-center'>
+                                <img src={ IphoneX1 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
@@ -93,8 +101,8 @@ export default function Index() {
                                     2
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
-                                <img src={ IphoneX } className='img-fluid' />
+                            <div className='col-12 mt-3 text-center'>
+                                <img src={ IphoneX2 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
@@ -117,8 +125,8 @@ export default function Index() {
                                     3
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
-                                <img src={ IphoneX } className='img-fluid' />
+                            <div className='col-12 mt-3 text-center'>
+                                <img src={ IphoneX3 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
@@ -141,8 +149,8 @@ export default function Index() {
                                     4
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
-                                <img src={ IphoneX } className='img-fluid' />
+                            <div className='col-12 mt-3 text-center'>
+                                <img src={ IphoneX4 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
@@ -165,8 +173,8 @@ export default function Index() {
                                     5
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
-                                <img src={ IphoneX } className='img-fluid' />
+                            <div className='col-12 mt-3 text-center'>
+                                <img src={ IphoneX5 } className='img-fluid' />
                             </div>
                         </div>
                     </div>
@@ -222,28 +230,32 @@ export default function Index() {
                         </h2>
                         <div className='row justify-content-around mt-5 w-100' style={{ 'position': 'absolute', 'height': '384px' }}>
                             <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
-                                <div className='col-12' style={{ 'height': '100%' }}>
-                                    <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
-                                        <img src={ BuyUSA } className='img-fluid' />
+                                <Link to={ BuyUSADoc } target='_blank' style={{ 'textDecoration': 'none' }}>
+                                    <div className='col-12'>
+                                        <div className='d-flex align-items-center'>
+                                            <img src={ BuyUSA } className='img-fluid' />
+                                        </div>
+                                        <div style={{ 'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
+                                            <h2 className='text-dark d-block mt-auto'>
+                                                Compra USA
+                                            </h2>
+                                        </div>
                                     </div>
-                                    <div style={{ 'height': '10%' }}>
-                                        <h2 className='text-dark d-block mt-auto'>
-                                            Compra USA
-                                        </h2>
-                                    </div>
-                                </div>
+                                </Link>
                             </div>
                             <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex align-items-center'>
-                                <div className='col-12' style={{ 'height': '100%' }}>
-                                    <div className='d-flex align-items-center' style={{ 'height': '70%' }}>
-                                        <img src={ InfoChile } className='img-fluid' />
+                                <Link to={ InfoImporlanDoc } target='_blank' style={{ 'textDecoration': 'none' }}>
+                                    <div className='col-12'>
+                                        <div className='d-flex align-items-center'>
+                                            <img src={ InfoChile } className='img-fluid' />
+                                        </div>
+                                        <div style={{ 'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
+                                            <h2 className='text-dark d-block mt-auto'>
+                                                Info ImporLan
+                                            </h2>
+                                        </div>
                                     </div>
-                                    <div style={{ 'height': '20%' }}>
-                                        <h2 className='text-dark d-block mt-auto'>
-                                            Info ImporLan
-                                        </h2>
-                                    </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -261,24 +273,24 @@ export default function Index() {
                             ¿Cómo funciona?
                         </h2>
                         <div className='row justify-content-around mt-5'>
-                            <div className='col-12 col-md-5 col-lg-4 bg-white border-radius shadow d-flex px-0 align-items-center'>
-                                <div className='col-12' style={{ 'height': '100%' }}>
-                                    <div className='d-block align-items-center' style={{ 'height': '70%' }}>
+                            <div className='col-12 col-md-5 col-lg-4 bg-white border-radius shadow py-2 d-flex px-0 align-items-center'>
+                                <div className='col-12'>
+                                    <div className='d-block align-items-center'>
                                         <img src={ BuyUSA } className='img-fluid' />
                                     </div>
-                                    <div style={{ 'height': '10%' }}>
+                                    <div className='d-block mt-3' style={{ 'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
                                         <h2 className='text-dark d-block mt-auto'>
                                             Compra USA
                                         </h2>
                                     </div>
                                 </div>
                             </div>
-                            <div className=' col-12 col-md-5 col-lg-4 bg-white border-radius shadow mt-3 d-flex align-items-center'>
-                                <div className='col-12' style={{ 'height': '300px', 'marginTop': '.8rem' }}>
-                                    <div className='d-block align-items-center' style={{ 'height': '70%' }}>
+                            <div className='col-12 col-md-5 col-lg-4 bg-white border-radius shadow mt-3 py-2 d-flex align-items-center'>
+                                <div className='col-12'>
+                                    <div className='d-block align-items-center'>
                                         <img src={ InfoChile } className='img-fluid' />
                                     </div>
-                                    <div className='d-block' style={{ 'height': '30%' }}>
+                                    <div className='d-block mt-3' style={{  'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
                                         <h2 className='text-dark d-block mt-auto'>
                                             Info ImporLan
                                         </h2>

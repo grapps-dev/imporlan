@@ -15,7 +15,8 @@ export default function Plans() {
 
                 'Monitoreo por 7 días',
                 '1 requerimiento específico',
-                '5 propuestas/cotizaciones'
+                '5 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
 
             ]
         },
@@ -26,9 +27,9 @@ export default function Plans() {
             oldPrice: '142.900',
             content: [
 
-                'Monitoreo por 14 días',
                 '1 requerimiento específico',
-                '5 propuestas/cotizaciones'
+                '9 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
 
             ]
         },
@@ -41,7 +42,8 @@ export default function Plans() {
 
                 'Monitoreo por 21 días',
                 '1 requerimiento específico',
-                '5 propuestas/cotizaciones'
+                '15 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
 
             ]
         }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
+import { Dropdown } from 'react-bootstrap';
 
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -45,9 +46,15 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li className='nav-item'>
-                        <a className='nav-link'>
-                            Plans
-                        </a>
+                    <Dropdown>
+                    <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
+                        Plans
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#">Planes de Búsqueda USA</Dropdown.Item>
+                    </Dropdown.Menu>
+                    </Dropdown>
                     </li>
                     <li className='nav-item'>
                         <Link to='/imporlan/information' className='nav-link'>

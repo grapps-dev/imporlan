@@ -139,7 +139,7 @@ export default function CheckForm() {
                                         Terms and Conditions
                                     </h4>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                        Acepto los términos y condiciones para suscribirme a este servicio, y por la presente confirmo que he leído la política de privacidad.
                                     </p>
                                 </div>
                             </div>
