@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import CheckForm from '../layouts/CheckForm';
@@ -28,6 +28,10 @@ import InfoImporlanDoc from '../../assets/docs/info-imporlan.pdf';
 import BuyUSADoc from '../../assets/docs/buy-usa.pdf';
 
 export default function Index() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const styles = {
 

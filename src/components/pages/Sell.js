@@ -1,16 +1,20 @@
-import Reatc from 'react';
+import React, { useEffect } from 'react';
 
 import Plan from '../layouts/Plan';
 
 export default function Sell() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const plans = [
 
         {
             id: 0,
             name: 'ImporLan',
-            actualPrice: '¡Pagas si vendes!',
-            oldPrice: '',
+            actualPrice: '',
+            oldPrice: '¡Pagas si vendes!',
             content: [
 
                 'Gestión ImporLan',
@@ -24,8 +28,8 @@ export default function Sell() {
         {
             id: 1,
             name: 'Base',
-            actualPrice: '¡Publica Gratis!',
-            oldPrice: '',
+            actualPrice: '',
+            oldPrice: '¡Publica Gratis!',
             content: [
 
                 'Venta directa',
@@ -38,8 +42,8 @@ export default function Sell() {
         {
             id: 2,
             name: 'Premium',
-            actualPrice: '8.890',
-            oldPrice: '',
+            actualPrice: '',
+            oldPrice: '8.890',
             content: [
 
                 'Venta directa',
@@ -52,8 +56,8 @@ export default function Sell() {
         {
             id: 4,
             name: 'Destacado',
-            actualPrice: '14.890',
-            oldPrice: '',
+            actualPrice: '',
+            oldPrice: '14.890',
             content: [
 
                 'Venta directa',

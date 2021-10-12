@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
@@ -65,13 +66,19 @@ export default function Footer() {
                     <div className='col-12 d-flex align-items-center p-0' style={{ 'height': '80%' }}>
                         <ul>
                             <li className='my-3'>
-                                LANCHAS USADAS
+                                <Link to='/imporlan/buy'>
+                                    LANCHAS USADAS
+                                </Link>
                             </li>
                             <li className='my-3'>
-                                VELEROS USADOS
+                                <Link to='/imporlan/buy'>
+                                    VELEROS USADOS
+                                </Link>
                             </li>
                             <li className='my-3'>
-                                LANCHAS DE PESCA USADAS
+                                <Link to='/imporlan/buy'>
+                                    LANCHAS DE PESCA USADAS
+                                </Link>
                             </li>
                             <li className='my-3'>
                                 COMPARTE TU TESTIMONIO
@@ -84,13 +91,15 @@ export default function Footer() {
                 <div className='col-12' style={{ 'height': '100%' }}>
                     <div style={{ 'height': '20%' }}>
                         <span>
-                            ENLACES DI INTERÉS
+                            ENLACES DE INTERÉS
                         </span>
                     </div>
                     <div className='col-12 d-flex align-items-center p-0' style={{ 'height': '80%' }}>
                         <ul>
                             <li className='my-3'>
-                                AVISO LEGAL
+                                <Link to='/imporlan/terms-and-conditions'>
+                                    AVISO LEGAL
+                                </Link>
                             </li>
                             <li className='my-3'>
                                 CONTÁCTANOS

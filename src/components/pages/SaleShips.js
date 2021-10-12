@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ShipsFilter from '../layouts/ShipsFilter';
 
 const Saleships = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className='row pb-5'>
             <div className='col-12 text-center'>

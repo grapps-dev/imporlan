@@ -14,7 +14,12 @@ import Index from './components/pages/Index';
 import Information from './components/pages/Information';
 import Buy from './components/pages/SaleShips';
 import Sell from './components/pages/Sell';
+import PlansHow from './components/pages/PlansHow';
+import PlansUSA from './components/pages/PlansUSA';
 import PlansChile from './components/pages/PlansChile';
+import InpectionPlans from './components/pages/InspectionPlans';
+import ImportPlans from './components/pages/ImportPlans';
+import TermsAndConditions from './components/pages/TermsAndConditions';
 
 function App() {
 
@@ -40,13 +45,18 @@ function App() {
       <Router>
         <Header />
         <Navbar />
-        <div className='container bg-main-white mt-5 border-gray border-radius py-3 px-5'>
+        <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
           <Switch>
             <Route exact path='/imporlan/' component={ Index } />
             <Route exact path='/imporlan/information' component={ Information } />
             <Route exact path='/imporlan/buy' component={ Buy } />
             <Route exact path='/imporlan/sell-plans' component={ Sell } />
+            <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
+            <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
             <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
+            <Route exact path='/imporlan/inpection-plans' component={ InpectionPlans } />
+            <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
+            <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
           </Switch>
         </div>
         <Footer />

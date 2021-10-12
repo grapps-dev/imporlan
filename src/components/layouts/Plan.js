@@ -4,10 +4,16 @@ export default function Plan(props) {
 
     const { plan, col } = props;
     var classname='col-lg-'+ col +' mb-5 mb-lg-0';
-    var buttonTop = '-3.5rem';
+    var buttonTop = '-4.5rem';
     if(col === '3'){
 
         classname = 'col-md-6 col-xl-'+ col +' mb-5 mb-3 mt-3'
+        buttonTop = '-4.5rem'
+
+    }
+    if(col === '6'){
+
+        classname = 'col-lg-6 col-xl-'+ col +' mb-5 mb-4'
         buttonTop = '-4.5rem'
 
     }
@@ -15,7 +21,7 @@ export default function Plan(props) {
     return(
 
         <div className={ classname }>
-            <div className='col-12 text-white border-radius bg-img-blue-boat pt-3 pb-4'>
+            <div className='col-12 text-white border-radius bg-img-blue-boat pt-3 pb-4' style={{ 'wordBreak': 'break-word' }}>
                 <h5 className='text-center mb-3'>{ plan.name }</h5>
                 <div className='col-12'>
                     <h3 className='text-center mb-0'>

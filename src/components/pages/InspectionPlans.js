@@ -15,42 +15,74 @@ export default function PlansChile() {
 
         {
             id: 0,
-            name: 'Plan Fragata Chile',
-            actualPrice: '67.600',
-            oldPrice: '89.900',
+            name: 'Ready To GO',
+            actualPrice: '',
+            oldPrice: '949.000',
             content: [
 
-                'Monitoreo por 7 días',
-                '1 requerimiento específico',
-                '5 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Envío lugar requerido',
+                'Inspección final',
+                'Registro Gob. Marítima'
 
             ]
         },
         {
             id: 1,
-            name: 'Plan Capitán de Navío Chile',
-            actualPrice: '119.600',
-            oldPrice: '142.900',
+            name: 'Compra + Envío',
+            actualPrice: '',
+            oldPrice: '660.000',
             content: [
 
-                '1 requerimiento específico',
-                '9 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Envío lugar requerido'
 
             ]
         },
         {
             id: 2,
-            name: 'Plan Almirante Chile',
-            actualPrice: '189.600',
-            oldPrice: '219.900',
+            name: 'Compra',
+            actualPrice: '',
+            oldPrice: '319.000',
             content: [
 
-                'Monitoreo por 21 días',
-                '1 requerimiento específico',
-                '15 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra'
+
+            ]
+        },
+        {
+            id: 3,
+            name: 'Inspección Base',
+            actualPrice: '',
+            oldPrice: '319.000',
+            content: [
+
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación'
 
             ]
         }
@@ -75,18 +107,6 @@ export default function PlansChile() {
                                 </p>
                                 <div className='d-block mt-5'>
                                     <ul>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Contratas el plan
-                                        </li>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Recibes las propuestas
-                                        </li>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Seleccionas las 3 mejores
-                                        </li>
                                         <li>
                                             <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
                                             Chequeamos y recomendamos

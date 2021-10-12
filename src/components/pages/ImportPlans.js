@@ -5,7 +5,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 import Plan from '../layouts/Plan';
 
-export default function PlansChile() {
+export default function ImportPlans() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -15,42 +15,61 @@ export default function PlansChile() {
 
         {
             id: 0,
-            name: 'Plan Fragata Chile',
-            actualPrice: '67.600',
-            oldPrice: '89.900',
+            name: 'Plan base',
+            actualPrice: '',
+            oldPrice: 'Gastos inluidos. Valores publicados',
             content: [
 
-                'Monitoreo por 7 días',
-                '1 requerimiento específico',
-                '5 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco, interior, exterior, motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Gestión naviera',
+                'Gestión aduana',
+                'Servicio logístico de Importación'
 
             ]
         },
         {
             id: 1,
-            name: 'Plan Capitán de Navío Chile',
-            actualPrice: '119.600',
-            oldPrice: '142.900',
+            name: 'Plan Intermedio',
+            actualPrice: '',
+            oldPrice: 'Gastos inluidos. Valores publicados',
             content: [
 
-                '1 requerimiento específico',
-                '9 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco, interior, exterior, motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Gestión naviera',
+                'Gestión aduana',
+                'Servicio logístico de Importación'
 
             ]
         },
         {
             id: 2,
-            name: 'Plan Almirante Chile',
-            actualPrice: '189.600',
-            oldPrice: '219.900',
+            name: 'Plan Avanzando',
+            actualPrice: '',
+            oldPrice: 'Gastos inluidos. Valores publicados',
             content: [
 
-                'Monitoreo por 21 días',
-                '1 requerimiento específico',
-                '15 propuestas/cotizaciones',
-                'Análisis de ofertas y recomendaciones'
+                'Inspección Casco, interior, exterior, motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Gestión naviera',
+                'Gestión aduana',
+                'Servicio logístico de Importación'
 
             ]
         }
@@ -75,18 +94,6 @@ export default function PlansChile() {
                                 </p>
                                 <div className='d-block mt-5'>
                                     <ul>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Contratas el plan
-                                        </li>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Recibes las propuestas
-                                        </li>
-                                        <li>
-                                            <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
-                                            Seleccionas las 3 mejores
-                                        </li>
                                         <li>
                                             <FontAwesomeIcon icon={ faCheckSquare } className='text-purple mr-3' />
                                             Chequeamos y recomendamos

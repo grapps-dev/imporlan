@@ -5,7 +5,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 import Plan from '../layouts/Plan';
 
-export default function PlansChile() {
+export default function PlansUSA() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -15,7 +15,7 @@ export default function PlansChile() {
 
         {
             id: 0,
-            name: 'Plan Fragata Chile',
+            name: 'Plan Fragata USA',
             actualPrice: '67.600',
             oldPrice: '89.900',
             content: [
@@ -29,7 +29,7 @@ export default function PlansChile() {
         },
         {
             id: 1,
-            name: 'Plan Capitán de Navío Chile',
+            name: 'Plan Capitán de Navío USA',
             actualPrice: '119.600',
             oldPrice: '142.900',
             content: [
@@ -42,7 +42,7 @@ export default function PlansChile() {
         },
         {
             id: 2,
-            name: 'Plan Almirante Chile',
+            name: 'Plan Almirante USA',
             actualPrice: '189.600',
             oldPrice: '219.900',
             content: [

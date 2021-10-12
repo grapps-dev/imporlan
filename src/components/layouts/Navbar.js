@@ -60,11 +60,11 @@ export default function Navbar() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#">Planes de Búsqueda USA</Dropdown.Item>
+                            <Dropdown.Item href="/imporlan/plans-usa">Planes de Búsqueda USA</Dropdown.Item>
                             <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
-                            <Dropdown.Item href="#">Venta</Dropdown.Item>
-                            <Dropdown.Item href="#">Servicios de Inspección y Compra</Dropdown.Item>
-                            <Dropdown.Item href="#">Servicio de Importación</Dropdown.Item>
+                            <Dropdown.Item href="/imporlan/sell-plans">Venta</Dropdown.Item>
+                            <Dropdown.Item href="/imporlan/inpection-plans">Servicios de Inspección y Compra</Dropdown.Item>
+                            <Dropdown.Item href="/imporlan/import-plans">Servicio de Importación</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </li>

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ListCheck from '../../assets/img/list-check.png';
 import AboutUsIMG from '../../assets/img/about-us.png';
 
 export default function Information() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return(
 
