@@ -55,3 +55,16 @@
     border-color: black !important;
 
 }
+
+.border-circle-1{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem !important;
+    flex: auto;
+    max-width: 10rem;
+
+}

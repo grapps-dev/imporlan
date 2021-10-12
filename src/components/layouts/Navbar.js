@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
@@ -25,6 +25,14 @@ export default function Navbar() {
 
     }
 
+    const [show, setShow] = useState(false);
+    const showDropdown = (e)=>{
+        setShow(!show);
+    }
+    const hideDropdown = e => {
+        setShow(false);
+    }
+
     return(
 
         <>
@@ -32,33 +40,37 @@ export default function Navbar() {
                 <ul className='navbar-nav mr-auto d-none d-md-flex'>
                     <li className='nav-item'>
                         <Link to='/imporlan/' className='nav-link'>
-                            Home
+                            Inicio
                         </Link>
                     </li>
                     <li className='nav-item'>
                         <Link to='/imporlan/buy' className='nav-link'>
-                            Buy
+                            Comprar
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <a className='nav-link'>
-                            Sell
-                        </a>
+                        <Link className='nav-link' to='/imporlan/sell-plans'>
+                            Vender
+                        </Link>
                     </li>
                     <li className='nav-item'>
-                    <Dropdown>
-                    <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
-                        Plans
-                    </Dropdown.Toggle>
+                    <Dropdown show={ show } onMouseEnter={ showDropdown } onMouseLeave={ hideDropdown }>
+                        <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
+                            Planes
+                        </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#">Planes de Búsqueda USA</Dropdown.Item>
-                    </Dropdown.Menu>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#">Planes de Búsqueda USA</Dropdown.Item>
+                            <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
+                            <Dropdown.Item href="#">Venta</Dropdown.Item>
+                            <Dropdown.Item href="#">Servicios de Inspección y Compra</Dropdown.Item>
+                            <Dropdown.Item href="#">Servicio de Importación</Dropdown.Item>
+                        </Dropdown.Menu>
                     </Dropdown>
                     </li>
                     <li className='nav-item'>
                         <Link to='/imporlan/information' className='nav-link'>
-                            Information
+                            Información
                         </Link>
                     </li>
                 </ul>
@@ -106,29 +118,39 @@ export default function Navbar() {
                     </div>
                     <ul className='navbar-nav d-flex px-4 mt-3' style={{ 'justifyContent': 'space-evenly', 'height': '40%' }}>
                         <li className='nav-item'>
-                            <a className='nav-link'>
-                                Start
-                            </a>
+                            <Link to='/imporlan/' className='nav-link'>
+                                Inicio
+                            </Link>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link'>
-                                Top Buy
-                            </a>
+                            <Link to='/imporlan/buy' className='nav-link'>
+                                Comprar
+                            </Link>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link'>
-                                To Sell
-                            </a>
+                            <Link className='nav-link' to='/imporlan/sell-plans'>
+                                Vender
+                            </Link>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link'>
-                                Plans
-                            </a>
+                            <Dropdown show={ show } onMouseEnter={ showDropdown } onMouseOut={ hideDropdown } onMouseLeave={ hideDropdown }>
+                                <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
+                                    Planes
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#">Planes de Búsqueda USA</Dropdown.Item>
+                                    <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
+                                    <Dropdown.Item href="#">Venta</Dropdown.Item>
+                                    <Dropdown.Item href="#">Servicios de Inspección y Compra</Dropdown.Item>
+                                    <Dropdown.Item href="#">Servicio de Importación</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </li>
                         <li className='nav-item'>
-                            <a className='nav-link'>
-                                Information
-                            </a>
+                            <Link to='/imporlan/information' className='nav-link'>
+                                Información
+                            </Link>
                         </li>
                     </ul>
                 </div>

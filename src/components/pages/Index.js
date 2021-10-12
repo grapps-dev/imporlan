@@ -44,6 +44,52 @@ export default function Index() {
 
     }
 
+    const plans = [
+
+        {
+            id: 0,
+            name: 'Plan Fragata',
+            actualPrice: '67.600',
+            oldPrice: '89.900',
+            content: [
+
+                'Monitoreo por 7 días',
+                '1 requerimiento específico',
+                '5 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        },
+        {
+            id: 1,
+            name: 'Plan Capitán de Navío',
+            actualPrice: '119.600',
+            oldPrice: '142.900',
+            content: [
+
+                '1 requerimiento específico',
+                '9 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        },
+        {
+            id: 2,
+            name: 'Plan Almirante',
+            actualPrice: '189.600',
+            oldPrice: '219.900',
+            content: [
+
+                'Monitoreo por 21 días',
+                '1 requerimiento específico',
+                '15 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        }
+
+    ]
+
     return(
         <>
             <div className='row pb-5'>
@@ -201,17 +247,25 @@ export default function Index() {
                         Check boats in the following portals
                     </h2>
                     <div className='row mt-3 px-4 justify-content-around'>
-                        <div className='col-md-3 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
-                            <img src={ BoatTraderIcon } className='img-fluid' />
+                        <div className='col-md-3'>
+                            <div className='col-12 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
+                                <img src={ BoatTraderIcon } className='img-fluid' />
+                            </div>
                         </div>
-                        <div className='col-md-3 mt-3 mt-md-0 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
-                            <img src={ YachtworldlIcon } className='img-fluid' />
+                        <div className='col-md-3 mt-3 mt-md-0'>
+                            <div className='col-12 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
+                                <img src={ YachtworldlIcon } className='img-fluid' />
+                            </div>
                         </div>
-                        <div className='col-md-3 mt-3 mt-md-0 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
-                            <img src={ PopYachtsIcon } className='img-fluid' />
+                        <div className='col-md-3 mt-3 mt-md-0'>
+                            <div className='col-12 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
+                                <img src={ PopYachtsIcon } className='img-fluid' />
+                            </div>
                         </div>
-                        <div className='col-md-3 mt-3 mt-md-0 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
-                            <img src={ BoatsComIcon } className='img-fluid' />
+                        <div className='col-md-3 mt-3 mt-md-0'>
+                            <div className='col-12 p-3 justify-content-center border-radius align-items-center d-flex bg-white' style={{ 'height': '85px' }}>
+                                <img src={ BoatsComIcon } className='img-fluid' />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -300,7 +354,7 @@ export default function Index() {
                         </div>
                     </div>
                 </div>
-                <Plans />
+                <Plans plans={ plans } />
                 <ServicesIndex />
                 <Reviews />
                 <ArticlesIndex />

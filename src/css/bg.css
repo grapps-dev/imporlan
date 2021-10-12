@@ -56,3 +56,9 @@
     background-color: rgba(231, 231, 231, 0.74);
 
 }
+
+.bg-purple{
+
+    background-color: var(--purple-primary);
+
+}

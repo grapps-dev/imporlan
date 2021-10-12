@@ -13,6 +13,8 @@ import Footer from './components/layouts/Footer';
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
 import Buy from './components/pages/SaleShips';
+import Sell from './components/pages/Sell';
+import PlansChile from './components/pages/PlansChile';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
             <Route exact path='/imporlan/' component={ Index } />
             <Route exact path='/imporlan/information' component={ Information } />
             <Route exact path='/imporlan/buy' component={ Buy } />
+            <Route exact path='/imporlan/sell-plans' component={ Sell } />
+            <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
           </Switch>
         </div>
         <Footer />

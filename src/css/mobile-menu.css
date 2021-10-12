@@ -22,3 +22,15 @@
     left: 0 !important;
 
 }
+
+.nav-link{
+
+    color: var(--blue-primary) !important;
+
+}
+
+.nav-link:active, .nav-link:focus, .show > .btn-primary .dropdown-toggle:active{
+
+    color: var(--blue-primary) !important;
+
+}
