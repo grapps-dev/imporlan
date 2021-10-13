@@ -37,13 +37,13 @@ ul li{
 
 }
 
-a{
+a:hover{
 
-    color: white;
+    text-decoration: underline;
 
 }
 
-a:hover{
+#header a{
 
     color: white;
 

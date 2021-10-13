@@ -20,6 +20,7 @@ import PlansChile from './components/pages/PlansChile';
 import InpectionPlans from './components/pages/InspectionPlans';
 import ImportPlans from './components/pages/ImportPlans';
 import TermsAndConditions from './components/pages/TermsAndConditions';
+import BankTransfer from './components/pages/BankTransfer';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
             <Route exact path='/imporlan/inpection-plans' component={ InpectionPlans } />
             <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
             <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
+            <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
           </Switch>
         </div>
         <Footer />

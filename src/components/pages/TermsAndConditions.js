@@ -209,7 +209,7 @@ export default function TermsAndConditions() {
                         El interesado podrá ejercitar sus derechos mediante comunicación por correo electrónico dirigida a IMPORLAN con la referencia “Protección de datos/ Imporlan “, especificando sus datos, acreditando su identidad y los motivos de su solicitud en la siguiente dirección de correo electrónico:
                     </p>
                     <p>
-                        <a href='mailto:proteccion_datos@imporlan.cl' target='_blank' rel='noreferrer'>proteccion_datos@imporlan.cl</a>
+                        <a href='mailto:proteccion_datos@imporlan.cl' class='text-blue' target='_blank' rel='noreferrer'>proteccion_datos@imporlan.cl</a>
                     </p>
                 </div>
                 <div>

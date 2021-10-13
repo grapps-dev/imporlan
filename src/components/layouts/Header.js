@@ -11,7 +11,7 @@ export default function Navbar() {
 
     return(
 
-        <div className='py-3'>
+        <div className='py-3' id='header'>
                 <div className='col-12 d-block d-lg-flex align-items-center pr-0'>
                     <div className='col-lg-3'>
                         <a className='navbar-brand'>

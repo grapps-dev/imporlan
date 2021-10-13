@@ -108,7 +108,9 @@ export default function Footer() {
                                 PREGUNTAS FRECUENTES
                             </li>
                             <li className='my-3'>
-                                TRANSFERENCIA BANCARIA
+                                <Link to='/imporlan/bank-transfer'>
+                                    TRANSFERENCIA BANCARIA
+                                </Link>
                             </li>
                         </ul>
                     </div>
