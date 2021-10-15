@@ -5,6 +5,19 @@ body{
     
 }
 
+body::-webkit-scrollbar{
+
+    background-color: transparent;
+    width: 8px;
+
+}
+
+body::-webkit-scrollbar-thumb{
+
+    background-color: var(--blue-primary);
+
+}
+
 ul{
 
     list-style: none;

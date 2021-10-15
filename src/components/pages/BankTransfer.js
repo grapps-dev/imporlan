@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactTooltip from 'react-tooltip';
+import $ from 'jquery';
 
 import { faCopy, faPhone, faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -36,10 +37,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center'>
                         <span id='account-clp'>74233813</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-clp') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-clp' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='click' id='tooltip-clp' delayHide={1000} afterShow={ copyText('account-clp') } />
                     </div>
                 </div>
                 <div className='col-md-6 d-lg-flex mt-4 mt-md-0 align-items-center'>
@@ -50,10 +51,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center'>
                         <span id='account-usd'>5100369305</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-usd') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-usd' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='click' id='tooltip-usd' delayHide={1000} afterShow={ copyText('account-usd') } />
                     </div>
                 </div>
                 <div className='col-md-6 d-lg-flex mt-4 mt-lg-0 align-items-center'>
@@ -64,10 +65,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center'>
                         <span id='account-swift'>BSCHCLRM</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-swift') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-swift' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='click' id='tooltip-swift' delayHide={1000} afterShow={ copyText('account-swift') } />
                     </div>
                 </div>
                 <div className='col-md-6 d-lg-flex mt-4 mt-lg-0 align-items-center'>
@@ -78,10 +79,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center'>
                         <span id='account-spa'>76.914.409-9</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-spa') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-spa' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='true' id='tooltip-spa' delayHide={1000} afterShow={ copyText('account-spa') } />
                     </div>
                 </div>
                 <div className='col-md-6 d-lg-flex mt-4 mt-lg-0 align-items-center'>
@@ -92,10 +93,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center'>
                         <span id='account-bank'>BANCO SANTANDER</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-bank') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-bank' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='click' id='tooltip-bank' delayHide={1000} afterShow={ copyText('account-bank') } />
                     </div>
                 </div>
                 <div className='col-md-6 d-lg-flex mt-4 mt-lg-0 align-items-center'>
@@ -106,10 +107,10 @@ export default function BankTransfer() {
                     </div>
                     <div className='col-lg-5 d-flex align-items-center' style={{ 'wordBreak': 'break-word' }}>
                         <span id='account-email'>CONTACTO@IMPORLAN.CL</span>
-                        <button className='btn text-white' data-tip='Texto Copiado' data-event='click' onClick={ copyText('account-email') }>
+                        <button className='btn text-white' data-tip='Texto Copiado' data-for='tooltip-email' data-event='click focus'>
                             <FontAwesomeIcon icon={ faCopy } />
                         </button>
-                        <ReactTooltip />
+                        <ReactTooltip globalEventOff='click' id='tooltip-email' delayHide={1000} afterShow={ copyText('account-email') } />
                     </div>
                 </div>
             </div>
