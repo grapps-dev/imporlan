@@ -8,9 +8,6 @@ import PayPalLogo from '../../assets/img/paypal-logo.svg';
 
 export default function BankTransfer() {
 
-    const [ show, setShow ] = useState(false);
-    const target = useRef(null);
-
     const copyText = (id) => (e) => {
 
         var aux = document.createElement('input');

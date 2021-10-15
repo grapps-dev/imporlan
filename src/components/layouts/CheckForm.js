@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 export default function CheckForm() {
@@ -136,7 +137,7 @@ export default function CheckForm() {
                                 </div>
                                 <div className='col-md-6'>
                                     <h4>
-                                        Terms and Conditions
+                                        <Link to='/imporlan/terms-and-conditions' className='text-white'>Terms and Conditions</Link>
                                     </h4>
                                     <p>
                                         Acepto los términos y condiciones para suscribirme a este servicio, y por la presente confirmo que he leído la política de privacidad.

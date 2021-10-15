@@ -127,7 +127,7 @@ export default function Index() {
                                     1
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='col-12 mt-3 text-center step-img'>
                                 <img src={ IphoneX1 } className='img-fluid' />
                             </div>
                         </div>
@@ -151,7 +151,7 @@ export default function Index() {
                                     2
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='col-12 mt-3 text-center step-img'>
                                 <img src={ IphoneX2 } className='img-fluid' />
                             </div>
                         </div>
@@ -175,7 +175,7 @@ export default function Index() {
                                     3
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='col-12 mt-3 text-center step-img'>
                                 <img src={ IphoneX3 } className='img-fluid' />
                             </div>
                         </div>
@@ -199,7 +199,7 @@ export default function Index() {
                                     4
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='col-12 mt-3 text-center step-img'>
                                 <img src={ IphoneX4 } className='img-fluid' />
                             </div>
                         </div>
@@ -223,7 +223,7 @@ export default function Index() {
                                     5
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='col-12 mt-3 text-center step-img'>
                                 <img src={ IphoneX5 } className='img-fluid' />
                             </div>
                         </div>

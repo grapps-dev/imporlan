@@ -1,8 +1,17 @@
 .steps{
 
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 1rem;
     white-space: nowrap;
+
+}
+
+.step-img:hover{
+
+    transition-duration: 500ms;
+    transform: scale(1.15);
+    z-index: 100000;
 
 }
 

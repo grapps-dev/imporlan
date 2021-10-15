@@ -102,7 +102,9 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className='my-3'>
-                                CONTÁCTANOS
+                                <Link to='/imporlan/contact-us'>
+                                    CONTÁCTANOS
+                                </Link>
                             </li>
                             <li className='my-3'>
                                 PREGUNTAS FRECUENTES

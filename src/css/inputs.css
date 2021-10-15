@@ -1,6 +1,13 @@
 .form-control{
 
     height: 50px;
+    color: var(--gray-primary) !important;
+
+}
+
+.form-control::-webkit-input-placeholder {
+
+    color: var(--gray-primary);
 
 }
 
