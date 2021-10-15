@@ -9,6 +9,10 @@ import PayPalLogo from '../../assets/img/paypal-logo.svg';
 
 export default function BankTransfer() {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const copyText = (id) => (e) => {
 
         var aux = document.createElement('input');
