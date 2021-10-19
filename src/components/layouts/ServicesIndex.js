@@ -15,37 +15,37 @@ export default function ServicesIndex() {
 
         {
             id: 0,
-            title: "Purchase (Search)",
+            title: "Compra (Búsqueda)",
             description: "Asesoría para una compra segura de embarcaciones, revisando todos los detalles.",
             img: IconSearch
         },
         {
             id: 1,
-            title: "Sell",
+            title: "Vender",
             description: "Gestión de venta, nos encargamos de todo, para el mejor resultado.",
             img: IconSell
         },
         {
             id: 2,
-            title: "Import",
+            title: "Importar",
             description: "Gestión de importación de embarcaciones de manera simple, cómoda y segura.",
             img: IconImport
         },
         {
             id: 3,
-            title: "Transport/Shipping",
+            title: "Transporte/Envío",
             description: "Servicio de traslado de embarcaciones de manera segura y eficiente.",
             img: IconTransport
         },
         {
             id: 4,
-            title: "Registration",
+            title: "Registro",
             description: "Inscripción Realizamos la inscripción de su embarcación, en pocos días, liberándolo de burocracia.",
             img: IconRegistration
         },
         {
             id: 5,
-            title: "Sail course",
+            title: "Curso de Vela",
             description: "Clases y cursos con los mejores, para navegar con licencia tu embarcación.",
             img: IconSail
         }

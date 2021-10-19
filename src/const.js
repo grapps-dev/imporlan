@@ -1,0 +1,1 @@
+export const URL_LOCAL_BACKEND = 'http://api-imporlan.test/api/';

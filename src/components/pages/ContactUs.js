@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import axios from 'axios';
 
-const ContactUs = () => {
+import { URL_LOCAL_BACKEND as LOCAL } from '../../const';
+
+const ContactUs = (props) => {
     
     const [ counter, setCounter ] = useState(0);
     const [ data, setData ] = useState({});
@@ -58,11 +61,30 @@ const ContactUs = () => {
 
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
 
-        console.log(data)
         e.preventDefault();
-        e.target.reset();
+        await axios.post(LOCAL + 'contacts', data)
+        .then(res => {
+
+            if(!data.email || !data.name || !data.secondName || !data.phone){
+
+                props.res('Todos los campos son obligatorios', 'red');
+                $('input').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
+
+            } else {
+
+                props.res(res.data, 'green');
+                e.target.reset();
+
+            }
+
+        })
+        .catch(e => {
+
+            console.log(e);
+
+        })
 
     }
 
@@ -78,30 +100,30 @@ const ContactUs = () => {
                 <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='name' placeholder='Nombres' style={ styles.inputs } onChange={ handleChange } />
+                            <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange }  />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='secondName' placeholder='Apellidos' style={ styles.inputs } onChange={ handleChange } />
+                            <input type='text' className='form-control' id='secondName' placeholder='Apellidos *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico' style={ styles.inputs } onChange={ handleChange } />
+                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono' style={ styles.inputs } onChange={ handleChange } />
+                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                     </div>
                     <div className='col-12 d-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12'>
-                            <textarea type='content' className='form-control' id='content' placeholder='Correo Electrónico' rows='10' style={ styles.inputs } onChange={ handleChange }></textarea>
+                            <textarea type='content' className='form-control' id='content' placeholder='Escriba su mensaje... *' rows='10' style={ styles.inputs } onChange={ handleChange } required></textarea>
                             <span id='text-counter' style={ styles.textcounter }>500 / { counter }</span>
-                            <em id='counter-error' class='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
+                            <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='form-group col-12'>
-                            <input type='checkbox' id='terms' /> He léido y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link>
+                            <input type='checkbox' id='terms' required /> He léido y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3'>

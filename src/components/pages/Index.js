@@ -99,7 +99,7 @@ export default function Index() {
             <div className='row pb-5'>
                 <div className='col-12 text-center'>
                     <h2 className='text-gradient-blue'>
-                        Buy your next boat in simple steps and safery!
+                        Compre su próxima embarcación en simples y seguros pasos
                     </h2>
                     <div className='d-block mx-auto mt-4' style={ styles.divBlue }>
                         { /* CUADRO DEGRADADO */ }

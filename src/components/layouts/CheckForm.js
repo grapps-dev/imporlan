@@ -44,24 +44,24 @@ export default function CheckForm() {
                             </div>
                             <div className='form-group'>
                                 <h4 className='w-100 text-center my-4'>
-                                    Your personal data
+                                    Datos Personales
                                 </h4>
                                 <div className='form-group mt-3'>
-                                    <input type='text' className='form-control mt-2' placeholder='Name' />
+                                    <input type='text' className='form-control mt-2' placeholder='Nombre' />
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='text' className='form-control' placeholder='Last name' />
+                                    <input type='text' className='form-control' placeholder='Apellido' />
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='email' className='form-control' placeholder='Email' />
+                                    <input type='email' className='form-control' placeholder='Correo Electrónico' />
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='number' step='1' className='form-control' placeholder='Phone number' />
+                                    <input type='number' step='1' className='form-control' placeholder='Número telefónico' />
                                 </div>
                             </div>
                             <div className='form-group'>
                                 <h4 className='w-100 text-center my-4'>
-                                    Your residence place
+                                    Lugar de Residencia
                                 </h4>
                                 <div className='form-group mt-3'>
                                     <select name='country' className='form-control'>
@@ -70,13 +70,13 @@ export default function CheckForm() {
                                     </select>
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='text' className='form-control' placeholder='Region/State' />
+                                    <input type='text' className='form-control' placeholder='Región/Estado' />
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='text' className='form-control' placeholder='Town/City' />
+                                    <input type='text' className='form-control' placeholder='Pueblo/Ciudad' />
                                 </div>
                                 <div className='form-group mt-3'>
-                                    <input type='text' step='1' className='form-control' placeholder='House/Apartament number' />
+                                    <input type='text' step='1' className='form-control' placeholder='Casa/Número de Apartamento' />
                                 </div>
                             </div>
                         </form>
@@ -87,41 +87,41 @@ export default function CheckForm() {
                         <form>
                             <div className='form-group'>
                                 <h4 className='w-100 text-center mt-4 mb-5'>
-                                    How make your quote? 
+                                    ¿Cómo va a cotizar? 
                                 </h4>
                                 <div className='w-100 mt-3'>
                                     <select className='form-control'>
-                                        <option value='links'>Quote by links</option>
-                                        <option value='text'>Quote by text</option>
+                                        <option value='links'>Cotizar  con enlaces</option>
+                                        <option value='text'>cotizar con textos</option>
                                     </select>
                                 </div>
                             </div>
                             <div className='form-group' id='quotes-links'>
                                 <div className='mt-4 mb-5 text-center'>
                                     <h4 className='w-100 text-center'>
-                                        Link(s) of boats that you want to quote
+                                        Enlaces de las lanchas a cotizar
                                     </h4>
                                     <span>
-                                        Enter the Link(s) of the boat and we will coute it for where you want! 
+                                        ¡Ingrese el (los) enlaces del barco y te lo cotizaremos para donde quieras!
                                     </span>
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link (required)' required />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación (obligatorio)' required />
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link' />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación' />
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link' />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación' />
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link' />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación' />
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link' />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación' />
                                 </div>
                                 <div className='form-group'>
-                                    <input type='text' className='form-control' placeholder='Boat link' />
+                                    <input type='text' className='form-control' placeholder='Enlace de embarcación' />
                                 </div>
                             </div>
                             <div className='row mt-5'>
@@ -137,7 +137,7 @@ export default function CheckForm() {
                                 </div>
                                 <div className='col-md-6'>
                                     <h4>
-                                        <Link to='/imporlan/terms-and-conditions' className='text-white'>Terms and Conditions</Link>
+                                        <Link to='/imporlan/terms-and-conditions' className='text-white'>Términos y Condiciones</Link>
                                     </h4>
                                     <p>
                                         Acepto los términos y condiciones para suscribirme a este servicio, y por la presente confirmo que he leído la política de privacidad.
@@ -146,7 +146,7 @@ export default function CheckForm() {
                             </div>
                             <div className='col-12 mt-3'>
                                 <button type='button' className='w-100 btn bg-white py-3' onClick={ handleQuote } style={{ "borderRadius": '90px' }}>
-                                    QUOTE
+                                    Cotizar
                                 </button>
                             </div>
                         </form>

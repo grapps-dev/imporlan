@@ -68,3 +68,10 @@
     max-width: 10rem;
 
 }
+
+.border-error{
+
+    border-color: red !important;
+    border-width: 3px !important;
+
+}

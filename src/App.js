@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import $ from 'jquery';
 import axios from 'axios';
@@ -24,6 +24,9 @@ import BankTransfer from './components/pages/BankTransfer';
 import ContactUs from './components/pages/ContactUs';
 
 function App() {
+  
+  const [ res, setRes ] = useState('');
+  const [ msgColor, setMsgColor ] = useState('');
 
   $(document).ready(() => {
 
@@ -38,10 +41,30 @@ function App() {
     })
 
   })
+  const handleRes = (data, color) => {
+
+    setMsgColor(color);
+    setRes(data);
+    setTimeout(() => {
+
+      setRes('');
+
+    }, 1500)
+
+  }
 
   return (
     
     <div id='main' className='container pb-4'>
+      { res ? 
+
+        <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'position': 'fixed', 'top': '20px', "zIndex": 99999, 'padding': '10px 20px' }}>{ res }</div>
+
+        :
+
+        ''
+
+      }
       <div className='fixed-top bg-blue-primary' style={{ 'height': '6px' }} id='pageSize'>
       </div>
       <Router>
@@ -60,7 +83,9 @@ function App() {
             <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
             <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
             <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
-            <Route exact path='/imporlan/contact-us' component={ ContactUs } />
+            <Route exact path='/imporlan/contact-us'>
+              <ContactUs res={ handleRes } />
+            </Route>
           </Switch>
         </div>
         <Footer />

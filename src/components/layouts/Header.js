@@ -32,14 +32,14 @@ export default function Navbar() {
                         </div>
                         <div className='col-4 col-md-3'>
                             <button className='btn bg-blue-primary w-100 p-2' style={{ 'color': '#5BEBFF', 'height': '44px' }}>
-                                Sell
+                                Vender
                             </button>
                         </div>
                         <div className='col-4 col-md-3'>
                             <button className='btn bg-blue-light text-white w-100 p-2 text-center'>
                                 <img src={ SignUpIcon } className='img-fluid mr-lg-2' />
                                 <span className='d-none d-xl-inline-flex'>
-                                    Sign Up
+                                    Registro
                                 </span>
                             </button>
                         </div>
@@ -47,7 +47,7 @@ export default function Navbar() {
                             <button className='btn bg-blue-aqua w-100 p-2 text-center' style={{ 'color': '#39426C' }}>
                                 <img src={ SignInIcon } className='img-fluid mr-lg-2' />
                                 <span className='d-none d-xl-inline-flex'>
-                                    Sign In                                    
+                                    Ingresar                                   
                                 </span>
                             </button>
                         </div>

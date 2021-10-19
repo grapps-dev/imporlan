@@ -1,5 +1,11 @@
 @import 'root.css';
 
+.btn:hover{
+
+    transform: scale(1.1);
+
+}
+
 .btn-aqua{
 
     background-color: var(--blue-aqua);
