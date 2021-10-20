@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
+import $, { data } from 'jquery';
 import axios from 'axios';
 
 import { URL_LOCAL_BACKEND as LOCAL } from '../../const';
@@ -9,6 +9,7 @@ const ContactUs = (props) => {
     
     const [ counter, setCounter ] = useState(0);
     const [ data, setData ] = useState({});
+    const [ error, setError ] = useState('');
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -41,7 +42,7 @@ const ContactUs = (props) => {
 
         });
 
-        if(e.target.id === 'content'){
+        if(e.target.id === 'contentComment'){
 
             var stringLength = e.target.value.length;
             if(stringLength <= 500){
@@ -61,30 +62,50 @@ const ContactUs = (props) => {
 
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = (e) => {
 
         e.preventDefault();
-        await axios.post(LOCAL + 'contacts', data)
-        .then(res => {
+        if(data.name && data.secondName && data.email && data.phone && data.contentComment){
 
-            if(!data.email || !data.name || !data.secondName || !data.phone){
+            var formData = {
 
-                props.res('Todos los campos son obligatorios', 'red');
-                $('input').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
-
+                name : data.name,
+                secondName : data.secondName,
+                email : data.email,
+                phone : data.phone,
+                content: data.contentComment
+    
+            }
+            if($('#terms').prop('checked')){
+    
+                axios.post(LOCAL + 'contacts', formData, {headers:{"Content-Type" : "application/json"}})
+                .then(res => {
+    
+                    props.res(res.data, 'green');
+                    setError('')
+                    $('.form-control').removeClass('border-error');
+                    e.target.reset();
+    
+                })
+                .catch(e => {
+    
+                    console.log(e.response);
+    
+                })
+    
             } else {
-
-                props.res(res.data, 'green');
-                e.target.reset();
-
+    
+                alert('No seleccionado')
+    
             }
 
-        })
-        .catch(e => {
+        } else {
 
-            console.log(e);
+            props.res('Todos los campos son obligatorios', 'red');
+            $('.form-control').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
+            setError('** Todos los campos son obligatorios **')
 
-        })
+        }
 
     }
 
@@ -116,14 +137,19 @@ const ContactUs = (props) => {
                     </div>
                     <div className='col-12 d-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12'>
-                            <textarea type='content' className='form-control' id='content' placeholder='Escriba su mensaje... *' rows='10' style={ styles.inputs } onChange={ handleChange } required></textarea>
+                            <textarea type='content' className='form-control' id='contentComment' placeholder='Escriba su mensaje... *' rows='10' style={ styles.inputs } onChange={ handleChange }></textarea>
                             <span id='text-counter' style={ styles.textcounter }>500 / { counter }</span>
                             <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3'>
-                        <div className='form-group col-12'>
-                            <input type='checkbox' id='terms' required /> He léido y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link>
+                        <div className='form-group col-12 mb-0'>
+                            <input type='checkbox' id='terms' required /> <label htmlFor='terms'>He léido y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link></label>
+                        </div>
+                    </div>
+                    <div className='col-12 text-danger'>
+                        <div className='col-12'>
+                            <strong>{ error }</strong>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3'>

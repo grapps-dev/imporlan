@@ -237,12 +237,12 @@ export default function Index() {
                 <div className='col-12 bg-img-blue-boat border-radius py-3 shadow'>
                     <div className='col-10 mx-auto text-center'>
                         <h2>
-                            Do you want to buy used or new boats but want someone to check them for you?
+                            ¿Quieres comprar lanchas usadas o nuevas pero quieres que alguien los revise por ti?
                         </h2>
                         <div className='d-block'>
-                            <a className='btn bg-white border-radius py-2'>
-                                Check out our inspection and test-drive plans
-                            </a>
+                            <Link className='btn bg-white border-radius py-2' to='/imporlan/inspection-plans'>
+                                Chequea nuestros planes de inspección y pruebas de conducción
+                            </Link>
                         </div>
                     </div>
                 </div>

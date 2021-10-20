@@ -7,6 +7,19 @@
 
 }
 
+.steps::-webkit-scrollbar{
+
+    background-color: transparent;
+    height: 8px;
+
+}
+
+.steps::-webkit-scrollbar-thumb{
+
+    background-color: var(--blue-primary);
+
+}
+
 .step-img:hover{
 
     transition-duration: 500ms;

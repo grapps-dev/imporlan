@@ -17,11 +17,12 @@ import Sell from './components/pages/Sell';
 import PlansHow from './components/pages/PlansHow';
 import PlansUSA from './components/pages/PlansUSA';
 import PlansChile from './components/pages/PlansChile';
-import InpectionPlans from './components/pages/InspectionPlans';
+import InspectionPlans from './components/pages/InspectionPlans';
 import ImportPlans from './components/pages/ImportPlans';
 import TermsAndConditions from './components/pages/TermsAndConditions';
 import BankTransfer from './components/pages/BankTransfer';
 import ContactUs from './components/pages/ContactUs';
+import FormTestimony from './components/pages/Dashboard/FormTestimony';
 
 function App() {
   
@@ -79,12 +80,15 @@ function App() {
             <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
             <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
             <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
-            <Route exact path='/imporlan/inpection-plans' component={ InpectionPlans } />
+            <Route exact path='/imporlan/inspection-plans' component={ InspectionPlans } />
             <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
             <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
             <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
             <Route exact path='/imporlan/contact-us'>
               <ContactUs res={ handleRes } />
+            </Route>
+            <Route exact path='/imporlan/new-testimony'>
+              <FormTestimony res={ handleRes } />
             </Route>
           </Switch>
         </div>
