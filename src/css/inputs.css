@@ -46,3 +46,43 @@ select:hover{
     margin-top: 3px;
 
 }
+
+.container-file{
+
+    display: inline-block;
+    position: relative;
+
+}
+
+.container-file::before{
+    
+    cursor: pointer !important;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    content: 'Selecciona una imagen';
+    position: absolute;
+    left: 10px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: .375rem .75rem;
+
+}
+
+.container-file:hover::before{
+
+    cursor: pointer !important;
+    text-decoration: underline;
+
+}
+
+.container-file input[type="file"]{
+
+    cursor: pointer !important;
+    opacity: 0;
+    width: 200px;
+    display: inline-block;
+
+}

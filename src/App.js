@@ -22,6 +22,8 @@ import ImportPlans from './components/pages/ImportPlans';
 import TermsAndConditions from './components/pages/TermsAndConditions';
 import BankTransfer from './components/pages/BankTransfer';
 import ContactUs from './components/pages/ContactUs';
+import SignUp from './components/pages/SignUp';
+
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 
 function App() {
@@ -89,6 +91,9 @@ function App() {
             </Route>
             <Route exact path='/imporlan/new-testimony'>
               <FormTestimony res={ handleRes } />
+            </Route>
+            <Route exact path='/imporlan/sign-up'>
+              <SignUp res={ handleRes } />
             </Route>
           </Switch>
         </div>
