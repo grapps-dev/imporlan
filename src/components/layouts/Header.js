@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 import { faDribbble, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -36,20 +37,20 @@ export default function Navbar() {
                             </button>
                         </div>
                         <div className='col-4 col-md-3'>
-                            <button className='btn bg-blue-light text-white w-100 p-2 text-center'>
+                            <Link className='btn bg-blue-light text-white w-100 p-2 text-center' to='/imporlan/sign-up'>
                                 <img src={ SignUpIcon } className='img-fluid mr-lg-2' />
                                 <span className='d-none d-xl-inline-flex'>
                                     Registro
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                         <div className='col-4 col-md-3'>
-                            <button className='btn bg-blue-aqua w-100 p-2 text-center' style={{ 'color': '#39426C' }}>
+                            <Link className='btn bg-blue-aqua w-100 p-2 text-center' to='/imporlan/sign-in' style={{ 'color': '#39426C' }}>
                                 <img src={ SignInIcon } className='img-fluid mr-lg-2' />
                                 <span className='d-none d-xl-inline-flex'>
                                     Ingresar                                   
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

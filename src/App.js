@@ -6,6 +6,8 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
 
+import { URL_LOCAL_BACKEND as LOCAL } from './const';
+
 import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
@@ -23,6 +25,7 @@ import TermsAndConditions from './components/pages/TermsAndConditions';
 import BankTransfer from './components/pages/BankTransfer';
 import ContactUs from './components/pages/ContactUs';
 import SignUp from './components/pages/SignUp';
+import SignIn from './components/pages/SignIn';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 
@@ -44,6 +47,30 @@ function App() {
     })
 
   })
+
+  const handleLogin = data => {
+
+    var formData = {
+
+      email : data.email,
+      password : data.password
+
+    }
+    axios.post(LOCAL + 'login', formData)
+    .then(res => {
+
+      console.log(res.data);
+      handleRes('Inicio de sesión satisfactorio', 'green')
+
+    })
+    .catch(err => {
+
+      console.log(err.response.data);
+
+    })
+
+  }
+
   const handleRes = (data, color) => {
 
     setMsgColor(color);
@@ -94,6 +121,9 @@ function App() {
             </Route>
             <Route exact path='/imporlan/sign-up'>
               <SignUp res={ handleRes } />
+            </Route>
+            <Route exact path='/imporlan/sign-in'>
+              <SignIn login={ handleLogin } res={ handleRes } />
             </Route>
           </Switch>
         </div>

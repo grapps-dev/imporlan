@@ -89,13 +89,14 @@ const ContactUs = (props) => {
                 })
                 .catch(e => {
     
-                    console.log(e.response);
+                    props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
     
                 })
     
             } else {
     
-                alert('No seleccionado')
+                props.res('Debe aceptar las Políticas de Privacidad para continuar', 'red');
+                $('#terms').addClass('border-error');
     
             }
 
@@ -119,6 +120,11 @@ const ContactUs = (props) => {
             </div>
             <div className='col-12 col-md-10 mx-auto mt-5'>
                 <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
+                    <div className='col-12 px-5 text-center my-3'>
+                        <strong>
+                            Déjanos un mensaje y aclararemos tus dudas
+                        </strong>
+                    </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
                             <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange }  />
@@ -144,7 +150,7 @@ const ContactUs = (props) => {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='form-group col-12 mb-0'>
-                            <input type='checkbox' id='terms' required /> <label htmlFor='terms'>He léido y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link></label>
+                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link></label>
                         </div>
                     </div>
                     <div className='col-12 text-danger'>

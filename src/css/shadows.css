@@ -1,5 +1,5 @@
 .shadow{
 
-    box-shadow: 0px 12.6803px 38.7455px rgba(102, 114, 251, 0.03), 0px 0.704463px 2.11339px rgba(63, 63, 68, 0.1);
+    box-shadow: 0px 12.6803px 38.7455px rgb(102 114 251 / 43%), 0px 8px 9px 1px rgb(63 63 68 / 10%) !important;
 
 }
