@@ -50,6 +50,8 @@ function App() {
 
   const handleLogin = data => {
 
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
     var formData = {
 
       email : data.email,
@@ -59,13 +61,39 @@ function App() {
     axios.post(LOCAL + 'login', formData)
     .then(res => {
 
-      console.log(res.data);
-      handleRes('Inicio de sesión satisfactorio', 'green')
+      sessionStorage.setItem('token', res.data.token);
+      handleRes('Inicio de sesión satisfactorio', 'green');
 
     })
     .catch(err => {
 
       console.log(err.response.data);
+
+    })
+
+    var data = JSON.stringify({
+      "token": sessionStorage.getItem('token')
+    });
+    
+    var config = {
+      method: 'get',
+      url: 'http://api-imporlan.test/api/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+
+    axios(config)
+    .then(res => {
+
+      sessionStorage.setItem('user', JSON.stringify(res.data))
+      //var obj = JSON.parse(sessionStorage.getItem('user'));
+
+    })
+    .catch(err => {
+
+      console.log(err.response);
 
     })
 
