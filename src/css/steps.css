@@ -3,6 +3,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     padding: 1rem;
+    position: relative;
     white-space: nowrap;
 
 }
@@ -30,7 +31,7 @@
 
 .step-div{
 
-    display: inline-block !important;
+    display: inline-block;
     height: auto;
     margin: 0 .5rem;
     width: 18%;

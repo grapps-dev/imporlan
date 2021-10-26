@@ -1,0 +1,39 @@
+.load-container{
+
+    background-color: transparent;
+    height: 5px;
+    position: absolute;
+    top: 55%;
+    width: 76%;
+    margin-left: 12%;
+    margin-right: 12%;
+
+}
+
+.loadbar{
+
+    background-color: blue;
+    display: block;
+    height: 100%;
+    width: 20%;
+    animation: loadSteps 10s infinite linear;
+
+}
+
+.pay1{
+
+    animation: loadPay1 10s infinite linear;
+
+}
+
+.pay2{
+
+    animation: loadPay2 10s infinite linear;
+
+}
+
+.pay3{
+
+    animation: loadPay3 10s infinite linear;
+
+}

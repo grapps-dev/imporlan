@@ -8,3 +8,35 @@
     }
 
 }
+
+@media (max-width: 1024px){
+
+    .pay1, .pay2, .pay3{
+
+        font-size: 12px;
+
+    }
+
+    .steps-numbers{
+
+        display: flex !important;
+
+    }
+
+}
+
+@media (max-width: 1200px){
+
+    #steps-mobile{
+
+        display: flex !important;
+
+    }
+
+    #steps-desktop{
+
+        display: none !important;
+
+    }
+
+}

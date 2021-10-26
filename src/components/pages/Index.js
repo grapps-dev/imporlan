@@ -105,7 +105,7 @@ export default function Index() {
                         { /* CUADRO DEGRADADO */ }
                     </div>
                 </div>
-                <div className='col-12 mt-5 d-flex'>
+                <div className='col-12 mt-5 d-none' id='steps-mobile'>
                     <div className='col-12 steps' style={{ 'width': "100%" }}>
                         <div className='step-div'>
                             <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
@@ -127,7 +127,7 @@ export default function Index() {
                                     1
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center step-img'>
+                            <div className='col-12 mt-3 text-center'>
                                 <img src={ IphoneX1 } className='img-fluid' />
                             </div>
                         </div>
@@ -151,7 +151,7 @@ export default function Index() {
                                     2
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center step-img'>
+                            <div className='col-12 mt-3 text-center'>
                                 <img src={ IphoneX2 } className='img-fluid' />
                             </div>
                         </div>
@@ -175,7 +175,7 @@ export default function Index() {
                                     3
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center step-img'>
+                            <div className='col-12 mt-3 text-center'>
                                 <img src={ IphoneX3 } className='img-fluid' />
                             </div>
                         </div>
@@ -199,7 +199,7 @@ export default function Index() {
                                     4
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center step-img'>
+                            <div className='col-12 mt-3 text-center'>
                                 <img src={ IphoneX4 } className='img-fluid' />
                             </div>
                         </div>
@@ -223,8 +223,158 @@ export default function Index() {
                                     5
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center step-img'>
+                            <div className='col-12 mt-3 text-center'>
                                 <img src={ IphoneX5 } className='img-fluid' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id='steps-desktop'>
+                    <div className='col-12 mt-5 d-flex'>
+                        <div className='col-12 steps' style={{ 'width': "100%" }}>
+                            <div className='step-div'>
+                                <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                                    <div style={{ 'height': '40%' }}>
+                                        <img src={ Boat } className='img-fluid' />
+                                    </div>
+                                    <div className='col-12 px-0 text-center mt-3'>
+                                        <strong className='d-block text-blue-steps'>
+                                            Paso #1
+                                        </strong>
+                                        <hr />
+                                        <span className='d-block text-blue-steps-names'>
+                                            Búsqueda
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='step-div'>
+                                <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                                    <div style={{ 'height': '40%' }}>
+                                        <img src={ BoatSecondStep } className='img-fluid' />
+                                    </div>
+                                    <div className='col-12 px-0 text-center mt-3'>
+                                        <strong className='d-block text-blue-steps'>
+                                            Paso #2
+                                        </strong>
+                                        <hr />
+                                        <span className='d-block text-blue-steps-names'>
+                                            Inspección
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='step-div'>
+                                <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                                    <div style={{ 'height': '40%' }}>
+                                        <img src={ BoatThirdStep } className='img-fluid' />
+                                    </div>
+                                    <div className='col-12 px-0 text-center mt-3'>
+                                        <strong className='d-block text-blue-steps'>
+                                            Paso #3
+                                        </strong>
+                                        <hr />
+                                        <span className='d-block text-blue-steps-names'>
+                                            Compra
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='step-div'>
+                                <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                                    <div style={{ 'height': '40%', 'display': 'flex', 'alignItems': 'flex-end', 'paddingBottom': '1rem' }}>
+                                        <img src={ BoatFourthStep } className='img-fluid' />
+                                    </div>
+                                    <div className='col-12 px-0 text-center mt-3'>
+                                        <strong className='d-block text-blue-steps'>
+                                            Paso #4
+                                        </strong>
+                                        <hr />
+                                        <span className='d-block text-blue-steps-names'>
+                                            ¡En Camino!
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='step-div'>
+                                <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                                    <div style={{ 'height': '40%' }}>
+                                        <img src={ BoatFifthStep } className='img-fluid' />
+                                    </div>
+                                    <div className='col-12 px-0 text-center mt-3'>
+                                        <strong className='d-block text-blue-steps'>
+                                            Paso #5
+                                        </strong>
+                                        <hr />
+                                        <span className='d-block text-blue-steps-names'>
+                                            ¡Envío!
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-12 d-flex'>
+                        <div className='col-12 steps' style={{ 'width': "100%" }}>
+                            <div className='step-div steps-numbers w-100' style={{ 'display': 'grid', 'gridTemplateColumns': 'repeat(5, 1fr)' }}>
+                                <div class='load-container'>
+                                    <span class='loadbar'></span>
+                                </div>
+                                <div className='pay1 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'left': '35%' }}>
+                                    Primer Pago
+                                </div>
+                                <div className='pay2 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'left': '54%' }}>
+                                    Segundo Pago
+                                </div>
+                                <div className='pay3 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'left': '74%' }}>
+                                    Tercer Pago
+                                </div>
+                                <div className='col-12 mt-3'>
+                                    <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DA0FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
+                                        1
+                                    </div>
+                                </div>
+                                <div className='col-12 mt-3'>
+                                    <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#5363F3', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
+                                        2
+                                    </div>
+                                </div>
+                                <div className='col-12 mt-3'>
+                                    <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DB9FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
+                                        3
+                                    </div>
+                                </div>
+                                <div className='col-12 mt-3'>
+                                    <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DE5FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
+                                        4
+                                    </div>
+                                </div>
+                                <div className='col-12 mt-3'>
+                                    <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DA0FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
+                                        5
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-12 d-flex'>
+                        <div className='col-12 steps' style={{ 'width': "100%" }}>
+                            <div className='step-div w-100' style={{ 'display': 'grid', 'gridTemplateColumns': 'repeat(5, 1fr)' }}>
+                                <div className='col-12 mt-3 text-center step-img'>
+                                    <img src={ IphoneX1 } className='img-fluid' />
+                                </div>
+                                <div className='col-12 mt-3 text-center step-img'>
+                                    <img src={ IphoneX2 } className='img-fluid' />
+                                </div>
+                                <div className='col-12 mt-3 text-center step-img'>
+                                    <img src={ IphoneX3 } className='img-fluid' />
+                                </div>
+                                <div className='col-12 mt-3 text-center step-img'>
+                                    <img src={ IphoneX4 } className='img-fluid' />
+                                </div>
+                                <div className='col-12 mt-3 text-center step-img'>
+                                    <img src={ IphoneX5 } className='img-fluid' />
+                                </div>
                             </div>
                         </div>
                     </div>
