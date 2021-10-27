@@ -106,13 +106,13 @@ export default function Index() {
                     </div>
                 </div>
                 <div className='col-12 mt-5 d-none' id='steps-mobile'>
-                    <div className='col-12 steps' style={{ 'width': "100%" }}>
+                    <div className='steps' style={{ 'width': "100%" }}>
                         <div className='step-div'>
-                            <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                            <div className='bg-white py-2 px-4 border-radius text-center shadow' style={{ 'height': '206px' }}>
                                 <div style={{ 'height': '40%' }}>
                                     <img src={ Boat } className='img-fluid' />
                                 </div>
-                                <div className='col-12 px-0 text-center mt-3'>
+                                <div className='px-0 text-center mt-3'>
                                     <strong className='d-block text-blue-steps'>
                                         Paso #1
                                     </strong>
@@ -122,7 +122,7 @@ export default function Index() {
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='mt-3'>
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DA0FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     1
                                 </div>
@@ -132,11 +132,11 @@ export default function Index() {
                             </div>
                         </div>
                         <div className='step-div'>
-                            <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                            <div className='bg-white py-2 px-4 border-radius text-center shadow' style={{ 'height': '206px' }}>
                                 <div style={{ 'height': '40%' }}>
                                     <img src={ BoatSecondStep } className='img-fluid' />
                                 </div>
-                                <div className='col-12 px-0 text-center mt-3'>
+                                <div className='px-0 text-center mt-3'>
                                     <strong className='d-block text-blue-steps'>
                                         Paso #2
                                     </strong>
@@ -146,21 +146,24 @@ export default function Index() {
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='mt-3'>
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#5363F3', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     2
                                 </div>
+                                <div className='pay1 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'left': '35%' }}>
+                                    Primer Pago
+                                </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='mt-3 text-center'>
                                 <img src={ IphoneX2 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
-                            <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                            <div className='bg-white py-2 px-4 border-radius text-center shadow' style={{ 'height': '206px' }}>
                                 <div style={{ 'height': '40%' }}>
                                     <img src={ BoatThirdStep } className='img-fluid' />
                                 </div>
-                                <div className='col-12 px-0 text-center mt-3'>
+                                <div className='px-0 text-center mt-3'>
                                     <strong className='d-block text-blue-steps'>
                                         Paso #3
                                     </strong>
@@ -170,21 +173,24 @@ export default function Index() {
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='mt-3'>
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DB9FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     3
                                 </div>
+                                <div className='pay2 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'left': '54%' }}>
+                                    Segundo Pago
+                                </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='mt-3 text-center'>
                                 <img src={ IphoneX3 } className='img-fluid' />
                             </div>
                         </div>
                         <div className='step-div'>
-                            <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
-                                <div style={{ 'height': '40%', 'display': 'flex', 'alignItems': 'flex-end', 'paddingBottom': '1rem' }}>
+                            <div className='bg-white py-2 px-4 border-radius text-center shadow' style={{ 'height': '206px' }}>
+                                <div style={{ 'height': '40%', 'display': 'flex', 'justifyContent': 'center', 'alignItems': 'flex-end', 'paddingBottom': '1rem' }}>
                                     <img src={ BoatFourthStep } className='img-fluid' />
                                 </div>
-                                <div className='col-12 px-0 text-center mt-3'>
+                                <div className='px-0 text-center mt-3'>
                                     <strong className='d-block text-blue-steps'>
                                         Paso #4
                                     </strong>
@@ -194,9 +200,12 @@ export default function Index() {
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='mt-3'>
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DE5FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     4
+                                </div>
+                                <div className='pay3 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'right': '0%' }}>
+                                    Tercer Pago
                                 </div>
                             </div>
                             <div className='col-12 mt-3 text-center'>
@@ -204,11 +213,11 @@ export default function Index() {
                             </div>
                         </div>
                         <div className='step-div'>
-                            <div className='bg-white py-2 px-4 border-radius shadow' style={{ 'height': '206px' }}>
+                            <div className='bg-white py-2 px-4 border-radius text-center shadow' style={{ 'height': '206px' }}>
                                 <div style={{ 'height': '40%' }}>
                                     <img src={ BoatFifthStep } className='img-fluid' />
                                 </div>
-                                <div className='col-12 px-0 text-center mt-3'>
+                                <div className='px-0 text-center mt-3'>
                                     <strong className='d-block text-blue-steps'>
                                         Paso #5
                                     </strong>
@@ -218,12 +227,12 @@ export default function Index() {
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-12 mt-3'>
+                            <div className='mt-3'>
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DA0FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     5
                                 </div>
                             </div>
-                            <div className='col-12 mt-3 text-center'>
+                            <div className='mt-3 text-center'>
                                 <img src={ IphoneX5 } className='img-fluid' />
                             </div>
                         </div>

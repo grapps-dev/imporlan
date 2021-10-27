@@ -102,3 +102,219 @@
     }
 
 }
+
+@keyframes scrollSteps {
+
+    0%{
+
+        margin-left: 0;
+
+    }
+    31%{
+
+        margin-left: 0%;
+
+    }
+    33%{
+
+        margin-left: -102%;
+
+    }
+    66%{
+
+        margin-left: -102%;
+
+    }
+    68%{
+
+        margin-left: -204%;
+
+    }
+    100%{
+
+        margin-left: -204%;
+
+    }
+
+}
+
+@media (max-width: 425px){
+
+    @keyframes scrollSteps {
+
+        0%{
+    
+            margin-left: 0;
+    
+        }
+        18%{
+    
+            margin-left: 0%;
+    
+        }
+        20%{
+
+            margin-left: -100%;
+
+        }
+        38%{
+    
+            margin-left: -100%;
+    
+        }
+        40%{
+    
+            margin-left: -200%;
+    
+        }
+        58%{
+    
+            margin-left: -200%;
+    
+        }
+        60%{
+    
+            margin-left: -300%;
+    
+        }
+        78%{
+
+            margin-left: -300%;
+
+        }
+        80%{
+
+            margin-left: -400%;
+
+        }
+        98%{
+
+            margin-left: -400%;
+
+        }
+        100%{
+
+            margin-left: -400%;
+
+        }
+    
+    }   
+
+}
+
+@media (max-width: 1200px){
+
+    @keyframes loadPay1{
+
+        0%{
+    
+            opacity: 0;
+    
+        }
+        10%{
+
+            opacity: 0;
+
+        }
+        12%{
+
+            opacity: 1;
+
+        }
+        14%{
+    
+            opacity: 1;
+    
+        }
+        16%{
+    
+            opacity: 1;
+    
+        }
+        24% {
+    
+            opacity: 1;
+    
+        }
+        26%{
+
+            opacity: 0;
+
+        }
+        100%{
+
+            opacity: 0;
+
+        }
+    
+    }
+
+    @keyframes loadPay2{
+
+        0%{
+    
+            opacity: 0;
+    
+        }
+        46%{
+
+            opacity: 0;
+
+        }
+        48%{
+
+            opacity: 1;
+
+        }
+        60%{
+
+            opacity: 1;
+
+        }
+        62%{
+
+            opacity: 0;
+
+        }
+        100%{
+
+            opacity: 0;
+
+        }
+    
+    }
+
+    @keyframes loadPay3{
+
+        0%{
+    
+            opacity: 0;
+    
+        }
+        46%{
+
+            opacity: 0;
+
+        }
+        48%{
+
+            opacity: 1;
+
+        }
+        60%{
+
+            opacity: 1;
+
+        }
+        62%{
+
+            opacity: 0;
+
+        }
+        100%{
+
+            opacity: 0;
+
+        }
+    }
+}

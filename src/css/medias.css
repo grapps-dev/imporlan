@@ -9,6 +9,22 @@
 
 }
 
+@media (max-width: 425px){
+
+    #steps-mobile .steps {
+
+        width: 500% !important;
+
+    }
+
+    .step-div{
+
+        width: calc(100% - 8px) !important;
+
+    }
+
+}
+
 @media (max-width: 1024px){
 
     .pay1, .pay2, .pay3{
@@ -29,7 +45,31 @@
 
     #steps-mobile{
 
-        display: flex !important;
+        display: block !important;
+        overflow-x: hidden !important;
+
+    }
+
+    #steps-mobile .steps {
+
+        display: flex;
+        padding: 0 !important;
+        overflow-x: auto !important;
+        width: 253%;
+
+        animation: scrollSteps 10s infinite linear;
+
+    }
+
+    #steps-mobile .steps div:first-of-type{
+
+        box-shadow: none !important;
+
+    }
+
+    .step-div{
+
+        width: calc(50% - 8px);
 
     }
 
