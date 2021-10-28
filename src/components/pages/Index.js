@@ -6,6 +6,7 @@ import Plans from '../layouts/Plans';
 import ServicesIndex from '../layouts/ServicesIndex';
 import Reviews from '../layouts/Reviews';
 import ArticlesIndex from '../layouts/ArticlesIndex';
+import Videos from '../layouts/Videos';
 
 import Boat from '../../assets/img/boat.png';
 import BoatSecondStep from '../../assets/img/boat-step-2.png';
@@ -204,7 +205,7 @@ export default function Index() {
                                 <div className='border circle mx-auto align-items-center d-flex justify-content-center text-white' style={{ "backgroundColor": '#6DE5FF', 'width': '50.56px', 'height': '50.56px', 'fontSize': '18px' }}>
                                     4
                                 </div>
-                                <div className='pay3 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'right': '0%' }}>
+                                <div className='pay3 bg-blue-primary py-1 px-2 border-radius' style={{ 'position': 'absolute', 'right': '21%' }}>
                                     Tercer Pago
                                 </div>
                             </div>
@@ -517,6 +518,7 @@ export default function Index() {
                         </div>
                     </div>
                 </div>
+                <Videos />
                 <Plans plans={ plans } />
                 <ServicesIndex />
                 <Reviews />

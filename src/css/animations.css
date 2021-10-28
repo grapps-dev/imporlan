@@ -144,22 +144,22 @@
 
         0%{
     
-            margin-left: 0;
+            margin-left: 2%;
     
         }
         18%{
     
-            margin-left: 0%;
+            margin-left: 2%;
     
         }
         20%{
 
-            margin-left: -100%;
+            margin-left: -99%;
 
         }
         38%{
     
-            margin-left: -100%;
+            margin-left: -99%;
     
         }
         40%{
@@ -174,31 +174,145 @@
         }
         60%{
     
-            margin-left: -300%;
+            margin-left: -301%;
     
         }
         78%{
 
-            margin-left: -300%;
+            margin-left: -301%;
 
         }
         80%{
 
-            margin-left: -400%;
+            margin-left: -402%;
 
         }
         98%{
 
-            margin-left: -400%;
+            margin-left: -402%;
 
         }
         100%{
 
-            margin-left: -400%;
+            margin-left: -402%;
 
         }
     
-    }   
+    }
+
+    @keyframes loadPay1{
+
+        0%{
+    
+            opacity: 0 !important;
+    
+        }
+        10%{
+
+            opacity: 0 !important;
+
+        }
+        12%{
+
+            opacity: 1 !important;
+
+        }
+        14%{
+    
+            opacity: 1 !important;
+    
+        }
+        16%{
+    
+            opacity: 1 !important;
+    
+        }
+        24% {
+    
+            opacity: 1 !important;
+    
+        }
+        26%{
+
+            opacity: 0 !important;
+
+        }
+        100%{
+
+            opacity: 0 !important;
+
+        }
+    
+    }
+
+    @keyframes loadPay2{
+
+        0%{
+    
+            opacity: 0 !important;
+    
+        }
+        46%{
+
+            opacity: 0 !important;
+
+        }
+        48%{
+
+            opacity: 1 !important;
+
+        }
+        60%{
+
+            opacity: 1 !important;
+
+        }
+        62%{
+
+            opacity: 0 !important;
+
+        }
+        100%{
+
+            opacity: 0 !important;
+
+        }
+    
+    }
+
+    @keyframes loadPay3{
+
+        0%{
+    
+            opacity: 0 !important;
+    
+        }
+        66%{
+
+            opacity: 0 !important;
+
+        }
+        68%{
+
+            opacity: 1 !important;
+
+        }
+        80%{
+
+            opacity: 1 !important;
+
+        }
+        82%{
+
+            opacity: 0 !important;
+
+        }
+        100%{
+
+            opacity: 0 !important;
+
+        }
+    }
 
 }
 

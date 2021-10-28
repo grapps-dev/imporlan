@@ -9,22 +9,6 @@
 
 }
 
-@media (max-width: 425px){
-
-    #steps-mobile .steps {
-
-        width: 500% !important;
-
-    }
-
-    .step-div{
-
-        width: calc(100% - 8px) !important;
-
-    }
-
-}
-
 @media (max-width: 1024px){
 
     .pay1, .pay2, .pay3{
@@ -55,7 +39,7 @@
         display: flex;
         padding: 0 !important;
         overflow-x: auto !important;
-        width: 253%;
+        width: 253% !important;
 
         animation: scrollSteps 10s infinite linear;
 
@@ -69,13 +53,72 @@
 
     .step-div{
 
-        width: calc(50% - 8px);
+        width: calc(50% - 8px) !important;
 
     }
 
     #steps-desktop{
 
         display: none !important;
+
+    }
+    .pay1 {
+
+        left: 33% !important;
+
+    }
+
+    .pay2{
+
+        left: 53% !important;
+
+    }
+
+    .pay3{
+
+        left: 74% !important;
+        right: auto !important;
+
+    }
+
+}
+
+@media (max-width: 425px){
+
+    #steps-mobile .steps {
+
+        width: 500% !important;
+
+    }
+
+    .step-div{
+
+        width: calc(102% - 8px) !important;
+
+    }
+
+    .pay1, .pay2, .pay3{
+
+        animation: none !important;
+
+    }
+
+    .pay1 {
+
+        left: 33% !important;
+
+    }
+
+    .pay2{
+
+        left: 53% !important;
+
+    }
+
+    .pay3{
+
+        left: 73.5% !important;
+        right: auto !important;
 
     }
 
