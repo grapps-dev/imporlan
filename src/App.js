@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import axios from 'axios';
 
@@ -28,11 +28,13 @@ import SignUp from './components/pages/SignUp';
 import SignIn from './components/pages/SignIn';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
+import DashBoardIndex from './components/pages/Dashboard/Index';
 
 function App() {
   
   const [ res, setRes ] = useState('');
   const [ msgColor, setMsgColor ] = useState('');
+  const [ tokenSession, setToken ] = useState('');
 
   $(document).ready(() => {
 
@@ -48,7 +50,7 @@ function App() {
 
   })
 
-  const handleLogin = data => {
+  const handleLogin = (data) => {
 
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
@@ -58,10 +60,12 @@ function App() {
       password : data.password
 
     }
+
     axios.post(LOCAL + 'login', formData)
     .then(res => {
 
-      sessionStorage.setItem('token', res.data.token);
+      setToken(JSON.stringify(res.data.token));
+      sessionStorage.setItem('token', JSON.stringify(res.data.token))
       handleRes('Inicio de sesión satisfactorio', 'green');
 
     })
@@ -70,21 +74,9 @@ function App() {
       console.log(err.response.data);
 
     })
+    getAuthenticatedUser()
 
-    var data = JSON.stringify({
-      "token": sessionStorage.getItem('token')
-    });
-    
-    var config = {
-      method: 'get',
-      url: 'http://api-imporlan.test/api/login',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : data
-    };
-
-    axios(config)
+    /*axios(config)
     .then(res => {
 
       sessionStorage.setItem('user', JSON.stringify(res.data))
@@ -95,7 +87,25 @@ function App() {
 
       console.log(err.response);
 
+    })*/
+
+  }
+
+  const getAuthenticatedUser = () => {
+
+    var token = sessionStorage.getItem('token')
+    console.log(token);
+    /*await axios.get(LOCAL + 'login', { params: { tokenSession } })
+    .then(res => {
+
+      sessionStorage.setItem('user', JSON.stringify(res.data));
+
     })
+    .catch(err => {
+
+      console.log(err.response.data);
+
+    })*/
 
   }
 
@@ -130,29 +140,42 @@ function App() {
         <Navbar />
         <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
           <Switch>
-            <Route exact path='/imporlan/' component={ Index } />
-            <Route exact path='/imporlan/information' component={ Information } />
-            <Route exact path='/imporlan/buy' component={ Buy } />
-            <Route exact path='/imporlan/sell-plans' component={ Sell } />
-            <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
-            <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
-            <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
-            <Route exact path='/imporlan/inspection-plans' component={ InspectionPlans } />
-            <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
-            <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
-            <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
-            <Route exact path='/imporlan/contact-us'>
-              <ContactUs res={ handleRes } />
-            </Route>
-            <Route exact path='/imporlan/new-testimony'>
-              <FormTestimony res={ handleRes } />
-            </Route>
-            <Route exact path='/imporlan/sign-up'>
-              <SignUp res={ handleRes } />
-            </Route>
-            <Route exact path='/imporlan/sign-in'>
-              <SignIn login={ handleLogin } res={ handleRes } />
-            </Route>
+            {
+              tokenSession ?
+
+                <>
+                  <Route exact path='/imporlan/dashboard' component={ DashBoardIndex } />
+                </>
+
+              :
+
+              <>
+                <Route exact path='/imporlan/' component={ Index } />
+                <Route exact path='/imporlan/information' component={ Information } />
+                <Route exact path='/imporlan/buy' component={ Buy } />
+                <Route exact path='/imporlan/sell-plans' component={ Sell } />
+                <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
+                <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
+                <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
+                <Route exact path='/imporlan/inspection-plans' component={ InspectionPlans } />
+                <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
+                <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
+                <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
+                <Route exact path='/imporlan/contact-us'>
+                  <ContactUs res={ handleRes } />
+                </Route>
+                <Route exact path='/imporlan/new-testimony'>
+                  <FormTestimony res={ handleRes } />
+                </Route>
+                <Route exact path='/imporlan/sign-up'>
+                  <SignUp res={ handleRes } />
+                </Route>
+                <Route exact path='/imporlan/sign-in'>
+                  <SignIn login={ handleLogin } res={ handleRes } />
+                </Route>
+              </>
+
+            }
           </Switch>
         </div>
         <Footer />
