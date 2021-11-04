@@ -93,6 +93,8 @@ export default function SignUp(props) {
         formData.append('country', data.country);
         formData.append('address', data.address);
         formData.append('secondAddress', data.secondAddress ? data.secondAddress : '');
+        formData.append('enterprise', data.enterprise);
+        formData.append('post', data.post);
         formData.append('photo', data.photo);
         if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address && data.photo){
 
@@ -111,6 +113,7 @@ export default function SignUp(props) {
                         props.res(res.data, 'green');
                         setError('')
                         $('.form-control').removeClass('border-error');
+                        removePhoto();
                         e.target.reset();
 
                     }
@@ -120,7 +123,7 @@ export default function SignUp(props) {
 
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
                     e.target.reset();
-                    console.log(error.response);
+                    console.log(error.response.data.message);
 
                 })
             } else {
@@ -212,7 +215,7 @@ export default function SignUp(props) {
                         </div>
                     </div>
                     <div className='col-12 d-lg-flex px-0 px-md-3 align-items-center'>
-                        <div className='form-group container-file col-12 col-lg-6'>
+                        <div className='form-group container-file col-12 col-lg-6' style={{ 'zIndex': 9999 }}>
                             <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG }  />
                         </div>
                         <div className='form-group col-12 col-lg-6 d-inline-block align-items-center'>
@@ -223,7 +226,7 @@ export default function SignUp(props) {
                             <span className='d-block text-gray text-justify mt-2'>Puedes escoger tu foto más tarde, pero recuerda hacerlo antes de contratar uno de nuestros planes</span>
                         </div>
                     </div>
-                    <div className='col-12 px-0 px-md-3 mt-3'>
+                    <div className='col-12 px-0 px-md-3 mt-3' style={{ 'zIndex': 9999 }}>
                         <div className='form-group col-12 mb-0 text-gray'>
                             <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-gray underline'>Términos de Privacidad y Uso</Link></label>
                         </div>

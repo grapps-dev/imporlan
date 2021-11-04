@@ -85,7 +85,7 @@ const ContactUs = (props) => {
             }
             if($('#terms').prop('checked')){
     
-                axios.post(LOCAL + 'contacts-us', formData, {headers:{"Content-Type" : "application/json"}})
+                axios.post(LOCAL + 'contact-us', formData, {headers:{"Content-Type" : "application/json"}})
                 .then(res => {
     
                     props.res(res.data, 'green');
