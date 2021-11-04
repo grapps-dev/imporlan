@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
+
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import countriesJSON from '../../assets/resources/countries.json';
 
@@ -20,7 +23,8 @@ export default function SignUp(props) {
         inputs: {
 
             background: "rgb(255, 255, 255, .6)",
-            border: "1px solid rgb(0, 23, 74)"
+            border: "2px solid #A9BECE",
+            borderRadius: "50px"
 
         },
         textcounter: {
@@ -52,12 +56,15 @@ export default function SignUp(props) {
     
             })
 
+            $('#removeButton').removeClass('d-none');
+
         }
 
     }
 
     const handleChangeIMG = e => {
 
+        console.log('funcionando');
         renderIMG(e.target);
 
     }
@@ -133,20 +140,28 @@ export default function SignUp(props) {
 
     }
 
+    const removePhoto = e => {
+
+        setData({
+
+            ...data,
+            photo : IconDefault
+
+        })
+        $('#previewPhoto').attr('src', IconDefault);
+        $('#removeButton').addClass('d-none');
+
+    }
+
     return(
 
         <div className='row pb-5'>
-            <div className='col-12 text-center'>
-                <h2 className='text-gradient-blue'>
-                    Regístrate
-                </h2>
-            </div>
             <div className='col-12 col-md-10 mx-auto mt-5'>
-                <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
-                    <div className='col-12 px-5 text-center my-3'>
-                        <strong>
-                            Crea una cuenta disfruta de nuestros planes y servicios
-                        </strong>
+                <form className='py-4 px-4 py-4 px-4 d-flex flex-column justify-content-center' onSubmit={ handleSubmit } style={{ 'minHeight': '400px' }}>
+                    <div className='col-12 text-center mb-3'>
+                        <h2 className='text-gradient-blue'>
+                            Iniciar Sesión
+                        </h2>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
@@ -188,18 +203,29 @@ export default function SignUp(props) {
                             <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } />
                         </div>
                     </div>
+                    <div className='col-12 d-md-flex px-0 px-md-3'>
+                        <div className='form-group col-12 col-md-6'>
+                            <input type='text' className='form-control' id='enterprise' placeholder='Empresa en la que trabaja *' style={ styles.inputs } onChange={ handleChange }  />
+                        </div>
+                        <div className='form-group col-12 col-md-6'>
+                            <input type='text' className='form-control' id='post' placeholder='Cargo que ocupa *' style={ styles.inputs } onChange={ handleChange } />
+                        </div>
+                    </div>
                     <div className='col-12 d-lg-flex px-0 px-md-3 align-items-center'>
                         <div className='form-group container-file col-12 col-lg-6'>
                             <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG }  />
                         </div>
                         <div className='form-group col-12 col-lg-6 d-inline-block align-items-center'>
+                            <button className='btn d-none' id='removeButton' style={{ 'position': 'absolute' }} onClick={ removePhoto }>
+                                <FontAwesomeIcon icon={ faTimes } />
+                            </button>
                             <img id='previewPhoto' className='d-block mx-auto' src={ IconDefault } width='120px' height='120px' alt='Default user' style={{ 'borderRadius': '50%' }} />
-                            <span className='d-block text-justify mt-2'>Puedes escoger tu foto más tarde, pero recuerda hacerlo antes de contratar uno de nuestros planes</span>
+                            <span className='d-block text-gray text-justify mt-2'>Puedes escoger tu foto más tarde, pero recuerda hacerlo antes de contratar uno de nuestros planes</span>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3 mt-3'>
-                        <div className='form-group col-12 mb-0'>
-                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link></label>
+                        <div className='form-group col-12 mb-0 text-gray'>
+                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-gray underline'>Términos de Privacidad y Uso</Link></label>
                         </div>
                     </div>
                     <div className='col-12 text-danger mb-3'>
@@ -209,7 +235,7 @@ export default function SignUp(props) {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn' type='submit' style={ styles.inputs }>
+                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
                                 Registrarse
                             </button>
                         </div>

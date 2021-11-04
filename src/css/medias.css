@@ -123,3 +123,33 @@
     }
 
 }
+
+@media (max-width: 435px){
+
+    #figureTop, #figureBottom {
+
+        width: 120px !important;
+
+    }
+
+}
+
+@media (max-width: 768px){
+
+    #figureTop, #figureBottom {
+
+        width: 200px;
+
+    }
+
+}
+
+@media (max-width: 767px){
+
+    #figureTop, #figureBottom {
+
+        width: 150px;
+
+    }
+
+}

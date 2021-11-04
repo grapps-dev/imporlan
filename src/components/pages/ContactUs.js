@@ -20,7 +20,15 @@ const ContactUs = (props) => {
         inputs: {
 
             background: "rgb(255, 255, 255, .6)",
-            border: "1px solid rgb(0, 23, 74)"
+            border: "2px solid #A9BECE",
+            borderRadius: "50px"
+
+        },
+        textarea: {
+
+            background: "rgb(255, 255, 255, .6)",
+            border: "2px solid #A9BECE",
+            borderRadius: "30px"
 
         },
         textcounter: {
@@ -69,16 +77,15 @@ const ContactUs = (props) => {
 
             var formData = {
 
-                name : data.name,
-                secondName : data.secondName,
+                name : data.name + ' ' + data.secondName,
                 email : data.email,
                 phone : data.phone,
-                content: data.contentComment
+                body: data.contentComment
     
             }
             if($('#terms').prop('checked')){
     
-                axios.post(LOCAL + 'contacts', formData, {headers:{"Content-Type" : "application/json"}})
+                axios.post(LOCAL + 'contacts-us', formData, {headers:{"Content-Type" : "application/json"}})
                 .then(res => {
     
                     props.res(res.data, 'green');
@@ -113,14 +120,12 @@ const ContactUs = (props) => {
     return (
         
         <div className='row pb-5'>
-            <div className='col-12 text-center'>
-                <h2 className='text-gradient-blue'>
-                    Contáctanos
-                </h2>
-            </div>
             <div className='col-12 col-md-10 mx-auto mt-5'>
-                <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
+                <form className='py-4 px-4' onSubmit={ handleSubmit }>
                     <div className='col-12 px-5 text-center my-3'>
+                        <h2 className='text-gradient-blue'>
+                            Contáctanos
+                        </h2>
                         <strong>
                             Déjanos un mensaje y aclararemos tus dudas
                         </strong>
@@ -143,14 +148,14 @@ const ContactUs = (props) => {
                     </div>
                     <div className='col-12 d-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12'>
-                            <textarea type='content' className='form-control' id='contentComment' placeholder='Escriba su mensaje... *' rows='10' style={ styles.inputs } onChange={ handleChange }></textarea>
+                            <textarea type='content' className='form-control' id='contentComment' placeholder='Escriba su mensaje... *' rows='10' style={ styles.textarea } onChange={ handleChange }></textarea>
                             <span id='text-counter' style={ styles.textcounter }>500 / { counter }</span>
                             <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>
                     </div>
                     <div className='col-12 px-0 px-md-3'>
-                        <div className='form-group col-12 mb-0'>
-                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-white'>Términos de Privacidad y Uso</Link></label>
+                        <div className='form-group col-12 mb-0 text-gray'>
+                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-gray underline'>Términos de Privacidad y Uso</Link></label>
                         </div>
                     </div>
                     <div className='col-12 text-danger'>
@@ -160,8 +165,8 @@ const ContactUs = (props) => {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn' type='submit' style={ styles.inputs }>
-                                Registrarse
+                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
+                                Enviar
                             </button>
                         </div>
                     </div>

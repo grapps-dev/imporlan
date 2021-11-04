@@ -56,8 +56,10 @@ select:hover{
 
 .container-file::before{
     
+    border: 2px solid #A9BECE;
+    border-radius: 50px;
     cursor: pointer !important;
-    color: white;
+    color: var(--gray-primary);
     display: flex;
     align-items: center;
     height: 50px;

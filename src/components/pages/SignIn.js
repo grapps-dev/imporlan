@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
 
@@ -12,7 +13,8 @@ export default function SignIn(props) {
         inputs: {
 
             background: "rgb(255, 255, 255, .6)",
-            border: "1px solid rgb(0, 23, 74)"
+            border: "2px solid #A9BECE",
+            borderRadius: "50px"
 
         },
         textcounter: {
@@ -45,24 +47,19 @@ export default function SignIn(props) {
     return(
 
         <div className='row pb-5'>
-            <div className='col-12 text-center'>
-                <h2 className='text-gradient-blue'>
-                    Iniciar Sesión
-                </h2>
-            </div>
-            <div className='col-12 col-md-6 mx-auto mt-5'>
-                <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
-                    <div className='col-12 px-5 text-center my-3'>
-                        <strong>
-                            Ingresa a tu cuenta ImporLan
-                        </strong>
+            <div className='col-12 col-md-8 mx-auto mt-5'>
+                <form className='py-4 px-4 d-flex flex-column justify-content-center' onSubmit={ handleSubmit } style={{ 'minHeight': '400px' }}>
+                    <div className='col-12 text-center mb-3'>
+                        <h2 className='text-gradient-blue'>
+                            Iniciar Sesión
+                        </h2>
                     </div>
-                    <div className='col-12 col-md-10 mx-auto d-md-flex px-0 px-md-3'>
+                    <div className='col-12 mx-auto d-md-flex px-0 mb-3'>
                         <div className='form-group col-12'>
                             <input type='email' className='form-control' id='email' placeholder='Correo Electrónico' style={ styles.inputs } onChange={ handleChange }  />
                         </div>
                     </div>
-                    <div className='col-12 col-md-10 mx-auto d-md-flex px-0 px-md-3'>
+                    <div className='col-12 mx-auto d-md-flex px-0'>
                         <div className='form-group col-12'>
                             <input type='password' className='form-control' id='password' placeholder='Contraseña' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
@@ -74,10 +71,13 @@ export default function SignIn(props) {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn' type='submit' style={ styles.inputs }>
+                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
                                 Ingresar
                             </button>
                         </div>
+                    </div>
+                    <div className='col-12 px-0 px-md-3 text-center mt-3'>
+                        <Link className='text-gray' to='#'>¿Ha olvidado su contraseña?</Link>
                     </div>
                 </form>
             </div>

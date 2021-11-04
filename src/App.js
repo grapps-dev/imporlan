@@ -30,6 +30,9 @@ import SignIn from './components/pages/SignIn';
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
 
+import LoginFigureTop from './assets/img/login-figure-top.png';
+import LoginFigureBottom from './assets/img/login-figure-bottom.png';
+
 function App() {
   
   const [ res, setRes ] = useState('');
@@ -120,6 +123,33 @@ function App() {
     }, 1500)
 
   }
+
+  var imgTop = `<img src=${ LoginFigureTop } style='position: absolute; right: 0; top: 0; max-width: 300px' id='figureTop' />`
+  var imgBottom = `<img src=${ LoginFigureBottom } style='position: absolute; left: 0; bottom: 0; max-width: 300px' id='figureBottom'  />`
+  $(document).ready(() => {
+
+    setInterval(() => {
+
+      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us'){
+
+        $('#content').css('position', 'relative');
+        if(!$('#figureTop').length && !$('#figureBottom').length){
+  
+          $('#content').prepend(imgTop);
+          $('#content').append(imgBottom);
+  
+        }
+  
+      } else {
+  
+        $('#figureTop').remove();
+        $('#figureBottom').remove();
+  
+      }
+
+    }, 500)
+
+  })
 
   return (
     
