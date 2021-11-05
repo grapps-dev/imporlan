@@ -76,8 +76,8 @@ export default function SignIn(props) {
                             </button>
                         </div>
                     </div>
-                    <div className='col-12 px-0 px-md-3 text-center mt-3'>
-                        <Link className='text-gray' to='#'>¿Ha olvidado su contraseña?</Link>
+                    <div className='col-12 px-0 px-md-3 text-center mt-3 text-gray'>
+                        ¿Ha olvidado su contraseña? <Link className='text-gray underline' to='#'>Recupérela aquí</Link>
                     </div>
                 </form>
             </div>

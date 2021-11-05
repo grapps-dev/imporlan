@@ -94,8 +94,9 @@ const ContactUs = (props) => {
                     e.target.reset();
     
                 })
-                .catch(e => {
+                .catch(err => {
     
+                    console.log(err.response.data.message)
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
     
                 })
@@ -153,7 +154,7 @@ const ContactUs = (props) => {
                             <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>
                     </div>
-                    <div className='col-12 px-0 px-md-3'>
+                    <div className='col-12 px-0 px-md-3' style={{ 'zIndex': 9999 }}>
                         <div className='form-group col-12 mb-0 text-gray'>
                             <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-gray underline'>Términos de Privacidad y Uso</Link></label>
                         </div>

@@ -17,6 +17,7 @@ export default function SignUp(props) {
     const [ countries, setCountries ] = useState(countriesJSON);
     const [ error, setError ] = useState('');
     const [ data, setData ] = useState({});
+    const [ btnText, setBtnText ] = useState('Registrarse');
 
     const styles = {
 
@@ -83,6 +84,9 @@ export default function SignUp(props) {
     const handleSubmit = e => {
 
         e.preventDefault();
+        $('.form-control').removeClass('border-error');
+        $('.spinner-border').removeClass('d-none');
+        setBtnText('');
 
         var formData = new FormData();
         formData.append('name', data.name);
@@ -123,7 +127,7 @@ export default function SignUp(props) {
 
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
                     e.target.reset();
-                    console.log(error.response.data.message);
+                    console.log(error.response.data);
 
                 })
             } else {
@@ -132,12 +136,16 @@ export default function SignUp(props) {
                 $('#terms').addClass('border-error');
 
             }
+            setBtnText('Registrarse');
+            $('.spinner-border').addClass('d-none');
 
         } else {
 
             props.res('Todos los campos son obligatorios', 'red');
             $('.form-control').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
-            setError('** Todos los campos son obligatorios **')
+            setError('** Todos los campos son obligatorios **');
+            setBtnText('Registrarse');
+            $('.spinner-border').addClass('d-none');
 
         }
 
@@ -163,7 +171,7 @@ export default function SignUp(props) {
                 <form className='py-4 px-4 py-4 px-4 d-flex flex-column justify-content-center' onSubmit={ handleSubmit } style={{ 'minHeight': '400px' }}>
                     <div className='col-12 text-center mb-3'>
                         <h2 className='text-gradient-blue'>
-                            Iniciar Sesión
+                            Registrarse
                         </h2>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
@@ -238,8 +246,11 @@ export default function SignUp(props) {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
-                                Registrarse
+                            <button className='btn text-gray d-flex align-items-center' type='submit' style={ styles.inputs }>
+                                <span>{ btnText }</span>
+                                <div className='spinner-border d-none ml-1'>
+                                    <span className='sr-only'>Cargando...</span>
+                                </div>
                             </button>
                         </div>
                     </div>

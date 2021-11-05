@@ -30,7 +30,7 @@ select:hover{
 
     position: absolute;
     right: 30px;
-    top: calc(50% - 13px);
+    top: calc(50% - 10px);
     width: 16px;
     height: 16px;
     display: block;
