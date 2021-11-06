@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 const Formtestimony = () => {
 
     const [ counter, setCounter ] = useState(0);
     const [ data, setData ] = useState({});
+    const [ error, setError ] = useState('');
+    const [ btnText, setBtnText ] = useState('Publicar');
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -15,7 +18,15 @@ const Formtestimony = () => {
         inputs: {
 
             background: "rgb(255, 255, 255, .6)",
-            border: "1px solid rgb(0, 23, 74)"
+            border: "2px solid #A9BECE",
+            borderRadius: "50px"
+
+        },
+        textarea: {
+
+            background: "rgb(255, 255, 255, .6)",
+            border: "2px solid #A9BECE",
+            borderRadius: "30px"
 
         },
         textcounter: {
@@ -67,24 +78,40 @@ const Formtestimony = () => {
 
     return (
         <div className='row pb-5'>
-            <div className='col-12 text-center'>
-                <h2 className='text-gradient-blue'>
-                    Publica tu testimonio
-                </h2>
-            </div>
             <div className='col-12 col-md-10 mx-auto mt-5'>
-                <form className='bg-img-blue-boat py-4 px-4 border-radius shadow' onSubmit={ handleSubmit }>
-                    <div className='col-12 d-md-flex px-0 px-md-3 mt-3'>
-                        <div className='col-12 form-group'>
-                            <textarea type='content' className='form-control' id='contentComment' placeholder='Escriba su mensaje... *' rows='10' style={ styles.inputs } onChange={ handleChange }></textarea>
+                <form className='py-4 px-4' onSubmit={ handleSubmit }>
+                    <div className='col-12 px-5 text-center my-3'>
+                        <h2 className='text-gradient-blue'>
+                            Testimonio
+                        </h2>
+                        <strong>
+                            Publica una pequeña reseña sobre lo que fue para ti trabajar con nosotros
+                        </strong>
+                    </div>
+                    <div className='col-12 d-flex mt-3 px-0 px-md-3'>
+                        <div className='form-group col-12'>
+                            <textarea type='content' className='form-control' id='contentTestimony' placeholder='Escriba su mensaje... *' rows='10' style={ styles.textarea } onChange={ handleChange }></textarea>
                             <span id='text-counter' style={ styles.textcounter }>500 / { counter }</span>
                             <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>
                     </div>
-                    <div className='col-12 px-0 px-md-3 mb-3s'>
+                    <div className='col-12 px-0 px-md-3' style={{ 'zIndex': 9999 }}>
+                        <div className='form-group col-12 mb-0 text-gray'>
+                            <label htmlFor='terms'><input type='checkbox' id='terms' required /> He leído y aceptado los <Link to='terms-and-conditions' className='text-gray underline'>Términos de Privacidad y Uso</Link></label>
+                        </div>
+                    </div>
+                    <div className='col-12 text-danger'>
+                        <div className='col-12'>
+                            <strong>{ error }</strong>
+                        </div>
+                    </div>
+                    <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn' type='submit' style={ styles.inputs }>
-                                Publicar
+                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
+                                <span>{ btnText }</span>
+                                <div className='spinner-border d-none'>
+                                    <span className='sr-only'>Cargando...</span>
+                                </div>
                             </button>
                         </div>
                     </div>

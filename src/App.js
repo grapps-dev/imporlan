@@ -11,6 +11,7 @@ import { URL_LOCAL_BACKEND as LOCAL } from './const';
 import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
+import Load from './components/layouts/Load';
 
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
@@ -39,6 +40,7 @@ function App() {
   const [ msgColor, setMsgColor ] = useState('');
   const [ tokenSession, setTokenSession ] = useState('');
   const [ token, setToken ] = useState('');
+  const [ loading, setLoading ] = useState(false);
 
   $(document).ready(() => {
 
@@ -46,7 +48,7 @@ function App() {
 
       // BARRA DE PROGRESO
       var documentHeight = $(document).height();
-      var topScroll = $(window).scrollTop();
+      var topScroll = $(window).scrollTop();  
       var windowHeight = $(window).height();
       $('#pageSize').css('width', (topScroll / (documentHeight - windowHeight)) * 100 + '%')
 
@@ -68,8 +70,9 @@ function App() {
     .then(res => {
 
       setToken(res.data.token);
-      sessionStorage.setItem('token', res.data.token)
-      handleRes('Inicio de sesión satisfactorio', 'green'); 
+      getAuthenticatedUser(res.data.token);
+      sessionStorage.setItem('token', res.data.token);
+      setLoading(true)
 
     })
     .catch(err => {
@@ -77,15 +80,13 @@ function App() {
       console.log(err.response.data);
 
     })
-    getAuthenticatedUser()
 
   }
 
-  const getAuthenticatedUser = async() => {
+  const getAuthenticatedUser = async(tkn) => {
 
-    
     var data = JSON.stringify({
-      "token": token
+      "token": tkn
     });
     
     var config = {
@@ -100,12 +101,16 @@ function App() {
 
     axios.get(config.url, {
       headers : {
-         "Authorization" : `Bearer ${token} `
+         "Authorization" : `Bearer ${tkn} `
      }
     })
     .then(res => {
 
-      console.log(res.data)
+      sessionStorage.setItem('user', JSON.stringify(res.data.user));
+      console.log(sessionStorage.getItem('user'))
+      window.location.href = 'http://localhost:3000/imporlan/dashboard/ ';
+      setLoading(false)
+      $('body').css('oveerflowY', 'auto');
 
     })
     .catch(err => {
@@ -134,7 +139,7 @@ function App() {
 
     setInterval(() => {
 
-      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us'){
+      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony'){
 
         $('#content').css('position', 'relative');
         if(!$('#figureTop').length && !$('#figureBottom').length){
@@ -157,64 +162,79 @@ function App() {
 
   return (
     
-    <div id='main' className='container pb-4'>
-      { res ? 
+    <>
 
-        <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'position': 'fixed', 'top': '20px', "zIndex": 99999, 'padding': '10px 20px' }}>{ res }</div>
+      {
+        loading ? 
+
+          <Load />
 
         :
 
-        ''
+        <div id='main' className='container pb-4'>
+          { res ? 
+
+            <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'position': 'fixed', 'top': '20px', "zIndex": 99999, 'padding': '10px 20px' }}>{ res }</div>
+
+            :
+
+            ''
+
+          }
+          <div className='fixed-top bg-blue-primary' style={{ 'height': '6px' }} id='pageSize'>
+          </div>
+          <Router>
+            <Header />
+            <Navbar />
+            <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
+              <Switch>
+                {
+                  token ?
+
+                    <>
+                      <Route exact path='/imporlan/dashboard/' component={ DashBoardIndex } />
+                      <Route exact path='/imporlan/dashboard/new-testimony' component={ FormTestimony } />
+                    </>
+
+                  :
+
+                  <>
+                    <Route exact path='/imporlan/' component={ Index } />
+                    <Route exact path='/imporlan/dashboard/new-testimony' component={ FormTestimony } />
+                    <Route exact path='/imporlan/information' component={ Information } />
+                    <Route exact path='/imporlan/buy' component={ Buy } />
+                    <Route exact path='/imporlan/sell-plans' component={ Sell } />
+                    <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
+                    <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
+                    <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
+                    <Route exact path='/imporlan/inspection-plans' component={ InspectionPlans } />
+                    <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
+                    <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
+                    <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
+                    <Route exact path='/imporlan/contact-us'>
+                      <ContactUs res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/new-testimony'>
+                      <FormTestimony res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/sign-up'>
+                      <SignUp res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/sign-in'>
+                      <SignIn login={ handleLogin } res={ handleRes } />
+                    </Route>
+                  </>
+
+                }
+              </Switch>
+            </div>
+            <Footer />
+          </Router>
+        </div>  
 
       }
-      <div className='fixed-top bg-blue-primary' style={{ 'height': '6px' }} id='pageSize'>
-      </div>
-      <Router>
-        <Header />
-        <Navbar />
-        <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
-          <Switch>
-            {
-              tokenSession ?
 
-                <>
-                  <Route exact path='/imporlan/' component={ Index } />
-                </>
-
-              :
-
-              <>
-                <Route exact path='/imporlan/' component={ Index } />
-                <Route exact path='/imporlan/information' component={ Information } />
-                <Route exact path='/imporlan/buy' component={ Buy } />
-                <Route exact path='/imporlan/sell-plans' component={ Sell } />
-                <Route exact path='/imporlan/how-plans-function' component={ PlansHow } />
-                <Route exact path='/imporlan/plans-usa' component={ PlansUSA } />
-                <Route exact path='/imporlan/plans-chile' component={ PlansChile } />
-                <Route exact path='/imporlan/inspection-plans' component={ InspectionPlans } />
-                <Route exact path='/imporlan/import-plans' component={ ImportPlans } />
-                <Route exact path='/imporlan/terms-and-conditions' component={ TermsAndConditions } />
-                <Route exact path='/imporlan/bank-transfer' component={ BankTransfer } />
-                <Route exact path='/imporlan/contact-us'>
-                  <ContactUs res={ handleRes } />
-                </Route>
-                <Route exact path='/imporlan/new-testimony'>
-                  <FormTestimony res={ handleRes } />
-                </Route>
-                <Route exact path='/imporlan/sign-up'>
-                  <SignUp res={ handleRes } />
-                </Route>
-                <Route exact path='/imporlan/sign-in'>
-                  <SignIn login={ handleLogin } res={ handleRes } />
-                </Route>
-              </>
-
-            }
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
-    </div>
+    </>
 
   );
 }
