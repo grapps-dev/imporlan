@@ -37,7 +37,8 @@ function App() {
   
   const [ res, setRes ] = useState('');
   const [ msgColor, setMsgColor ] = useState('');
-  const [ tokenSession, setToken ] = useState('');
+  const [ tokenSession, setTokenSession ] = useState('');
+  const [ token, setToken ] = useState('');
 
   $(document).ready(() => {
 
@@ -55,8 +56,7 @@ function App() {
 
   const handleLogin = (data) => {
 
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('user');
+    setToken('');
     var formData = {
 
       email : data.email,
@@ -67,9 +67,9 @@ function App() {
     axios.post(LOCAL + 'login', formData)
     .then(res => {
 
-      setToken(JSON.stringify(res.data.token));
-      sessionStorage.setItem('token', JSON.stringify(res.data.token))
-      handleRes('Inicio de sesión satisfactorio', 'green');
+      setToken(res.data.token);
+      sessionStorage.setItem('token', res.data.token)
+      handleRes('Inicio de sesión satisfactorio', 'green'); 
 
     })
     .catch(err => {
@@ -79,36 +79,40 @@ function App() {
     })
     getAuthenticatedUser()
 
-    /*axios(config)
-    .then(res => {
-
-      sessionStorage.setItem('user', JSON.stringify(res.data))
-      //var obj = JSON.parse(sessionStorage.getItem('user'));
-
-    })
-    .catch(err => {
-
-      console.log(err.response);
-
-    })*/
-
   }
 
-  const getAuthenticatedUser = () => {
+  const getAuthenticatedUser = async() => {
 
-    var token = sessionStorage.getItem('token')
-    console.log(token);
-    /*await axios.get(LOCAL + 'login', { params: { tokenSession } })
+    
+    var data = JSON.stringify({
+      "token": token
+    });
+    
+    var config = {
+      method: 'get',
+      url: 'http://api-imporlan.test/api/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+
+    axios.get(config.url, {
+      headers : {
+         "Authorization" : `Bearer ${token} `
+     }
+    })
     .then(res => {
 
-      sessionStorage.setItem('user', JSON.stringify(res.data));
+      console.log(res.data)
 
     })
     .catch(err => {
 
       console.log(err.response.data);
 
-    })*/
+    })
 
   }
 
@@ -174,7 +178,7 @@ function App() {
               tokenSession ?
 
                 <>
-                  <Route exact path='/imporlan/dashboard' component={ DashBoardIndex } />
+                  <Route exact path='/imporlan/' component={ Index } />
                 </>
 
               :

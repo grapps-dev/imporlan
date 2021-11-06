@@ -10,6 +10,7 @@ const ContactUs = (props) => {
     const [ counter, setCounter ] = useState(0);
     const [ data, setData ] = useState({});
     const [ error, setError ] = useState('');
+    const [ btnText, setBtnText ] = useState('Enviar');
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -73,6 +74,8 @@ const ContactUs = (props) => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
+        setBtnText('');
+        $('.spinner-border').removeClass('d-none');
         if(data.name && data.secondName && data.email && data.phone && data.contentComment){
 
             var formData = {
@@ -91,6 +94,8 @@ const ContactUs = (props) => {
                     props.res(res.data, 'green');
                     setError('')
                     $('.form-control').removeClass('border-error');
+                    setBtnText('Registrarse');
+                    $('.spinner-border').addClass('d-none');
                     e.target.reset();
     
                 })
@@ -98,13 +103,17 @@ const ContactUs = (props) => {
     
                     console.log(err.response.data.message)
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
-    
+                    setBtnText('Registrarse');
+                    $('.spinner-border').addClass('d-none');
+
                 })
     
             } else {
     
                 props.res('Debe aceptar las Políticas de Privacidad para continuar', 'red');
                 $('#terms').addClass('border-error');
+                setBtnText('Registrarse');
+                $('.spinner-border').addClass('d-none');
     
             }
 
@@ -112,7 +121,9 @@ const ContactUs = (props) => {
 
             props.res('Todos los campos son obligatorios', 'red');
             $('.form-control').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
-            setError('** Todos los campos son obligatorios **')
+            setError('** Todos los campos son obligatorios **');
+            setBtnText('Registrarse');
+            $('.spinner-border').addClass('d-none');
 
         }
 
@@ -167,7 +178,10 @@ const ContactUs = (props) => {
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
                             <button className='btn text-gray' type='submit' style={ styles.inputs }>
-                                Enviar
+                                <span>{ btnText }</span>
+                                <div className='spinner-border d-none'>
+                                    <span className='sr-only'>Cargando...</span>
+                                </div>
                             </button>
                         </div>
                     </div>

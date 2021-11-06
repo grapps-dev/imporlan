@@ -85,8 +85,8 @@ export default function SignUp(props) {
 
         e.preventDefault();
         $('.form-control').removeClass('border-error');
-        $('.spinner-border').removeClass('d-none');
         setBtnText('');
+        $('.spinner-border').removeClass('d-none');
 
         var formData = new FormData();
         formData.append('name', data.name);
@@ -121,6 +121,9 @@ export default function SignUp(props) {
                         e.target.reset();
 
                     }
+                    
+                    setBtnText('Registrarse');
+                    $('.spinner-border').addClass('d-none');
 
                 })
                 .catch(error => {
@@ -128,16 +131,18 @@ export default function SignUp(props) {
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
                     e.target.reset();
                     console.log(error.response.data);
+                    setBtnText('Registrarse');
+                    $('.spinner-border').addClass('d-none');
 
                 })
             } else {
 
                 props.res('Debe aceptar las Políticas de Privacidad para continuar', 'red');
                 $('#terms').addClass('border-error');
+                setBtnText('Registrarse');
+                $('.spinner-border').addClass('d-none');
 
             }
-            setBtnText('Registrarse');
-            $('.spinner-border').addClass('d-none');
 
         } else {
 
@@ -248,7 +253,7 @@ export default function SignUp(props) {
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
                             <button className='btn text-gray d-flex align-items-center' type='submit' style={ styles.inputs }>
                                 <span>{ btnText }</span>
-                                <div className='spinner-border d-none ml-1'>
+                                <div className='spinner-border d-none'>
                                     <span className='sr-only'>Cargando...</span>
                                 </div>
                             </button>
