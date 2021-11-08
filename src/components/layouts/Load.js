@@ -2,11 +2,16 @@ import $ from 'jquery';
 
 export default function Load() {
 
-    $('body').css('overflowY', 'hidden');
+    var header_height = $('#header').height();
+    var navbar_height = $('.navbar').height();
+    var footer_height = $('footer').height();
+    var diff = navbar_height + header_height + footer_height;
+    var window_height = $(window).height();
+    var height = window_height - diff - 250;
 
     return(
 
-        <div className='vh-100 bg-white d-flex align-items-center justify-content-center'>
+        <div className='d-flex align-items-center justify-content-center' style={{ 'height': height }}>
             <div className='spinner-border'>
                 <span className='sr-only'>
                     Cargando...

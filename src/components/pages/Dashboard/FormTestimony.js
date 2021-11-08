@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import axios from 'axios';
+
+import { URL_LOCAL_BACKEND as URL } from '../../../const';
 
 const Formtestimony = () => {
 
@@ -8,6 +11,8 @@ const Formtestimony = () => {
     const [ data, setData ] = useState({});
     const [ error, setError ] = useState('');
     const [ btnText, setBtnText ] = useState('Publicar');
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const token = sessionStorage.getItem('token');
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -39,10 +44,29 @@ const Formtestimony = () => {
 
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
 
-        console.log(data);
         e.preventDefault();
+        var formData = {
+
+            content: data.contentTestimony,
+            user: user.id,
+            token: token
+
+        }
+
+        await axios.post(URL + 'testimonys', formData)
+        .then(res => {
+
+            console.log(res.data);
+
+        })
+        .catch(err => {
+
+            console.log(err.response);
+
+        })
+
         e.target.reset();
 
     }
@@ -90,7 +114,7 @@ const Formtestimony = () => {
                     </div>
                     <div className='col-12 d-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12'>
-                            <textarea type='content' className='form-control' id='contentTestimony' placeholder='Escriba su mensaje... *' rows='10' style={ styles.textarea } onChange={ handleChange }></textarea>
+                            <textarea className='form-control' id='contentTestimony' placeholder='Escriba su mensaje... *' rows='10' style={ styles.textarea } onChange={ handleChange }></textarea>
                             <span id='text-counter' style={ styles.textcounter }>500 / { counter }</span>
                             <em id='counter-error' className='d-none text-danger'>Por favor, ingrese un máximo de 500 caracteres</em>
                         </div>

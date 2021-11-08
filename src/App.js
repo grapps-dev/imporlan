@@ -11,7 +11,7 @@ import { URL_LOCAL_BACKEND as LOCAL } from './const';
 import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
-import Load from './components/layouts/Load';
+import Load from './components/layouts/LoadComplete';
 
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
@@ -27,6 +27,7 @@ import BankTransfer from './components/pages/BankTransfer';
 import ContactUs from './components/pages/ContactUs';
 import SignUp from './components/pages/SignUp';
 import SignIn from './components/pages/SignIn';
+import Testimonys from './components/pages/Testimonys';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
@@ -108,7 +109,7 @@ function App() {
 
       sessionStorage.setItem('user', JSON.stringify(res.data.user));
       console.log(sessionStorage.getItem('user'))
-      window.location.href = 'http://localhost:3000/imporlan/dashboard/ ';
+      window.location.href = 'http://localhost:3000/imporlan/dashboard/new-testimony ';
       setLoading(false)
       $('body').css('oveerflowY', 'auto');
 
@@ -193,7 +194,9 @@ function App() {
 
                     <>
                       <Route exact path='/imporlan/dashboard/' component={ DashBoardIndex } />
-                      <Route exact path='/imporlan/dashboard/new-testimony' component={ FormTestimony } />
+                      <Route exact path='/imporlan/dashboard/new-testimony'>
+                          <Testimonys res={ handleRes } />
+                      </Route>
                     </>
 
                   :
@@ -223,6 +226,7 @@ function App() {
                     <Route exact path='/imporlan/sign-in'>
                       <SignIn login={ handleLogin } res={ handleRes } />
                     </Route>
+                    <Route exact path='/imporlan/testimonys' component={ Testimonys } />
                   </>
 
                 }
