@@ -84,6 +84,33 @@ function App() {
 
   }
 
+  const handleLoginAdmin = (data) => {
+
+    setToken('');
+    var formData = {
+
+      email : data.email,
+      password : data.password
+
+    }
+
+    axios.post(LOCAL + 'login', formData)
+    .then(res => {
+
+      setToken(res.data.token);
+      getAuthenticatedAdmin(res.data.token);
+      sessionStorage.setItem('token', res.data.token);
+      setLoading(true)
+
+    })
+    .catch(err => {
+
+      console.log(err.response.data);
+
+    })
+
+  }
+
   const getAuthenticatedUser = async(tkn) => {
 
     var data = JSON.stringify({
@@ -108,10 +135,62 @@ function App() {
     .then(res => {
 
       sessionStorage.setItem('user', JSON.stringify(res.data.user));
-      console.log(sessionStorage.getItem('user'))
-      window.location.href = 'http://localhost:3000/imporlan/dashboard/new-testimony ';
+      sessionStorage.setItem('profile', 'cliente');
+      window.location.href = 'http://localhost:3000/imporlan/dashboard/';
       setLoading(false)
-      $('body').css('oveerflowY', 'auto');
+      $('body').css('overflowY', 'auto');
+
+    })
+    .catch(err => {
+
+      console.log(err.response.data);
+
+    })
+
+  }
+
+  const getAuthenticatedAdmin = async(tkn) => {
+
+    var data = JSON.stringify({
+      "token": tkn
+    });
+    
+    var config = {
+      method: 'get',
+      url: 'http://api-imporlan.test/api/login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+
+    axios.get(config.url, {
+      headers : {
+         "Authorization" : `Bearer ${tkn} `
+     }
+    })
+    .then(res => {
+
+      var profile_id = parseInt(res.data.user.profile_id);
+      if(profile_id === 1){
+
+        sessionStorage.setItem('profile', 'admin')
+
+      } else if(profile_id === 3){
+
+        sessionStorage.setItem('profile', 'inspector');
+
+      } else if(profile_id === 4){
+
+        sessionStorage.setItem('profile', 'transportista');
+
+      }
+      /*sessionStorage.setItem('user', JSON.stringify(res.data.user));
+      console.log(sessionStorage.getItem('user'))
+      window.location.href = 'http://localhost:3000/imporlan/dashboard/';
+      setLoading(false)
+      $('body').css('overflowY', 'auto');*/
 
     })
     .catch(err => {
@@ -140,7 +219,7 @@ function App() {
 
     setInterval(() => {
 
-      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony'){
+      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in'){
 
         $('#content').css('position', 'relative');
         if(!$('#figureTop').length && !$('#figureBottom').length){
@@ -225,6 +304,9 @@ function App() {
                     </Route>
                     <Route exact path='/imporlan/sign-in'>
                       <SignIn login={ handleLogin } res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/jp/sign-in'>
+                      <SignIn login={ handleLoginAdmin } res={ handleRes } />
                     </Route>
                     <Route exact path='/imporlan/testimonys' component={ Testimonys } />
                   </>

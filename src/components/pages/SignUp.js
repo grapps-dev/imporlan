@@ -100,6 +100,7 @@ export default function SignUp(props) {
         formData.append('enterprise', data.enterprise);
         formData.append('post', data.post);
         formData.append('photo', data.photo);
+        formData.append('profile_id', 2);
         if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address && data.photo){
 
             if($('#terms').prop('checked')){
@@ -119,6 +120,7 @@ export default function SignUp(props) {
                         $('.form-control').removeClass('border-error');
                         removePhoto();
                         e.target.reset();
+                        window.location.href = 'http://localhost:3000/imporlan/sign-in';
 
                     }
                     
