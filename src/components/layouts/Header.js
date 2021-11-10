@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
@@ -10,9 +10,32 @@ import SignInIcon from '../../assets/img/sign-in-icon.png';
 
 export default function Navbar() {
 
+    const [ user, setUser ] = useState('');
+
+    const styles = {
+
+        header: {
+
+            display: typeof(user) === 'object' ? 'none' : 'block',
+            padding: "1rem 0px"
+
+        }
+
+    }
+
+    useEffect(() => {
+
+        if(sessionStorage.getItem('user')){
+
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+
+        }
+
+    }, [ setUser ])
+
     return(
 
-        <div className='py-3' id='header'>
+        <div style={ styles.header } id='header'>
                 <div className='col-12 d-block d-lg-flex align-items-center pr-0'>
                     <div className='col-lg-3'>
                         <a className='navbar-brand'>

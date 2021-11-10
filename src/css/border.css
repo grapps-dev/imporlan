@@ -75,3 +75,9 @@
     border-width: 3px !important;
 
 }
+
+.border-bottom-white{
+
+    border-bottom: 1px solid white;
+
+}

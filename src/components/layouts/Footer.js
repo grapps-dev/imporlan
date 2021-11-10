@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
@@ -11,9 +11,33 @@ import WebPay from '../../assets/img/webpay.png';
 
 export default function Footer() {
 
+    const [ user, setUser ] = useState('');
+
+    const styles = {
+
+        footer: {
+
+            display: typeof(user) === 'object' ? 'none' : 'block',
+            fontSize: '.8rem',
+            minHeight: '196px'
+
+        }
+
+    }
+
+    useEffect(() => {
+
+        if(sessionStorage.getItem('user')){
+
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+
+        }
+
+    }, [ setUser ])
+
     return(
 
-        <footer className='row mt-5 text-white' style={{ 'fontSize': '.8rem', 'minHeight': '196px' }}>
+        <footer className='row mt-5 text-white' style={ styles.footer }>
             <div className='col-md-6 col-lg-3'>
                 <div className='col-12' style={{ 'height': '100%' }}>
                     <div style={{ 'height': '20%' }}>

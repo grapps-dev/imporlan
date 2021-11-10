@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
@@ -12,6 +12,28 @@ import BagIcon from '../../assets/img/bag-icon.png';
 import Logotipo from '../../assets/img/logotipo.png';
 
 export default function Navbar() {
+
+    const [ user, setUser ] = useState('');
+
+    const styles = {
+
+        header: {
+
+            display: typeof(user) === 'object' ? 'none' : 'flex'
+
+        }
+
+    }
+
+    useEffect(() => {
+
+        if(sessionStorage.getItem('user')){
+
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+
+        }
+
+    }, [ setUser ])
 
     const showMenu = () => {
 
@@ -36,7 +58,7 @@ export default function Navbar() {
     return(
 
         <>
-            <nav className='navbar navbar-expand bg-light border-radius-top'>
+            <nav style={ styles.header } className='navbar navbar-expand bg-light border-radius-top'>
                 <ul className='navbar-nav mr-auto d-none d-md-flex'>
                     <li className='nav-item'>
                         <Link to='/imporlan/' className='nav-link'>
@@ -54,19 +76,19 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                    <Dropdown show={ show } onMouseEnter={ showDropdown } onMouseLeave={ hideDropdown }>
-                        <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
-                            Planes
-                        </Dropdown.Toggle>
+                        <Dropdown show={ show } onMouseEnter={ showDropdown } onMouseLeave={ hideDropdown }>
+                            <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
+                                Planes
+                            </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/imporlan/plans-usa">Planes de Búsqueda USA</Dropdown.Item>
-                            <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
-                            <Dropdown.Item href="/imporlan/sell-plans">Venta</Dropdown.Item>
-                            <Dropdown.Item href="/imporlan/inspection-plans">Servicios de Inspección y Compra</Dropdown.Item>
-                            <Dropdown.Item href="/imporlan/import-plans">Servicio de Importación</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/imporlan/plans-usa">Planes de Búsqueda USA</Dropdown.Item>
+                                <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
+                                <Dropdown.Item href="/imporlan/sell-plans">Venta</Dropdown.Item>
+                                <Dropdown.Item href="/imporlan/inspection-plans">Servicios de Inspección y Compra</Dropdown.Item>
+                                <Dropdown.Item href="/imporlan/import-plans">Servicio de Importación</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </li>
                     <li className='nav-item'>
                         <Link to='/imporlan/information' className='nav-link'>

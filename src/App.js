@@ -13,6 +13,8 @@ import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 import Load from './components/layouts/LoadComplete';
 
+import NavbarAdmin from './components/layouts/Admin/Navbar';
+
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
 import Buy from './components/pages/SaleShips';
@@ -87,6 +89,7 @@ function App() {
   const handleLoginAdmin = (data) => {
 
     setToken('');
+    sessionStorage.removeItem('token');
     var formData = {
 
       email : data.email,
@@ -105,7 +108,7 @@ function App() {
     })
     .catch(err => {
 
-      console.log(err.response.data);
+      handleRes('Usuario y/o contraseña incorrectos', 'red');
 
     })
 
@@ -137,8 +140,16 @@ function App() {
       sessionStorage.setItem('user', JSON.stringify(res.data.user));
       sessionStorage.setItem('profile', 'cliente');
       window.location.href = 'http://localhost:3000/imporlan/dashboard/';
-      setLoading(false)
-      $('body').css('overflowY', 'auto');
+      setTimeout(() => {
+
+        if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+          setLoading(false);
+          $('body').css('overflowY', 'auto');
+          refreshMain();
+        }
+
+      }, 1000)
+      
 
     })
     .catch(err => {
@@ -175,27 +186,56 @@ function App() {
       var profile_id = parseInt(res.data.user.profile_id);
       if(profile_id === 1){
 
-        sessionStorage.setItem('profile', 'admin')
+        sessionStorage.setItem('user', JSON.stringify(res.data.user));
+        sessionStorage.setItem('profile', 'admin');
+        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        setTimeout(() => {
+
+          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+            setLoading(false);
+            refreshMain();
+          }
+
+        }, 1000)
 
       } else if(profile_id === 3){
 
+        sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'inspector');
+        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        setTimeout(() => {
+
+          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+            setLoading(false);
+          }
+
+        }, 1000)
 
       } else if(profile_id === 4){
 
+        sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'transportista');
+        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        setTimeout(() => {
+
+          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+            setLoading(false);
+          }
+
+        }, 1000)
+
+      } else {
+
+        setLoading(false);
+        sessionStorage.clear();
+        handleRes('Usuario y/o contraseña incorrectos', 'red');
 
       }
-      /*sessionStorage.setItem('user', JSON.stringify(res.data.user));
-      console.log(sessionStorage.getItem('user'))
-      window.location.href = 'http://localhost:3000/imporlan/dashboard/';
-      setLoading(false)
-      $('body').css('overflowY', 'auto');*/
 
     })
     .catch(err => {
 
-      console.log(err.response.data);
+      handleRes('Usuario y/o contraseña incorrectos', 'red');
 
     })
 
@@ -212,6 +252,25 @@ function App() {
     }, 2500)
 
   }
+
+  const refreshMain = () => {
+
+    var user = JSON.parse(sessionStorage.getItem('user'));
+    if(typeof(user) === 'object'){
+
+      $('#main').removeClass('container');
+      $('#main').addClass('container-fluid');
+      $('#main').addClass('px-0');
+
+    }
+
+  }
+
+  useEffect(() => {
+
+    refreshMain();
+
+  }, [])
 
   var imgTop = `<img src=${ LoginFigureTop } style='position: absolute; right: 0; top: 0; max-width: 300px' id='figureTop' />`
   var imgBottom = `<img src=${ LoginFigureBottom } style='position: absolute; left: 0; bottom: 0; max-width: 300px' id='figureBottom'  />`
@@ -265,7 +324,10 @@ function App() {
           </div>
           <Router>
             <Header />
+            
             <Navbar />
+            <NavbarAdmin />
+
             <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
               <Switch>
                 {

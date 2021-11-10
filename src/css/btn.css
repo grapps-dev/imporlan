@@ -6,6 +6,12 @@
 
 }
 
+.dropdown button {
+
+    transform: scale(1) !important;
+
+}
+
 .btn-aqua{
 
     background-color: var(--blue-aqua);

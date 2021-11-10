@@ -40,7 +40,6 @@ export default function SignIn(props) {
 
         e.preventDefault();
         props.login(data);
-        e.target.reset();
 
     }
 
