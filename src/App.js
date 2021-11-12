@@ -14,6 +14,7 @@ import Footer from './components/layouts/Footer';
 import Load from './components/layouts/LoadComplete';
 
 import NavbarAdmin from './components/layouts/Admin/Navbar';
+import LateralMenu from './components/layouts/Admin/LateralMenu';
 
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
@@ -149,7 +150,16 @@ function App() {
         }
 
       }, 1000)
-      
+
+      var u = JSON.parse(sessionStorage.getItem('user'));
+      document.tidioIdentify = {
+
+        distinct_id: u.id,
+        email: u.email,
+        name: u.name,
+        phone: u.phone
+
+      }
 
     })
     .catch(err => {
@@ -255,12 +265,37 @@ function App() {
 
   const refreshMain = () => {
 
-    var user = JSON.parse(sessionStorage.getItem('user'));
-    if(typeof(user) === 'object'){
+    if(sessionStorage.getItem('user')){
 
-      $('#main').removeClass('container');
-      $('#main').addClass('container-fluid');
-      $('#main').addClass('px-0');
+      var user = JSON.parse(sessionStorage.getItem('user'));
+      console.log(typeof(user))
+      if(typeof(user) === 'object'){
+  
+        $('#main').removeClass('container');
+        $('#main').addClass('container-fluid');
+        $('#main').addClass('px-0');
+        $('#content').removeClass('container');
+        $('#content').removeClass('border-radius');
+        $('#content').removeClass('border-gray');
+        $('#content').addClass('container-fluid');
+        $('#content').addClass('px-0');
+        $('#content').css('marginLeft', '15vw');
+        $('#content').css('width', '85vw');
+        $('body').css('background', '#f5f6fa');
+  
+      } else {
+
+        $('#main').addClass('container');
+        $('#main').removeClass('container-fluid');
+        $('#main').removeClass('px-0');
+        $('#content').addClass('container');
+        $('#content').addClass('border-radius');
+        $('#content').addClass('border-gray');
+        $('#content').removeClass('container-fluid');
+        $('#content').removeClass('px-0');
+        $('body').css('background', '#A7BAFE');
+
+      }
 
     }
 
@@ -328,13 +363,15 @@ function App() {
             <Navbar />
             <NavbarAdmin />
 
+            <LateralMenu />
+
             <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
               <Switch>
                 {
-                  token ?
+                  sessionStorage.getItem('token') ?
 
                     <>
-                      <Route exact path='/imporlan/dashboard/' component={ DashBoardIndex } />
+                      <Route exact path='/imporlan/dashboard' component={ DashBoardIndex } />
                       <Route exact path='/imporlan/dashboard/new-testimony'>
                           <Testimonys res={ handleRes } />
                       </Route>

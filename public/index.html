@@ -27,20 +27,23 @@
         // other options go here, separated by commas
       });
     </script>
+
+    <script src='https://www.google.com/recaptcha/api.js?render=6LfGFSMbAAAAAHDJH8t9SrL5MyPHa7PpUJoWCQGx'> 
+    </script>
+    <script>
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LfGFSMbAAAAAHDJH8t9SrL5MyPHa7PpUJoWCQGx', {action: 'sends'})
+          .then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+          });
+        });
+    </script>
     
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script src="//code.tidio.co/gqunver0iinq0hdxb80sbzpp4dy6ww0q.js" async></script>
   </body>
 </html>

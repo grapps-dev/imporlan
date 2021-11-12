@@ -87,7 +87,9 @@ export default function SignUp(props) {
         $('.form-control').removeClass('border-error');
         setBtnText('');
         $('.spinner-border').removeClass('d-none');
+        var captcha_token = $('#recaptchaResponse').val();
 
+        console.log(captcha_token);
         var formData = new FormData();
         formData.append('name', data.name);
         formData.append('secondName', data.secondName);
@@ -101,6 +103,7 @@ export default function SignUp(props) {
         formData.append('post', data.post);
         formData.append('photo', data.photo);
         formData.append('profile_id', 2);
+        formData.append('recaptcha_response', captcha_token);
         if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address && data.photo){
 
             if($('#terms').prop('checked')){
@@ -117,11 +120,12 @@ export default function SignUp(props) {
 
                         props.res(res.data, 'green');
                         setError('')
-                        $('.form-control').removeClass('border-error');
+                        /*$('.form-control').removeClass('border-error');
                         removePhoto();
                         e.target.reset();
                         window.location.href = 'http://localhost:3000/imporlan/sign-in';
-
+                        */
+                       console.log(res.data);
                     }
                     
                     setBtnText('Registrarse');
@@ -182,6 +186,7 @@ export default function SignUp(props) {
                         </h2>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
+                        <input type='hidden' name='recaptcha_response' id='recaptchaResponse' />
                         <div className='form-group col-12 col-md-6'>
                             <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange }  />
                         </div>
