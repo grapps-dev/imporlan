@@ -34,6 +34,7 @@ import Testimonys from './components/pages/Testimonys';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
+import UpdateProfile from './components/pages/Dashboard/FormUpdateProfile';
 
 import LoginFigureTop from './assets/img/login-figure-top.png';
 import LoginFigureBottom from './assets/img/login-figure-bottom.png';
@@ -277,11 +278,13 @@ function App() {
         $('#content').removeClass('container');
         $('#content').removeClass('border-radius');
         $('#content').removeClass('border-gray');
+        $('#content').removeClass('bg-main-white');
         $('#content').addClass('container-fluid');
+        $('#content').addClass('text-white');
         $('#content').addClass('px-0');
-        $('#content').css('marginLeft', '15vw');
+        $('#content').css('marginLeft', '14vw');
         $('#content').css('width', '85vw');
-        $('body').css('background', '#f5f6fa');
+        //$('body').css('background', '#f5f6fa');
   
       } else {
 
@@ -291,8 +294,12 @@ function App() {
         $('#content').addClass('container');
         $('#content').addClass('border-radius');
         $('#content').addClass('border-gray');
+        $('#content').addClass('bg-main-white');
         $('#content').removeClass('container-fluid');
         $('#content').removeClass('px-0');
+        $('#content').removeClass('text-white');
+        $('#content').css('marginLeft', 'auto');
+        $('#content').css('width', '100%');
         $('body').css('background', '#A7BAFE');
 
       }
@@ -374,6 +381,9 @@ function App() {
                       <Route exact path='/imporlan/dashboard' component={ DashBoardIndex } />
                       <Route exact path='/imporlan/dashboard/new-testimony'>
                           <Testimonys res={ handleRes } />
+                      </Route>
+                      <Route exact path='/imporlan/dashboard/update-profile'>
+                          <UpdateProfile res={ handleRes } />
                       </Route>
                     </>
 

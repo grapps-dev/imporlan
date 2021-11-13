@@ -41,7 +41,7 @@ export default function LateralMenu() {
 
     return(
 
-        <div style={ styles.menu } className='bg-blue-primary'>
+        <div style={ styles.menu } className='bg-blue-primary' id='lateralMenu'>
             <div className='col-12 px-0'>
                 <div className='col-12 px-0 justify-content-center'>
                     <img src={ Logotipo } className='img-fluid' alt='ImporLan' />

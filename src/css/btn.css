@@ -1,6 +1,6 @@
 @import 'root.css';
 
-.btn:hover{
+.navbar .btn:hover{
 
     transform: scale(1.1);
 

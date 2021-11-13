@@ -153,3 +153,19 @@
     }
 
 }
+
+@media (max-width: 1023px){
+
+    #lateralMenu{
+
+        display: none !important;
+
+    }
+
+    #content{
+
+        margin-left: 0 !important;
+
+    }
+
+}
