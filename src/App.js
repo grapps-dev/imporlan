@@ -35,6 +35,7 @@ import Testimonys from './components/pages/Testimonys';
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
 import UpdateProfile from './components/pages/Dashboard/FormUpdateProfile';
+import Support from './components/pages/Dashboard/Support';
 
 import LoginFigureTop from './assets/img/login-figure-top.png';
 import LoginFigureBottom from './assets/img/login-figure-bottom.png';
@@ -385,6 +386,7 @@ function App() {
                       <Route exact path='/imporlan/dashboard/update-profile'>
                           <UpdateProfile res={ handleRes } />
                       </Route>
+                      <Route exact path='/imporlan/dashboard/support' component={ Support } />
                     </>
 
                   :

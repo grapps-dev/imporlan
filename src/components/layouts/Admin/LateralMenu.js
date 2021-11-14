@@ -47,20 +47,35 @@ export default function LateralMenu() {
                     <img src={ Logotipo } className='img-fluid' alt='ImporLan' />
                 </div>
                 <div className='col-12 px-0 text-center' style={{ 'marginTop': '5rem' }}>
-                    <Link className='d-block p-3'>
+                    <Link className='d-block px-1 py-3'>
                         <img src={ WhiteBoat } className='menu-icon' />
+                        <strong className='d-block text-white'>
+                            Inicio
+                        </strong>
                     </Link>
-                    <Link className='d-block p-3'>
+                    <Link className='d-block p-1 py-3'>
                         <img src={ WhiteShopingBag } className='menu-icon' />
+                        <strong className='d-block text-white'>
+                            Comprar
+                        </strong>
                     </Link>
-                    <Link className='d-block p-3'>
+                    <Link className='d-block p-1 py-3'>
                         <img src={ WhiteTrade } className='menu-icon' />
+                        <strong className='d-block text-white'>
+                            Pagos
+                        </strong>
                     </Link>
-                    <Link className='d-block p-3'>
+                    <Link className='d-block p-1 py-3'>
                         <img src={ WhiteSelection } className='menu-icon' />
+                        <strong className='d-block text-white'>
+                            Planes
+                        </strong>
                     </Link>
-                    <Link className='d-block p-3'>
+                    <Link className='d-block p-1 py-3' to='/imporlan/dashboard/support'>
                         <img src={ WhiteSupport } className='menu-icon' />
+                        <strong className='d-block text-white'>
+                            Soporte
+                        </strong>
                     </Link>
                 </div>
             </div>

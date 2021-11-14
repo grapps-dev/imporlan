@@ -188,15 +188,15 @@ export default function SignUp(props) {
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <input type='hidden' name='recaptcha_response' id='recaptchaResponse' />
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='text' className='form-control' id='name' placeholder='Nombre *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='secondName' placeholder='Apellidos *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='secondName' placeholder='Apellido *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } required  />
                         </div>
                         <div className='form-group col-12 col-md-6'>
                             <input type='password' className='form-control' id='pass' placeholder='Contraseña *' style={ styles.inputs } onChange={ handleChange } required />
@@ -204,7 +204,7 @@ export default function SignUp(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } required  />
                         </div>
                         <div className='form-group col-12 col-md-6'>
                             <div className='select-container'>
@@ -220,7 +220,7 @@ export default function SignUp(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='address' placeholder='Dirección 1 *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='text' className='form-control' id='address' placeholder='Dirección 1 *' style={ styles.inputs } onChange={ handleChange } required  />
                         </div>
                         <div className='form-group col-12 col-md-6'>
                             <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } />
@@ -228,15 +228,15 @@ export default function SignUp(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='enterprise' placeholder='Empresa en la que trabaja *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='text' className='form-control' id='enterprise' placeholder='Empresa en la que trabaja *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='post' placeholder='Cargo que ocupa *' style={ styles.inputs } onChange={ handleChange } />
+                            <input type='text' className='form-control' id='post' placeholder='Cargo que ocupa *' style={ styles.inputs } onChange={ handleChange } required />
                         </div>
                     </div>
                     <div className='col-12 d-lg-flex px-0 px-md-3 align-items-center'>
                         <div className='form-group container-file col-12 col-lg-6' style={{ 'zIndex': 9999 }}>
-                            <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG }  />
+                            <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG } />
                         </div>
                         <div className='form-group col-12 col-lg-6 d-inline-block align-items-center'>
                             <button className='btn d-none' id='removeButton' style={{ 'position': 'absolute' }} onClick={ removePhoto }>
