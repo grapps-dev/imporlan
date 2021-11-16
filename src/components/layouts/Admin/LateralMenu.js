@@ -47,7 +47,7 @@ export default function LateralMenu() {
                     <img src={ Logotipo } className='img-fluid' alt='ImporLan' />
                 </div>
                 <div className='col-12 px-0 text-center' style={{ 'marginTop': '5rem' }}>
-                    <Link className='d-block px-1 py-3'>
+                    <Link className='d-block px-1 py-3' to='/imporlan/dashboard'>
                         <img src={ WhiteBoat } className='menu-icon' />
                         <strong className='d-block text-white'>
                             Inicio

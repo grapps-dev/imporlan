@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css';
+
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 import { URL_LOCAL_BACKEND as LOCAL } from './const';
 
@@ -15,6 +18,7 @@ import Load from './components/layouts/LoadComplete';
 
 import NavbarAdmin from './components/layouts/Admin/Navbar';
 import LateralMenu from './components/layouts/Admin/LateralMenu';
+import MenuMobile from './components/layouts/Admin/MenuMobile';
 
 import Index from './components/pages/Index';
 import Information from './components/pages/Information';
@@ -57,6 +61,19 @@ function App() {
       var topScroll = $(window).scrollTop();  
       var windowHeight = $(window).height();
       $('#pageSize').css('width', (topScroll / (documentHeight - windowHeight)) * 100 + '%')
+
+      // MOSTRAR BOTÓN PARA VOLVER ARRIBA
+      if(topScroll > 0) {
+
+        $('#topButton').removeClass('d-none');
+        $('#topButton').addClass('d-flex');
+
+      } else {
+
+        $('#topButton').addClass('d-none');
+        $('#topButton').removeClass('d-flex');
+
+      }
 
     })
 
@@ -270,7 +287,6 @@ function App() {
     if(sessionStorage.getItem('user')){
 
       var user = JSON.parse(sessionStorage.getItem('user'));
-      console.log(typeof(user))
       if(typeof(user) === 'object'){
   
         $('#main').removeClass('container');
@@ -306,6 +322,12 @@ function App() {
       }
 
     }
+
+  }
+
+  const goUp = () => {
+
+    window.scrollTo(0, 0);
 
   }
 
@@ -356,7 +378,7 @@ function App() {
         <div id='main' className='container pb-4'>
           { res ? 
 
-            <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'position': 'fixed', 'top': '20px', "zIndex": 99999, 'padding': '10px 20px' }}>{ res }</div>
+            <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'left': '5rem', 'position': 'fixed', 'top': '20px', "zIndex": 999999999999, 'padding': '10px 20px' }}>{ res }</div>
 
             :
 
@@ -386,7 +408,9 @@ function App() {
                       <Route exact path='/imporlan/dashboard/update-profile'>
                           <UpdateProfile res={ handleRes } />
                       </Route>
-                      <Route exact path='/imporlan/dashboard/support' component={ Support } />
+                      <Route exact path='/imporlan/dashboard/support'>
+                        <Support res={ handleRes } />
+                      </Route>
                     </>
 
                   :
@@ -424,7 +448,11 @@ function App() {
 
                 }
               </Switch>
+              <button className='bg-main-white border-0 d-none align-items-center justify-content-center text-blue-primary' style={{ 'height': '40px', 'position': 'fixed', 'WebkitTransform': 'rotate(45deg)', 'top': '8rem', 'right': '4rem', 'width': '40px', 'zIndex': 99999 }} onClick={ goUp } id='topButton'>
+                <FontAwesomeIcon style={{ 'WebkitTransform': 'rotate(-45deg)' }} icon={ faArrowUp } />
+              </button>
             </div>
+            <MenuMobile />
             <Footer />
           </Router>
         </div>  

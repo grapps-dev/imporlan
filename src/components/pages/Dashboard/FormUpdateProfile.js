@@ -19,7 +19,7 @@ export default function UpdateProfile(props) {
     const [ countries, setCountries ] = useState(countriesJSON);
     const [ error, setError ] = useState('');
     const [ data, setData ] = useState({});
-    const [ btnText, setBtnText ] = useState('Registrarse');
+    const [ btnText, setBtnText ] = useState('Actualizar');
     const [ user, setUser ] = useState({});
 
     const styles = {
@@ -49,7 +49,13 @@ export default function UpdateProfile(props) {
             name: split[0],
             secondName: split[1],
             email: data.email,
-            photo: data.photo
+            photo: data.photo,
+            phone: data.phone,
+            address: data.address,
+            secondAddress: data.secondAddress,
+            enterprise: data.enterprise,
+            post: data.post,
+            country: data.country
         });
 
     }, [ setUser ])
@@ -139,7 +145,7 @@ export default function UpdateProfile(props) {
                         console.log(res.data);
                     }
                     
-                    setBtnText('Registrarse');
+                    setBtnText('Actualizar');
                     $('.spinner-border').addClass('d-none');
 
                 })
@@ -148,7 +154,7 @@ export default function UpdateProfile(props) {
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
                     e.target.reset();
                     console.log(error.response.data);
-                    setBtnText('Registrarse');
+                    setBtnText('Actualizar');
                     $('.spinner-border').addClass('d-none');
 
                 })
@@ -156,7 +162,7 @@ export default function UpdateProfile(props) {
 
                 props.res('Debe aceptar las Políticas de Privacidad para continuar', 'red');
                 $('#terms').addClass('border-error');
-                setBtnText('Registrarse');
+                setBtnText('Actualizar');
                 $('.spinner-border').addClass('d-none');
 
             }
@@ -166,7 +172,7 @@ export default function UpdateProfile(props) {
             props.res('Todos los campos son obligatorios', 'red');
             $('.form-control').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
             setError('** Todos los campos son obligatorios **');
-            setBtnText('Registrarse');
+            setBtnText('Actualizar');
             $('.spinner-border').addClass('d-none');
 
         }
@@ -208,7 +214,7 @@ export default function UpdateProfile(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } value={ user.email } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
                             <input type='password' className='form-control' id='pass' placeholder='Contraseña *' style={ styles.inputs } onChange={ handleChange } required />
@@ -216,11 +222,11 @@ export default function UpdateProfile(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } value={ user.phone } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
                             <div className='select-container'>
-                                <select className='form-control' id='country' style={ styles.inputs } onChange={ handleChange } required>
+                                <select className='form-control' id='country' style={ styles.inputs } onChange={ handleChange } value={ user.country } required>
                                     <option value=''>País *</option>
                                     {
                                         countries.map(country => <option hey={ country.code } value={ country.name_es }>{ country.name_es }</option>)
@@ -232,18 +238,18 @@ export default function UpdateProfile(props) {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3' style={{ 'zIndex': 9999 }}>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='address' placeholder='Dirección 1 *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='address' placeholder='Dirección 1 *' style={ styles.inputs } onChange={ handleChange } value={ user.address } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } value={ user.secondAddress } required />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3' style={{ 'zIndex': 9999 }}>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='enterprise' placeholder='Empresa en la que trabaja *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='enterprise' placeholder='Empresa en la que trabaja *' style={ styles.inputs } onChange={ handleChange } value={ user.enterprise } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='post' placeholder='Cargo que ocupa *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='post' placeholder='Cargo que ocupa *' style={ styles.inputs } onChange={ handleChange } value={ user.post } required />
                         </div>
                     </div>
                     <div className='col-12 d-lg-flex px-0 px-md-3 align-items-center'>

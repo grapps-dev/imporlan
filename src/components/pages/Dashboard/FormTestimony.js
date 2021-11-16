@@ -5,7 +5,10 @@ import axios from 'axios';
 
 import { URL_LOCAL_BACKEND as URL } from '../../../const';
 
-const Formtestimony = () => {
+import LoginFigureTop from '../../../assets/img/login-figure-top.png';
+import LoginFigureBottom from '../../../assets/img/login-figure-bottom.png';
+
+const Formtestimony = (props) => {
 
     const [ counter, setCounter ] = useState(0);
     const [ data, setData ] = useState({});
@@ -58,12 +61,20 @@ const Formtestimony = () => {
         await axios.post(URL + 'testimonys', formData)
         .then(res => {
 
-            console.log(res.data);
+            if(res.data === 'exist'){
+
+                props.res('Usted ya tiene un testimonio publicado', 'red');
+
+            } else {
+
+                props.res(res.data, 'green')
+
+            }
 
         })
         .catch(err => {
 
-            console.log(err.response);
+            console.log(err);
 
         })
 
@@ -102,6 +113,7 @@ const Formtestimony = () => {
 
     return (
         <div className='row pb-5'>
+            <img src={ LoginFigureTop } style={{ 'position': 'absolute', 'right': '0px', 'top': '0px', 'maxWidth': '300px' }} />
             <div className='col-12 col-md-10 mx-auto mt-5'>
                 <form className='py-4 px-4' onSubmit={ handleSubmit }>
                     <div className='col-12 px-5 text-center my-3'>
@@ -141,6 +153,7 @@ const Formtestimony = () => {
                     </div>
                 </form>
             </div>
+            <img src={ LoginFigureBottom } style={{ 'position': 'absolute', 'left': '0', 'bottom': '0', 'maxWidth': '300px', 'zIndex': 9     }}  />
         </div>
     );
 }

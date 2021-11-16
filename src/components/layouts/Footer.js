@@ -17,7 +17,7 @@ export default function Footer() {
 
         footer: {
 
-            display: typeof(user) === 'object' ? 'none' : 'block',
+            display: typeof(user) === 'object' ? 'none' : 'flex',
             fontSize: '.8rem',
             minHeight: '196px'
 

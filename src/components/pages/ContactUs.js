@@ -11,9 +11,24 @@ const ContactUs = (props) => {
     const [ data, setData ] = useState({});
     const [ error, setError ] = useState('');
     const [ btnText, setBtnText ] = useState('Enviar');
+    const [ user, setUser ] = useState({});
 
     useEffect(() => {
         window.scrollTo(0, 0)
+
+        if(sessionStorage.getItem('user')){
+
+            var data = JSON.parse(sessionStorage.getItem('user'));
+            var split = data.name.split(' ');
+            setUser({
+                name: split[0],
+                secondName: split[1],
+                email: data.email,
+                phone: data.phone,
+            });
+
+        }
+
     }, [])
 
     const styles = {
@@ -144,18 +159,18 @@ const ContactUs = (props) => {
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange }  />
+                            <input type='text' className='form-control' id='name' placeholder='Nombres *' style={ styles.inputs } onChange={ handleChange } value={ user.name } required readOnly  />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='secondName' placeholder='Apellidos *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='text' className='form-control' id='secondName' placeholder='Apellidos *' style={ styles.inputs } onChange={ handleChange } value={ user.secondName } required readOnly />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex mt-3 px-0 px-md-3'>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } value={ user.email } required readOnly />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='number' step='1' className='form-control' id='phone' placeholder='Teléfono *' style={ styles.inputs } onChange={ handleChange } value={ user.phone } required readOnly />
                         </div>
                     </div>
                     <div className='col-12 d-flex mt-3 px-0 px-md-3'>

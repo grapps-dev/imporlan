@@ -12,6 +12,12 @@
 
 }
 
+button:hover{
+
+    cursor: pointer;
+
+}
+
 .btn-aqua{
 
     background-color: var(--blue-aqua);
