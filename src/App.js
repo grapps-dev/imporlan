@@ -35,6 +35,8 @@ import ContactUs from './components/pages/ContactUs';
 import SignUp from './components/pages/SignUp';
 import SignIn from './components/pages/SignIn';
 import Testimonys from './components/pages/Testimonys';
+import LostPass from './components/pages/LostPass';
+import NewPass from './components/pages/NewPass';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
@@ -343,7 +345,7 @@ function App() {
 
     setInterval(() => {
 
-      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in'){
+      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in' || window.location.pathname === '/imporlan/lost-pass'){
 
         $('#content').css('position', 'relative');
         if(!$('#figureTop').length && !$('#figureBottom').length){
@@ -444,6 +446,12 @@ function App() {
                       <SignIn login={ handleLoginAdmin } res={ handleRes } />
                     </Route>
                     <Route exact path='/imporlan/testimonys' component={ Testimonys } />
+                    <Route exact path='/imporlan/lost-pass'>
+                      <LostPass res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/new-pass/:token'>
+                      <NewPass res={ handleRes } />
+                    </Route>
                   </>
 
                 }
