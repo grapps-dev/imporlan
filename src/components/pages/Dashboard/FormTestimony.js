@@ -111,6 +111,8 @@ const Formtestimony = (props) => {
 
     }
 
+    $('#content').css('position', 'relative');
+
     return (
         <div className='row pb-5'>
             <img src={ LoginFigureTop } style={{ 'position': 'absolute', 'right': '0px', 'top': '0px', 'maxWidth': '300px' }} />

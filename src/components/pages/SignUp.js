@@ -89,7 +89,6 @@ export default function SignUp(props) {
         $('.spinner-border').removeClass('d-none');
         var captcha_token = $('#recaptchaResponse').val();
 
-        console.log(captcha_token);
         var formData = new FormData();
         formData.append('name', data.name);
         formData.append('secondName', data.secondName);

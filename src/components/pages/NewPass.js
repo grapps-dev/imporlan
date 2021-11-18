@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import $ from 'jquery';
+import axios from 'axios';
 
-export default function NewPass(props) {
+import LoginFigureTop from '../../assets/img/login-figure-top.png';
+import LoginFigureBottom from '../../assets/img/login-figure-bottom.png';
+
+import { URL_LOCAL_BACKEND as URL } from '../../const';
+
+export default function NewPassForm(props) {
 
     const [ data, setData ] = useState({});
-
-    const { token } = useParams();
+    const [ btnText, setBtnText ] = useState('Guardar');
 
     const styles = {
 
@@ -15,47 +20,76 @@ export default function NewPass(props) {
             border: "2px solid #A9BECE",
             borderRadius: "50px"
 
+        },
+        form: {
+
+            display: props.display
+
         }
 
     }
 
-    const handleSubmit = async(e) => {}
+    const handleSubmit = async(e) => {
 
-    const handleChange = e => {}
+        e.preventDefault();
+        $('.form-control').removeClass('border-error');
+        setBtnText('');
+        $('.spinner-border').removeClass('d-none');
 
-    useEffect(() => {
+        var formData = {
 
-        console.log(token);
+            pass: data.newPass,
+            token: props.tokenPass
 
-    }, []);
+        }
+        await axios.put(URL + 'update-pass', formData)
+        .then(res => {  
+
+            props.res(res.data, 'green');
+            setTimeout(() => {
+
+                window.location.href = 'http://localhost:3000/imporlan/sign-in';
+
+            }, 2500)
+
+        })
+
+    }
+
+    const handleChange = e => {
+
+        setData({
+
+            ...data,
+            [ e.target.id ] : e.target.value
+
+        })
+
+    }
 
     return(
 
-        <div className='row pb-5'>
-            <div className='col-12 col-md-10 mx-auto mt-5'>
-                <form className='col-12 col-md-8 mx-auto py-4 px-4' onSubmit={ handleSubmit }>
+                <form className='col-12 col-md-8 mx-auto py-4 px-4' onSubmit={ handleSubmit } style={ styles.form }>
                     <div className='col-12 text-center mb-3'>
                         <h2 className='text-gradient-blue'>
-                            Recuperar Contraseña
+                            Nueva Contraseña
                         </h2>
                         <strong>
-                            ¿Has olvidado tu contraseña? ¡No te preocupes!
-                            <br />
-                            En 2 sencillos pasos podrás recuperarla
+                            Ingresa tu nueva contraseña
                         </strong>
                     </div>
                     <div className='col-10  mx-auto form-group mt-5'>
-                        <input type='email' id='email' style={ styles.inputs } className='form-control' placeholder='Escribe tu correo electrónico...' onChange={ handleChange } required />
+                        <input type='password' id='newPass' style={ styles.inputs } className='form-control' placeholder='Nueva contraseña' onChange={ handleChange } required />
                     </div>
                     <div className='col-12 d-flex justify-content-end mt-3'>
-                        <button className='btn text-gray' style={ styles.inputs }>
-                            Solicitar
+                        <button className='btn text-gray d-flex align-items-center' type='submit' style={ styles.inputs }>
+                            <span>{ btnText }</span>
+                            <div className='spinner-border d-none'>
+                                <span className='sr-only'>Cargando...</span>
+                            </div>
                         </button>
                     </div>
                 </form>
-            </div>
-        </div>
-
     )
 
 }
