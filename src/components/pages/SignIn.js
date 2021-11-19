@@ -78,6 +78,9 @@ export default function SignIn(props) {
                     <div className='col-12 px-0 px-md-3 text-center mt-3 text-gray'>
                         ¿Ha olvidado su contraseña? <Link to='/imporlan/lost-pass' className='text-gray underline'>Recupérela aquí</Link>
                     </div>
+                    <div className='col-12 px-0 px-md-3 text-center mt-1 text-gray'>
+                        ¿No tienes una cuenta aún? <Link to='/imporlan/sign-up' className='text-gray underline'>Regístrate aquí</Link>
+                    </div>
                 </form>
             </div>
         </div>

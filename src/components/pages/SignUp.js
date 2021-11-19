@@ -65,7 +65,6 @@ export default function SignUp(props) {
 
     const handleChangeIMG = e => {
 
-        console.log('funcionando');
         renderIMG(e.target);
 
     }
@@ -100,10 +99,10 @@ export default function SignUp(props) {
         formData.append('secondAddress', data.secondAddress ? data.secondAddress : '');
         formData.append('enterprise', data.enterprise);
         formData.append('post', data.post);
-        formData.append('photo', data.photo);
+        formData.append('photo', data.photo ? data.photo : 'icon-default.jpg');
         formData.append('profile_id', 2);
         formData.append('recaptcha_response', captcha_token);
-        if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address && data.photo){
+        if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address){
 
             if($('#terms').prop('checked')){
                 axios.post(LOCAL + 'users', formData, {headers:{"Content-Type" : "multipart/form-data"}})
@@ -119,12 +118,11 @@ export default function SignUp(props) {
 
                         props.res(res.data, 'green');
                         setError('')
-                        /*$('.form-control').removeClass('border-error');
+                        $('.form-control').removeClass('border-error');
                         removePhoto();
                         e.target.reset();
                         window.location.href = 'http://localhost:3000/imporlan/sign-in';
-                        */
-                       console.log(res.data);
+                        
                     }
                     
                     setBtnText('Registrarse');

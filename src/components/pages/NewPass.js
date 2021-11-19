@@ -78,10 +78,10 @@ export default function NewPassForm(props) {
                             Ingresa tu nueva contraseña
                         </strong>
                     </div>
-                    <div className='col-10  mx-auto form-group mt-5'>
+                    <div className='col-10 mx-auto form-group mt-5'>
                         <input type='password' id='newPass' style={ styles.inputs } className='form-control' placeholder='Nueva contraseña' onChange={ handleChange } required />
                     </div>
-                    <div className='col-12 d-flex justify-content-end mt-3'>
+                    <div className='col-10 d-flex mx-auto justify-content-end mt-3'>
                         <button className='btn text-gray d-flex align-items-center' type='submit' style={ styles.inputs }>
                             <span>{ btnText }</span>
                             <div className='spinner-border d-none'>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-import { faDribbble, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import Logotipo from '../../assets/img/logotipo.png';
 import SignUpIcon from '../../assets/img/sign-up-icon.png';
@@ -50,8 +50,10 @@ export default function Navbar() {
                             <div className='border-circle text-white' style={{ 'background': '#31A8FF 25%'}}>
                                 <a href='https://www.instagram.com/p/BsyWlNKnVA0/?hl=es' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={ faTwitter } /></a>
                             </div>
-                            <div className='border-circle text-white' style={{ 'background': '#EB509140 25%'}}>
-                                <FontAwesomeIcon icon={ faDribbble } />
+                            <div className='border-circle text-white' style={{ 'background': '#C4302B 25%'}}>
+                                <a href='https://www.youtube.com/channel/UCQtEc2D7dxCKF9X8LeCYsPg' rel='noreferrer' target='_blank'>
+                                    <FontAwesomeIcon icon={ faYoutube } />
+                                </a>
                             </div>
                         </div>
                         <div className='col-4 col-md-3'>

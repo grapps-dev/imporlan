@@ -36,6 +36,7 @@ import SignUp from './components/pages/SignUp';
 import SignIn from './components/pages/SignIn';
 import Testimonys from './components/pages/Testimonys';
 import LostPass from './components/pages/LostPass';
+import DeleteFakeUser from './components/pages/DeleteFakeUser';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
@@ -451,6 +452,9 @@ function App() {
                     </Route>
                     <Route exact path='/imporlan/new-pass/:token'>
                       <LostPass res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/delete-fake-user/:email'>
+                      <DeleteFakeUser res={ handleRes } />
                     </Route>
                   </>
 
