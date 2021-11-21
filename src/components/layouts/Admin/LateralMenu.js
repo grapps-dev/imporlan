@@ -65,7 +65,7 @@ export default function LateralMenu() {
                             Pagos
                         </strong>
                     </Link>
-                    <Link className='d-block p-1 py-3'>
+                    <Link className='d-block p-1 py-3' to='/imporlan/dashboard/plans'>
                         <img src={ WhiteSelection } className='menu-icon' />
                         <strong className='d-block text-white'>
                             Planes

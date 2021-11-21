@@ -46,6 +46,7 @@ export default function UpdateProfile(props) {
         var data = JSON.parse(sessionStorage.getItem('user'));
         var split = data.name.split(' ');
         setUser({
+            id: data.id,
             name: split[0],
             secondName: split[1],
             email: data.email,
@@ -111,39 +112,26 @@ export default function UpdateProfile(props) {
         $('.spinner-border').removeClass('d-none');
         var captcha_token = $('#recaptchaResponse').val();
 
-        console.log(captcha_token);
         var formData = new FormData();
-        formData.append('name', data.name);
-        formData.append('secondName', data.secondName);
-        formData.append('email', data.email);
-        formData.append('phone', data.phone);
-        formData.append('pass', data.pass);
-        formData.append('country', data.country);
-        formData.append('address', data.address);
-        formData.append('secondAddress', data.secondAddress ? data.secondAddress : '');
-        formData.append('enterprise', data.enterprise);
-        formData.append('post', data.post);
-        formData.append('photo', data.photo);
+        formData.append('id', user.id);
+        formData.append('name', data.name ? data.name : user.name);
+        formData.append('secondName', data.secondName ? data.secondName : user.secondName);
+        formData.append('email', data.email ? data.email : user.email);
+        formData.append('phone', data.phone ? data.phone : user.phone);
+        formData.append('pass', data.pass ? data.pass : user.pass);
+        formData.append('country', data.country ? data.country : user.country);
+        formData.append('address', data.address ? data.address : user.address);
+        formData.append('secondAddress', data.secondAddress ? data.secondAddress : user.secondAddress);
+        formData.append('enterprise', data.enterprise ? data.enterprise : user.enterprise);
+        formData.append('post', data.post ? data.post : user.post);
+        formData.append('photo', data.photo ? data.photo : user.photo);
         formData.append('profile_id', 2);
         formData.append('recaptcha_response', captcha_token);
-        if(data.name && data.secondName && data.email && data.phone && data.pass && data.country && data.address && data.photo){
 
-            if($('#terms').prop('checked')){
-                axios.post(LOCAL + 'users', formData, {headers:{"Content-Type" : "multipart/form-data"}})
+                axios.put(LOCAL + 'users/' + user.id, formData, {headers:{"Content-Type" : "multipart/form-data"}})
                 .then(res => {
 
-                    if(res.data === 'email_error'){
-
-                        props.res('El correo electrónico ya se encuentra registrado', 'red');
-                        setError('** La cuenta de correo electrónico está registrada. Verifique e intente nuevamente. **');
-                        $('#email').addClass('border-error');
-
-                    } else {
-
-                        props.res(res.data, 'green');
-                        setError('')
-                        console.log(res.data);
-                    }
+                    console.log(res.data);
                     
                     setBtnText('Actualizar');
                     $('.spinner-border').addClass('d-none');
@@ -158,24 +146,6 @@ export default function UpdateProfile(props) {
                     $('.spinner-border').addClass('d-none');
 
                 })
-            } else {
-
-                props.res('Debe aceptar las Políticas de Privacidad para continuar', 'red');
-                $('#terms').addClass('border-error');
-                setBtnText('Actualizar');
-                $('.spinner-border').addClass('d-none');
-
-            }
-
-        } else {
-
-            props.res('Todos los campos son obligatorios', 'red');
-            $('.form-control').each((i, el) => el.value === '' ? $('#' + el.id).addClass('border-error') : '');
-            setError('** Todos los campos son obligatorios **');
-            setBtnText('Actualizar');
-            $('.spinner-border').addClass('d-none');
-
-        }
 
     }
 
@@ -217,7 +187,7 @@ export default function UpdateProfile(props) {
                             <input type='email' className='form-control' id='email' placeholder='Correo Electrónico *' style={ styles.inputs } onChange={ handleChange } value={ user.email } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='password' className='form-control' id='pass' placeholder='Contraseña *' style={ styles.inputs } onChange={ handleChange } required />
+                            <input type='password' className='form-control' id='pass' placeholder='Contraseña *' style={ styles.inputs } onChange={ handleChange } />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3'>
@@ -241,7 +211,7 @@ export default function UpdateProfile(props) {
                             <input type='text' className='form-control' id='address' placeholder='Dirección 1 *' style={ styles.inputs } onChange={ handleChange } value={ user.address } required />
                         </div>
                         <div className='form-group col-12 col-md-6'>
-                            <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } value={ user.secondAddress } required />
+                            <input type='text' className='form-control' id='secondAddress' placeholder='Dirección 2' style={ styles.inputs } onChange={ handleChange } value={ user.secondAddress } />
                         </div>
                     </div>
                     <div className='col-12 d-md-flex px-0 px-md-3' style={{ 'zIndex': 9999 }}>
@@ -254,7 +224,7 @@ export default function UpdateProfile(props) {
                     </div>
                     <div className='col-12 d-lg-flex px-0 px-md-3 align-items-center'>
                         <div className='form-group container-file col-12 col-lg-6' style={{ 'zIndex': 999999 }}>
-                            <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG } required  />
+                            <input type='file' className='form-control' id='photo' placeholder='Foto de Perfil *' style={ styles.inputs } onChange={ handleChangeIMG }  />
                         </div>
                         <div className='form-group col-12 col-lg-6 d-inline-block align-items-center'>
                             <button className='btn d-none' id='removeButton' style={{ 'position': 'absolute' }} onClick={ removePhoto }>

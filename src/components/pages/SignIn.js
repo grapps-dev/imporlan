@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
 
@@ -7,6 +7,8 @@ export default function SignIn(props) {
 
     const [ error, setError ] = useState('');
     const [ data, setData ] = useState({});
+
+    const { redirect } = useParams();
 
     const styles = {
 
@@ -43,6 +45,24 @@ export default function SignIn(props) {
 
     }
 
+    useEffect(() => {
+
+        if(redirect){
+
+            $('#forceSession').removeClass('d-none')
+
+        } else {
+
+            if(!$('#forceSession').hasClass('d-none')){
+
+                $('#forceSession').addClass('d-none');
+
+            }
+
+        }
+
+    })
+
     return(
 
         <div className='row pb-5'>
@@ -52,6 +72,7 @@ export default function SignIn(props) {
                         <h2 className='text-gradient-blue'>
                             Iniciar Sesión
                         </h2>
+                        <strong id='forceSession' className='d-none'>Inicia sesión para poder contratar uno de nuestros planes</strong>
                     </div>
                     <div className='col-12 mx-auto d-md-flex px-0 mb-3'>
                         <div className='form-group col-12'>

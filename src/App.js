@@ -42,6 +42,7 @@ import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
 import UpdateProfile from './components/pages/Dashboard/FormUpdateProfile';
 import Support from './components/pages/Dashboard/Support';
+import Plans from './components/pages/Dashboard/Plans';
 
 import LoginFigureTop from './assets/img/login-figure-top.png';
 import LoginFigureBottom from './assets/img/login-figure-bottom.png';
@@ -346,7 +347,7 @@ function App() {
 
     setInterval(() => {
 
-      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in' || window.location.pathname === '/imporlan/lost-pass'){
+      if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in' || window.location.pathname === '/imporlan/sign-in/redirect' || window.location.pathname === '/imporlan/lost-pass'){
 
         $('#content').css('position', 'relative');
         if(!$('#figureTop').length && !$('#figureBottom').length){
@@ -414,6 +415,7 @@ function App() {
                       <Route exact path='/imporlan/dashboard/support'>
                         <Support res={ handleRes } />
                       </Route>
+                      <Route exact path='/imporlan/dashboard/plans' component={ Plans } />
                     </>
 
                   :
@@ -439,6 +441,9 @@ function App() {
                     </Route>
                     <Route exact path='/imporlan/sign-up'>
                       <SignUp res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/sign-in/:redirect'>
+                      <SignIn login={ handleLogin } res={ handleRes } />
                     </Route>
                     <Route exact path='/imporlan/sign-in'>
                       <SignIn login={ handleLogin } res={ handleRes } />

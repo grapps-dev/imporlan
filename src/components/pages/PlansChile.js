@@ -14,7 +14,7 @@ export default function PlansChile() {
     const plans = [
 
         {
-            id: 0,
+            id: 1,
             name: 'Plan Fragata Chile',
             actualPrice: '67.600',
             oldPrice: '89.900',
@@ -28,20 +28,21 @@ export default function PlansChile() {
             ]
         },
         {
-            id: 1,
+            id: 2,
             name: 'Plan Capitán de Navío Chile',
             actualPrice: '119.600',
             oldPrice: '142.900',
             content: [
 
+                'Monitoreo por 14 días',
                 '1 requerimiento específico',
-                '9 propuestas/cotizaciones',
+                '8 propuestas/cotizaciones',
                 'Análisis de ofertas y recomendaciones'
 
             ]
         },
         {
-            id: 2,
+            id: 3,
             name: 'Plan Almirante Chile',
             actualPrice: '189.600',
             oldPrice: '219.900',
@@ -49,7 +50,7 @@ export default function PlansChile() {
 
                 'Monitoreo por 21 días',
                 '1 requerimiento específico',
-                '15 propuestas/cotizaciones',
+                '12 propuestas/cotizaciones',
                 'Análisis de ofertas y recomendaciones'
 
             ]

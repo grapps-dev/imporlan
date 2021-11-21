@@ -1,8 +1,13 @@
+import axios from 'axios';
+
 import ListCheck from '../../assets/img/list-check.png';
+
+import { URL_LOCAL_BACKEND as URL } from '../../const';
 
 export default function Plan(props) {
 
-    const { plan, col } = props;
+    const { plan, col, user } = props;
+
     var classname='col-lg-'+ col +' mb-5 mb-lg-0';
     var buttonTop = '-4.5rem';
     if(col === '3'){
@@ -15,6 +20,37 @@ export default function Plan(props) {
 
         classname = 'col-lg-6 col-xl-'+ col +' mb-5 mb-4'
         buttonTop = '-4.5rem'
+
+    }
+
+    const handleAddPlan = async(e) => {
+
+        if(user){
+
+            let plan = e.target.id;
+            let data = {
+
+                plan,
+                user
+
+            }
+            await axios.post(URL + 'active-plan', data, {headers:{"Content-Type" : "application/json"}})
+            .then(res => {
+
+                console.log(res.data)
+
+            })
+            .catch(err => {
+
+                console.log(err.response);
+
+            })
+
+        } else {
+
+            window.location.href = 'http://localhost:3000/imporlan/sign-in/redirect';
+
+        }
 
     }
 
@@ -36,7 +72,7 @@ export default function Plan(props) {
                         </ul>
                     </div>
                     <div className='w-100 ml-0 mx-auto position-absolute-md text-center' style={{ 'left': 0, 'bottom': buttonTop }}>
-                        <button className='btn btn-aqua border-radius px-5'>
+                        <button className='btn btn-aqua border-radius px-5' id={ plan.id } onClick={ handleAddPlan }>
                             ¡Contratar ahora!
                         </button>
                     </div>
