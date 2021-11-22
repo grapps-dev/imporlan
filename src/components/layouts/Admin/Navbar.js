@@ -14,7 +14,7 @@ export default function Navbar() {
         navbar: {
 
             display: typeof(user) === 'object' ? 'flex' : 'none',
-            position: 'sticky',
+            position: 'fixed',
             top: '0px',
             width: '100%',
             zIndex: '999999'

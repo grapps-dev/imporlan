@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Logotipo from '../../../assets/img/logotipo.png';
-import BlackBoat from '../../../assets/img/black-boat.png';
-import BlackShopingBag from '../../../assets/img/black-shopping-bag.png';
-import BlackTrade from '../../../assets/img/black-trade.png';
-import BlackSelection from '../../../assets/img/black-selection.png';
-import BlackSupport from '../../../assets/img/black-support.png';
+import WhiteBoat from '../../../assets/img/boat.png';
+import WhiteShopingBag from '../../../assets/img/shopping-bag.png';
+import WhiteTrade from '../../../assets/img/trade.png';
+import WhiteSelection from '../../../assets/img/selection.png';
+import WhiteSupport from '../../../assets/img/white-support.png';
 
 export default function MenuMobile() {
 
@@ -29,21 +29,21 @@ export default function MenuMobile() {
 
     return(
 
-        <div className='bg-main-white d-none text-blue-primary' id='containerMenuMobile' style={ styles.container }>
+        <div className='bg-blue-primary d-none text-blue-primary' id='containerMenuMobile' style={ styles.container }>
             <div className='d-flex align-items-center justify-content-center'>
-                <img src={ BlackBoat } className='menu-icon' />
+                <img src={ WhiteBoat } className='menu-icon' />
             </div>
             <div className='d-flex align-items-center justify-content-center'>
-                <img src={ BlackShopingBag } className='menu-icon' />
+                <img src={ WhiteShopingBag } className='menu-icon' />
             </div>
             <div className='d-flex align-items-center justify-content-center'>
-                <img src={ BlackTrade } className='menu-icon' />
+                <img src={ WhiteTrade } className='menu-icon' />
             </div>
             <div className='d-flex align-items-center justify-content-center'>
-                <img src={ BlackSelection } className='menu-icon' />
+                <img src={ WhiteSelection } className='menu-icon' />
             </div>
             <div className='d-flex align-items-center justify-content-center'>
-                <img src={ BlackSupport } className='menu-icon' />
+                <img src={ WhiteSupport } className='menu-icon' />
             </div>
         </div>
 

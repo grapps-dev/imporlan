@@ -14,7 +14,7 @@ export default function PlansUSA() {
     const plans = [
 
         {
-            id: 0,
+            id: 4,
             name: 'Plan Fragata USA',
             actualPrice: '67.600',
             oldPrice: '89.900',
@@ -28,7 +28,7 @@ export default function PlansUSA() {
             ]
         },
         {
-            id: 1,
+            id: 5,
             name: 'Plan Capitán de Navío USA',
             actualPrice: '119.600',
             oldPrice: '142.900',
@@ -41,7 +41,7 @@ export default function PlansUSA() {
             ]
         },
         {
-            id: 2,
+            id: 6,
             name: 'Plan Almirante USA',
             actualPrice: '189.600',
             oldPrice: '219.900',

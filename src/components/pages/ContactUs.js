@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import $, { data } from 'jquery';
 import axios from 'axios';
+import 'animate.css';
+
+import LoginFigureTop from '../../assets/img/login-figure-top.png';
+import LoginFigureBottom from '../../assets/img/login-figure-bottom.png';
 
 import { URL_LOCAL_BACKEND as LOCAL } from '../../const';
 
@@ -146,10 +150,11 @@ const ContactUs = (props) => {
 
     return (
         
-        <div className='row pb-5'>
+        <div className='row pb-5 animate__animated animate__backInRight'>
+            <img src={ LoginFigureTop } className='figureTop' style={{ 'position': 'absolute', 'right': '0px', 'top': '0px', 'maxWidth': '300px' }} />
             <div className='col-12 col-md-10 mx-auto mt-5'>
                 <form className='py-4 px-4' onSubmit={ handleSubmit }>
-                    <div className='col-12 px-5 text-center my-3'>
+                    <div className='col-12 px-2 text-center my-3'>
                         <h2 className='text-gradient-blue'>
                             Contáctanos
                         </h2>
@@ -190,7 +195,7 @@ const ContactUs = (props) => {
                             <strong>{ error }</strong>
                         </div>
                     </div>
-                    <div className='col-12 px-0 px-md-3'>
+                    <div className='col-12 px-0 px-md-3' style={{ 'zIndex': 9999 }}>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
                             <button className='btn text-gray' type='submit' style={ styles.inputs }>
                                 <span>{ btnText }</span>
@@ -202,6 +207,7 @@ const ContactUs = (props) => {
                     </div>
                 </form>
             </div>
+            <img src={ LoginFigureBottom } className='figureBottom' style={{ 'position': 'absolute', 'left': '0', 'bottom': '0', 'maxWidth': '300px', 'zIndex': '9' }}  />
         </div>
 
     );

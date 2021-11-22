@@ -39,7 +39,7 @@ export default function Support(props) {
 
     return(
 
-        <div className='row'>
+        <div className='row px-3'>
             <div className='col-12'>
                 <h3>Soporte ImporLan</h3>
                 <p>
@@ -50,7 +50,7 @@ export default function Support(props) {
                 </p>
             </div>
             <div className='col-12 col-md-10 mx-auto mt-3'>
-                <div className='col-12 d-flex'>
+                <div className='col-12 d-flex align-items-center'>
                     <div className='col-6 border-right-white pb-2 text-center'>
                         <button id='testimonys' className='btn p-0 text-white strong' onClick={ changeContent }>
                             Testimonios
@@ -62,7 +62,7 @@ export default function Support(props) {
                         </button>
                     </div>
                 </div>
-                <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-2 pb-md-5 shadow' id='supportContent'>
+                <div className='col-12 bg-main-white text-blue-primary border-radius shadow' id='supportContent'>
                     {
                         page === 'conditions' ?
 

@@ -58,15 +58,62 @@ export default function Support(props) {
 
     ]
 
+    const plansUSA = [
+
+        {
+            id: 4,
+            name: 'Plan Fragata USA',
+            actualPrice: '67.600',
+            oldPrice: '89.900',
+            content: [
+
+                'Monitoreo por 7 días',
+                '1 requerimiento específico',
+                '5 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        },
+        {
+            id: 5,
+            name: 'Plan Capitán de Navío USA',
+            actualPrice: '119.600',
+            oldPrice: '142.900',
+            content: [
+
+                'Monitoreo por 14 días',
+                '1 requerimiento específico',
+                '8 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        },
+        {
+            id: 6,
+            name: 'Plan Almirante USA',
+            actualPrice: '189.600',
+            oldPrice: '219.900',
+            content: [
+
+                'Monitoreo por 21 días',
+                '1 requerimiento específico',
+                '12 propuestas/cotizaciones',
+                'Análisis de ofertas y recomendaciones'
+
+            ]
+        }
+
+    ]
+
     const changeContent = e => {
 
-        if(e.target.id === 'conditions'){
+        if(e.target.id === 'chile'){
 
-            setPage('conditions');
+            setPage('chile');
 
-        } else if(e.target.id === 'testimonys') {
+        } else if(e.target.id === 'usa') {
 
-            setPage('testimonys');
+            setPage('usa');
 
         }
 
@@ -100,14 +147,14 @@ export default function Support(props) {
                 </p>
             </div>
             <div className='col-12 col-md-10 mx-auto mt-3'>
-                <div className='col-12 d-flex'>
+                <div className='col-12 d-flex align-items-center'>
                     <div className='col-6 border-right-white pb-2 text-center'>
-                        <button id='testimonys' className='btn p-0 text-white strong' onClick={ changeContent }>
+                        <button id='chile' className='btn p-0 text-white strong' onClick={ changeContent }>
                             Chile
                         </button>
                     </div>
                     <div className='col-6 pb-2 text-center'>
-                        <button id='conditions' className='btn p-0 text-white strong' onClick={ changeContent }>
+                        <button id='usa' className='btn p-0 text-white strong' onClick={ changeContent }>
                             USA
                         </button>
                     </div>
@@ -123,6 +170,21 @@ export default function Support(props) {
                                 <div className='col-12 px-0'>
                                     <div className='row col-12 justify-content-center mx-0'>
                                         { plansChile.map(plan => <Plan col='6' plan={ plan } key={ plan.id } user={ user } />) }
+                                    </div>
+                                </div>
+                            </div>
+
+                        :
+
+                        page === 'usa' ?
+
+                            <div className='col-12 mt-5 px-0 mt-md-0'>
+                                 <h2 className='text-gradient-blue text-center mt-2 mb-4'>
+                                    Planes de Búsqueda en USA
+                                </h2>
+                                <div className='col-12 px-0'>
+                                    <div className='row col-12 justify-content-center mx-0'>
+                                        { plansUSA.map(plan => <Plan col='6' plan={ plan } key={ plan.id } />) }
                                     </div>
                                 </div>
                             </div>

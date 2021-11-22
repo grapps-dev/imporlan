@@ -69,8 +69,12 @@ function App() {
       // MOSTRAR BOTÓN PARA VOLVER ARRIBA
       if(topScroll > 0) {
 
-        $('#topButton').removeClass('d-none');
-        $('#topButton').addClass('d-flex');
+        if($(window).width() > 425){
+
+          $('#topButton').removeClass('d-none');
+          $('#topButton').addClass('d-flex');
+
+        }
 
       } else {
 
@@ -341,8 +345,8 @@ function App() {
 
   }, [])
 
-  var imgTop = `<img src=${ LoginFigureTop } style='position: absolute; right: 0; top: 0; max-width: 300px' id='figureTop' />`
-  var imgBottom = `<img src=${ LoginFigureBottom } style='position: absolute; left: 0; bottom: 0; max-width: 300px' id='figureBottom'  />`
+  var imgTop = `<img src=${ LoginFigureTop } class='figureTop' style='position: absolute; right: 0; top: 0; max-width: 300px' />`
+  var imgBottom = `<img src=${ LoginFigureBottom } class='figureBottom' style='position: absolute; left: 0; bottom: 0; max-width: 300px' />`
   $(document).ready(() => {
 
     setInterval(() => {
