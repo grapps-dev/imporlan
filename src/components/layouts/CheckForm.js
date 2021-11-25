@@ -140,7 +140,7 @@ export default function CheckForm() {
                                         <Link to='/imporlan/terms-and-conditions' className='text-white'>Términos y Condiciones</Link>
                                     </h4>
                                     <p>
-                                        Acepto los términos y condiciones para suscribirme a este servicio, y por la presente confirmo que he leído la política de privacidad.
+                                        Acepto los términos y condiciones para suscribirme a este servicio, y por la presente confirmo que he leído las <Link className='text-white underline' to='/imporlan/terms-and-conditions'>Políticas de Privacidad</Link>.
                                     </p>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import $ from 'jquery';
 import { Dropdown } from 'react-bootstrap';
 
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import CompareIcon from '../../assets/img/compare-icon.svg';
 import HeartIcon from '../../assets/img/heart-icon.png';
@@ -19,7 +19,9 @@ export default function Navbar() {
 
         header: {
 
-            display: typeof(user) === 'object' ? 'none' : 'flex'
+            display: typeof(user) === 'object' ? 'none' : 'flex',
+            top: '0px',
+            zIndex: '999999'
 
         }
 
@@ -55,10 +57,20 @@ export default function Navbar() {
         setShow(false);
     }
 
+    const showPlansContainer = () => {
+
+        $('#plansContainer').toggleClass('d-none');
+        $('#plansContainer').toggleClass('d-block');
+        //$('#containerPlansButton').toggleClass('height-40');
+        $('#plansContainer').toggleClass('opacity-1');
+        $('#plansContainer').css('height', 'auto');
+
+    }
+
     return(
 
         <>
-            <nav style={ styles.header } className='navbar navbar-expand bg-light border-radius-top'>
+            <nav style={ styles.header } className='navbar navbar-expand bg-light border-radius-top' id='navbar-guest'>
                 <ul className='navbar-nav mr-auto d-none d-md-flex'>
                     <li className='nav-item'>
                         <Link to='/imporlan/' className='nav-link'>
@@ -129,16 +141,18 @@ export default function Navbar() {
                 </div>
             </nav>
             <div className='col-12 px-0 d-md-none' id='mobileMenu'>
-                <div className='col-7 px-0 bg-white'>
-                    <div className='w-100 d-flex justify-content-end align-items-center'>
-                        <button className='btn' onClick={ hiddeMenu } style={{ 'fontSize': '1.5rem' }}>
-                            <FontAwesomeIcon icon={ faTimes } />
-                        </button>
+                <div className='col-7 d-flex flex-column px-0 bg-white' style={{ 'overflowY': 'auto' }}>
+                    <div className='sticky-top bg-white' style={{ 'zIndex': 99999 }}>
+                        <div className='w-100 d-flex justify-content-end align-items-center'>
+                            <button className='btn' onClick={ hiddeMenu } style={{ 'fontSize': '1.5rem' }}>
+                                <FontAwesomeIcon icon={ faTimes } />
+                            </button>
+                        </div>
+                        <div className='w-100 text-center' id='logoMobileContainer'>
+                            <img src={ Logotipo } style={{ 'width': '180px', 'heigth': '120px' }} />
+                        </div>
                     </div>
-                    <div className='w-100 text-center'>
-                        <img src={ Logotipo } style={{ 'width': '180px', 'heigth': '120px' }} />
-                    </div>
-                    <ul className='navbar-nav d-flex px-4 mt-3' style={{ 'justifyContent': 'space-evenly', 'height': '40%' }}>
+                    <ul className='navbar-nav d-flex px-4 mt-5' style={{ 'justifyContent': 'space-evenly' }}>
                         <li className='nav-item'>
                             <Link to='/imporlan/' className='nav-link'>
                                 Inicio
@@ -154,20 +168,30 @@ export default function Navbar() {
                                 Vender
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Dropdown show={ show } onMouseEnter={ showDropdown } onMouseOut={ hideDropdown } onMouseLeave={ hideDropdown }>
-                                <Dropdown.Toggle className='bg-transparent nav-link border-0 text' id="dropdownPlans">
-                                    Planes
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                <Dropdown.Item href="/imporlan/plans-usa">Planes de Búsqueda USA</Dropdown.Item>
-                                <Dropdown.Item href="/imporlan/plans-chile">Planes de Búsqueda Chile</Dropdown.Item>
-                                <Dropdown.Item href="/imporlan/sell-plans">Venta</Dropdown.Item>
-                                <Dropdown.Item href="/imporlan/inspection-plans">Servicios de Inspección y Compra</Dropdown.Item>
-                                <Dropdown.Item href="/imporlan/import-plans">Servicio de Importación</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
+                        <li className='nav-item' id='containerPlansButton'>
+                            <button className='bg-transparent border-0 nav-link d-flex justify-content-between align-items-center w-100' onClick={ showPlansContainer }>
+                                Planes
+                                <FontAwesomeIcon icon={ faAngleDown } />
+                            </button>
+                            <div id='plansContainer' className='border-y d-none px-2'>
+                                <ul>
+                                    <li>
+                                        Planes de Búsqueda USA
+                                    </li>
+                                    <li>
+                                        Planes de Búsqueda Chile
+                                    </li>
+                                    <li>
+                                        Venta
+                                    </li>
+                                    <li>
+                                        Servicios de Inspección y Compra
+                                    </li>
+                                    <li>
+                                        Servicio de Importación
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li className='nav-item'>
                             <Link to='/imporlan/information' className='nav-link'>
@@ -175,6 +199,28 @@ export default function Navbar() {
                             </Link>
                         </li>
                     </ul>
+                    <div id='navbarMobileFooter' className='mt-auto px-2 py-2 text-center' style={{ 'fontSize': '14px' }}>
+                        <div className='d-inline-block w-100'>
+                            <div className='d-inline-block mr-2 text-blue-primary'>
+                                <Link to='/imporlan/contact-us'>
+                                    Contáctanos
+                                </Link>
+                            </div>
+                            <div className='d-inline-block ml-2 text-blue-primary'>
+                                <Link to='/imporlan/terms-and-conditions'>
+                                    Aviso Legal
+                                </Link>
+                            </div>
+                            <div className='d-inline-block text-blue-primary'>
+                                <Link to='/imporlan/bank-transfer'>
+                                    Transferencia Bancaria
+                                </Link>
+                            </div>
+                            <div className='d-block mt-1' style={{ 'fontSize': '10px' }}>
+                                Desarrollado por <a href='https://grapps-dev.com' target='_blank' rel='noreferrer'>GRAPPS &copy;</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

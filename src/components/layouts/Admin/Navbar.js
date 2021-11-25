@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 import { Dropdown } from 'react-bootstrap';
+import axios from 'axios';
 
 import NotificationBell from '../../../assets/img/black-bell.png';
 
-export default function Navbar() {
+import { URL_LOCAL_BACKEND as URL } from '../../../const';
+
+import Notification from './Notification';
+
+export default function Navbar(props) {
 
     const [ user, setUser ] = useState('');
     const [ show, setShow ] = useState(false);
+    const [ notifications, setNotifications ] = useState({});
 
     const styles = {
 
@@ -17,7 +23,7 @@ export default function Navbar() {
             position: 'fixed',
             top: '0px',
             width: '100%',
-            zIndex: '999999'
+            zIndex: '999999999999'
 
         }
 
@@ -27,11 +33,37 @@ export default function Navbar() {
 
         if(sessionStorage.getItem('user')){
 
-            setUser(JSON.parse(sessionStorage.getItem('user')))
+            setUser(JSON.parse(sessionStorage.getItem('user')));
+
+            let data = {
+
+                token: sessionStorage.getItem('token'),
+                id: props.user.id
+
+            }
+            setTimeout(() => {
+
+                axios.get(URL + 'notifications/' + data.id, {
+                    headers : {
+                       "Authorization" : `Bearer ${ data.token } `
+                    }
+                })
+                .then(res => {
+    
+                    setNotifications(res.data);
+    
+                })
+                .catch(err => {
+    
+                    console.log(err.response);
+    
+                })
+
+            }, 1000)
 
         }
 
-    }, [ setUser ]);
+    }, [ ]);
 
     const showDropdown = (e)=>{
         setShow(!show);
@@ -43,6 +75,24 @@ export default function Navbar() {
     const showNotifications = e => {
 
         $('#notifications').toggleClass('d-none')
+
+        let data = {
+
+            token: sessionStorage.getItem('token'),
+            id: props.user.id
+
+        }
+        axios.post(URL + 'notifications/saw', data)
+        .then(res => {
+
+            $('li a').css('fontWeight', 'italic');
+
+        })
+        .catch(err => {
+
+            console.log(err.response.data);
+
+        })
 
     }
 
@@ -59,7 +109,8 @@ export default function Navbar() {
     const closeSession = () => {
 
         sessionStorage.clear();
-        window.location.href = 'http://localhost:3000/imporlan'
+        let loc = window.location.origin + '/imporlan';
+        window.location.href =  loc;
 
     }
 
@@ -71,9 +122,12 @@ export default function Navbar() {
                     <span className='text-white d-flex align-items-center justify-content-center bg-danger' style={{ 'borderRadius': '50px', 'height': '25px', 'position': 'absolute', 'fontSize': '10px', 'top': '0', 'right': '10px', 'width': '25px' }}>1</span>
                     <img src={ NotificationBell } id='img-bell' alt='Notifications' />
                 </button>
-                <div id='notifications' className='position-absolute d-none bg-main-white' style={{ 'minWidth': '150px', 'width': '200px' }}>
+                <div id='notifications' className='position-absolute p-2 d-none bg-main-white' style={{ 'fontSize': '12px', 'minWidth': '150px', 'width': '200px' }}>
                     <ul>
-                        <li>Hola</li>
+                        {
+                            notifications.forEach(notification => <Notification notification={ notification } key={ notification.id } />)
+                            
+                        }
                     </ul>
                 </div>
             </div>

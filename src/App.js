@@ -58,12 +58,29 @@ function App() {
 
   $(document).ready(() => {
 
+    var navPos = $('#navbar-guest').offset().top
     $(window).scroll(e => {
 
       // BARRA DE PROGRESO
       var documentHeight = $(document).height();
       var topScroll = $(window).scrollTop();  
       var windowHeight = $(window).height();
+      
+      if(topScroll > navPos){
+        
+        $('nav').removeClass('border-radius-top');
+        $('nav').css('position', 'sticky');
+        $('nav').css('marginLeft', '0px');
+        $('nav').css('boxShadow', '0px 4px 6px 5px rgba(128, 128, 128, .4)');
+
+      } else {
+
+        $('nav').addClass('border-radius-top');
+        $('nav').css('position', 'relative');
+        $('nav').css('boxShadow', '');
+
+      }
+
       $('#pageSize').css('width', (topScroll / (documentHeight - windowHeight)) * 100 + '%')
 
       // MOSTRAR BOTÓN PARA VOLVER ARRIBA
@@ -150,7 +167,7 @@ function App() {
     
     var config = {
       method: 'get',
-      url: 'http://api-imporlan.test/api/login',
+      url: LOCAL + 'login',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -167,10 +184,10 @@ function App() {
 
       sessionStorage.setItem('user', JSON.stringify(res.data.user));
       sessionStorage.setItem('profile', 'cliente');
-      window.location.href = 'http://localhost:3000/imporlan/dashboard/';
+      window.location.href = window.location.origin + '/imporlan/dashboard';
       setTimeout(() => {
 
-        if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+        if(window.location.href === window.location.origin + '/imporlan/dashboard'){
           setLoading(false);
           $('body').css('overflowY', 'auto');
           refreshMain();
@@ -205,7 +222,7 @@ function App() {
     
     var config = {
       method: 'get',
-      url: 'http://api-imporlan.test/api/login',
+      url: LOCAL + 'login',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -225,10 +242,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'admin');
-        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/dashboard';
         setTimeout(() => {
 
-          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
             setLoading(false);
             refreshMain();
           }
@@ -239,10 +256,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'inspector');
-        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/dashboard';
         setTimeout(() => {
 
-          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
             setLoading(false);
           }
 
@@ -252,10 +269,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'transportista');
-        window.location.href = 'http://localhost:3000/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/dashboard';
         setTimeout(() => {
 
-          if(window.location.href === 'http://localhost:3000/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
             setLoading(false);
           }
 
@@ -354,7 +371,7 @@ function App() {
       if(window.location.pathname === '/imporlan/sign-up' || window.location.pathname === '/imporlan/sign-in' || window.location.pathname === '/imporlan/contact-us' || window.location.pathname === '/imporlan/dashboard/new-testimony' || window.location.pathname === '/imporlan/jp/sign-in' || window.location.pathname === '/imporlan/sign-in/redirect' || window.location.pathname === '/imporlan/lost-pass'){
 
         $('#content').css('position', 'relative');
-        if(!$('#figureTop').length && !$('#figureBottom').length){
+        if(!$('.figureTop').length && !$('.figureBottom').length){
   
           $('#content').prepend(imgTop);
           $('#content').append(imgBottom);
@@ -363,8 +380,8 @@ function App() {
   
       } else {
   
-        $('#figureTop').remove();
-        $('#figureBottom').remove();
+        $('.figureTop').remove();
+        $('.figureBottom').remove();
   
       }
 
@@ -383,7 +400,7 @@ function App() {
 
         :
 
-        <div id='main' className='container pb-4'>
+        <div id='main' className='container pt-4'>
           { res ? 
 
             <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'left': '5rem', 'position': 'fixed', 'top': '20px', "zIndex": 999999999999, 'padding': '10px 20px' }}>{ res }</div>
@@ -399,7 +416,7 @@ function App() {
             <Header />
             
             <Navbar />
-            <NavbarAdmin />
+            <NavbarAdmin user={ JSON.parse(sessionStorage.getItem('user')) } />
 
             <LateralMenu />
 
@@ -409,7 +426,9 @@ function App() {
                   sessionStorage.getItem('token') ?
 
                     <>
-                      <Route exact path='/imporlan/dashboard' component={ DashBoardIndex } />
+                      <Route exact path='/imporlan/dashboard'>
+                        <DashBoardIndex token={ sessionStorage.getItem('token') } user={ JSON.parse(sessionStorage.getItem('user')) } />
+                      </Route>
                       <Route exact path='/imporlan/dashboard/new-testimony'>
                           <Testimonys res={ handleRes } />
                       </Route>
@@ -419,7 +438,10 @@ function App() {
                       <Route exact path='/imporlan/dashboard/support'>
                         <Support res={ handleRes } />
                       </Route>
-                      <Route exact path='/imporlan/dashboard/plans' component={ Plans } />
+                      <Route exact path='/imporlan/dashboard/plans'>
+                        <Plans res={ handleRes } />
+                      </Route>
+                      <MenuMobile />
                     </>
 
                   :
@@ -473,7 +495,6 @@ function App() {
                 <FontAwesomeIcon style={{ 'WebkitTransform': 'rotate(-45deg)' }} icon={ faArrowUp } />
               </button>
             </div>
-            <MenuMobile />
             <Footer />
           </Router>
         </div>  

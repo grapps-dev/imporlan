@@ -125,18 +125,6 @@ export default function Support(props) {
 
     }, [ setUser ])
 
-    const showForm = () => {
-
-        setPage('new-testimony');
-
-    }
-
-    const contact = () => {
-
-        setPage('contact-us');
-
-    }
-
     return(
 
         <div className='row'>
@@ -161,6 +149,7 @@ export default function Support(props) {
                 </div>
                 <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-2 pb-md-5 shadow' id='supportContent'>
                     {
+                        
                         page === 'chile' ?
 
                             <div className='col-12 mt-5 px-0 mt-md-0'>
@@ -169,7 +158,7 @@ export default function Support(props) {
                                 </h2>
                                 <div className='col-12 px-0'>
                                     <div className='row col-12 justify-content-center mx-0'>
-                                        { plansChile.map(plan => <Plan col='6' plan={ plan } key={ plan.id } user={ user } />) }
+                                        { plansChile.map(plan => <Plan col='6' plan={ plan } key={ plan.id } user={ user } response={ props.res } />) }
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +173,7 @@ export default function Support(props) {
                                 </h2>
                                 <div className='col-12 px-0'>
                                     <div className='row col-12 justify-content-center mx-0'>
-                                        { plansUSA.map(plan => <Plan col='6' plan={ plan } key={ plan.id } />) }
+                                        { plansUSA.map(plan => <Plan col='6' plan={ plan } key={ plan.id } response={ props.res } />) }
                                     </div>
                                 </div>
                             </div>

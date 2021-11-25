@@ -8,7 +8,7 @@ import Reviews from '../layouts/Reviews';
 import ArticlesIndex from '../layouts/ArticlesIndex';
 import Videos from '../layouts/Videos';
 
-import Boat from '../../assets/img/boat.png';
+import Boat from '../../assets/img/boat-step-1.png';
 import BoatSecondStep from '../../assets/img/boat-step-2.png';
 import BoatThirdStep from '../../assets/img/boat-step-3.png';
 import BoatFourthStep from '../../assets/img/boat-step-4.png';
@@ -408,7 +408,7 @@ export default function Index() {
                 </div>
                 <div className='col-12 border-radius text-center mt-5 shadow py-3' style={{ 'background': 'rgb(255, 255, 255, .11)' }}>
                     <h2 className='text-gradient-blue'>
-                        Check boats in the following portals
+                        Verifique las embarcaciones en los siguientes portales
                     </h2>
                     <div className='row mt-3 px-4 justify-content-around'>
                         <div className='col-md-3'>

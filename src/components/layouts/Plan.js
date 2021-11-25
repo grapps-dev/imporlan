@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 
 import ListCheck from '../../assets/img/list-check.png';
 
@@ -6,7 +8,9 @@ import { URL_LOCAL_BACKEND as URL } from '../../const';
 
 export default function Plan(props) {
 
-    const { plan, col, user } = props;
+    const [ response, setRes ] = useState('');
+
+    const { plan, col, user} = props;
 
     var classname='col-lg-'+ col +' mb-5 mb-lg-0';
     var buttonTop = '-4.5rem';
@@ -16,7 +20,7 @@ export default function Plan(props) {
         buttonTop = '-4.5rem'
 
     }
-    if(col === '6'){
+    if(col === '6'){ 
 
         classname = 'col-lg-6 col-xl-'+ col +' mb-5 mb-4'
         buttonTop = '-4.5rem'
@@ -27,17 +31,29 @@ export default function Plan(props) {
 
         if(user){
 
+            let token = sessionStorage.getItem('token');
             let plan = e.target.id;
             let data = {
 
-                plan,
-                user
+                plan_id: parseInt(plan),
+                user_id: user.id,
+                token
 
             }
-            await axios.post(URL + 'active-plan', data, {headers:{"Content-Type" : "application/json"}})
+            await axios.post(URL + 'actives-plans', data, {
+            
+                headers:{"Content-Type" : "application/json"}
+            
+            })
             .then(res => {
 
-                console.log(res.data)
+                $('#responseContainer').removeClass('d-none');
+                setRes(res.data);
+                setTimeout(() => {
+
+                    $('#responseContainer').addClass('d-none');
+
+                }, 3000);
 
             })
             .catch(err => {
@@ -57,15 +73,16 @@ export default function Plan(props) {
     return(
 
         <div className={ classname }>
+            <div id='responseContainer' className='d-none' style={{ 'background': 'green', 'borderRadius': '10px', 'color': 'white', 'left': '5rem', 'position': 'fixed', 'top': '20px', "zIndex": 999999999999, 'padding': '10px 20px' }}>{ response }</div>
             <div className='col-12 text-white border-radius bg-img-blue-boat pt-3 pb-4' style={{ 'wordBreak': 'break-word' }}>
                 <h5 className='text-center mb-3'>{ plan.name }</h5>
                 <div className='col-12'>
                     <h3 className='text-center mb-0'>
-                        { plan.actualPrice }
+                        { plan.oldPrice ? plan.actualPrice : '' }
                     </h3>
-                    <span className='d-block text-center mt-0 text-aqua'>
-                        Antes { plan.oldPrice }
-                    </span>
+                    <strong className='d-block text-center mt-0 text-aqua'>
+                        { plan.oldPrice ? 'Antes: ' + plan.oldPrice : plan.actualPrice }
+                    </strong>
                     <div className='col-12 px-0 mt-3'>
                         <ul className='text-center' style={{ 'fontSize': '.8rem' }}>
                             { plan.content.map((content, i) => <li key={ i }><img src={ ListCheck } /> { content }</li>) }

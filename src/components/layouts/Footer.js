@@ -142,6 +142,9 @@ export default function Footer() {
                     </div>
                 </div>  
             </div>
+            <div className='col-12 text-center bg-blue-primary mt-3 py-2 border-radius-top'>
+                Desarrollado por <a href='https://grapps-dev.com' target='_blank' rel='noreferrer'>GRAPPS &copy;</a>
+            </div>
         </footer>
 
     )

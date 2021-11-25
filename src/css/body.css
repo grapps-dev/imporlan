@@ -62,6 +62,12 @@ a:hover{
 
 }
 
+#pageSize {
+
+    z-index: 9999999999;
+
+}
+
 #header a{
 
     color: white;

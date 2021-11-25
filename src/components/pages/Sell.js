@@ -13,8 +13,8 @@ export default function Sell() {
         {
             id: 0,
             name: 'ImporLan',
-            actualPrice: '',
-            oldPrice: '¡Pagas si vendes!',
+            actualPrice: '¡Pagas si vendes!',
+            oldPrice: '',
             content: [
 
                 'Gestión ImporLan',
@@ -28,8 +28,8 @@ export default function Sell() {
         {
             id: 1,
             name: 'Base',
-            actualPrice: '',
-            oldPrice: '¡Publica Gratis!',
+            actualPrice: '¡Publica Gratis!',
+            oldPrice: '',
             content: [
 
                 'Venta directa',
@@ -42,8 +42,8 @@ export default function Sell() {
         {
             id: 2,
             name: 'Premium',
-            actualPrice: '',
-            oldPrice: '8.890',
+            actualPrice: '8.890',
+            oldPrice: '',
             content: [
 
                 'Venta directa',
@@ -56,8 +56,8 @@ export default function Sell() {
         {
             id: 4,
             name: 'Destacado',
-            actualPrice: '',
-            oldPrice: '14.890',
+            actualPrice: '14.890',
+            oldPrice: '',
             content: [
 
                 'Venta directa',

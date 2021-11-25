@@ -7,7 +7,7 @@
     left: 100%;
     transition-duration: 500ms;
     width: 100%;
-    z-index: 10000;
+    z-index: 1000000;
 
 }
 
@@ -23,13 +23,19 @@
 
 }
 
+.height-40{
+
+    height: 40px !important;
+
+}
+
 .nav-link{
 
     color: var(--blue-primary);
 
 }
 
-.nav-link:active, .nav-link:focus, .show > .btn-primary .dropdown-toggle:active{
+.nav-link:active, .nav-link:focus, .show > .btn-primary .dropdown-toggle:active, #plansContainer ul li{
 
     color: var(--blue-primary) !important;
 

@@ -57,9 +57,9 @@ export default function Navbar() {
                             </div>
                         </div>
                         <div className='col-4 col-md-3'>
-                            <button className='btn bg-blue-primary w-100 p-2' style={{ 'color': '#5BEBFF', 'height': '44px' }}>
+                            <Link type='button' to='/imporlan/sell-plans' className='btn bg-blue-primary w-100 p-2' style={{ 'color': '#5BEBFF', 'height': '44px' }}>
                                 Vender
-                            </button>
+                            </Link>
                         </div>
                         <div className='col-4 col-md-3'>
                             <Link className='btn bg-blue-light text-white w-100 p-2 text-center' to='/imporlan/sign-up'>

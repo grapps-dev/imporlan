@@ -103,7 +103,7 @@ export default function Testimonys(props) {
                         }
                         <div className='col-12 d-flex flex-wrap px-0 mt-4 text-center'>
                             {
-                                testimonys.map(testimony => <Testimony testimony={ testimony } />)
+                                testimonys.map(testimony => <Testimony testimony={ testimony } key={ testimony.id } />)
                             }
                         </div>
                     </div>

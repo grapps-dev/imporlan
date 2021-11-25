@@ -133,7 +133,7 @@ export default function SignUp(props) {
 
                     props.res('Ha ocurrido un error. Por favor, intente de nuevo más tarde', 'red');
                     e.target.reset();
-                    console.log(error.response.data);
+                    console.log(error.response);
                     setBtnText('Registrarse');
                     $('.spinner-border').addClass('d-none');
 

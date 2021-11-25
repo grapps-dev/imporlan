@@ -16,8 +16,8 @@ export default function ImportPlans() {
         {
             id: 0,
             name: 'Plan base',
-            actualPrice: '',
-            oldPrice: 'Gastos inluidos. Valores publicados',
+            actualPrice: 'Gastos incluidos. Valores publicados',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco, interior, exterior, motor',
@@ -36,8 +36,8 @@ export default function ImportPlans() {
         {
             id: 1,
             name: 'Plan Intermedio',
-            actualPrice: '',
-            oldPrice: 'Gastos inluidos. Valores publicados',
+            actualPrice: 'Gastos incluidos. Valores publicados',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco, interior, exterior, motor',
@@ -56,8 +56,8 @@ export default function ImportPlans() {
         {
             id: 2,
             name: 'Plan Avanzando',
-            actualPrice: '',
-            oldPrice: 'Gastos inluidos. Valores publicados',
+            actualPrice: 'Gastos incluidos. Valores publicados',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco, interior, exterior, motor',

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import ListCheck from '../../assets/img/list-check.png';
 import AboutUsIMG from '../../assets/img/about-us.png';
@@ -38,7 +39,7 @@ export default function Information() {
                     </div>
                     <div className='col-md-10 mx-auto mt-3'>
                         <p>
-                            Si ya has visto la lancha que deseas dentro de alguno de los <a className='text-blue underline'>sitios webs con los que trabajamos</a>, y quieres saber cuál es el precio a pagar para tenerla en Santiago de Chile (Chile) o en el lugar de tu preferencia, entonces sólo deberás llenar los datos del formulario de nuestro <strong className='text-purple'>Cotizador Online</strong> y nosotros te enviaremos el importe total a pagar por la embarcación.
+                            Si ya has visto la lancha que deseas dentro de alguno de los sitios webs con los que trabajamos, y quieres saber cuál es el precio a pagar para tenerla en Santiago de Chile (Chile) o en el lugar de tu preferencia, entonces sólo deberás llenar los datos del formulario de nuestro <strong className='text-purple'>Cotizador Online</strong> y nosotros te enviaremos el importe total a pagar por la embarcación.
                         </p>
                         <div className='col-12 text-center'>
                             <button className='btn bg-white'>
@@ -55,7 +56,7 @@ export default function Information() {
                     </div>
                     <div className='col-md-10 mx-auto mt-3'>
                         <p>
-                            Si deseas comprar un lancha, pero aún no has conseguido aquella que cumpla con tus expectativas, entonces nuestros <a className='text-blue underline'>Planes de Búsqueda</a> soon lo que necesitas. Sólo deberás llenar un formulario con los requerimientos básicos que deseas en tu embarcación, esto para que nosotros podemos conocer tus necesidades y conseguir la lancha capaz de satisacerlas. Dentro de nuestro sistema, podrás llevar un completo control del estado de tu plan y lancha en tiempo real gracias a proceso de 5 pasos que manejamos para todos nuestros <a className='text-blue underline'>Planes de Búsqueda</a>.
+                            Si deseas comprar un lancha, pero aún no has conseguido aquella que cumpla con tus expectativas, entonces nuestros <Link className='text-blue underline'  to='/imporlan/plans-chile'>Planes de Búsqueda</Link> soon lo que necesitas. Sólo deberás llenar un formulario con los requerimientos básicos que deseas en tu embarcación, esto para que nosotros podemos conocer tus necesidades y conseguir la lancha capaz de satisacerlas. Dentro de nuestro sistema, podrás llevar un completo control del estado de tu plan y lancha en tiempo real gracias a proceso de 5 pasos que manejamos para todos nuestros <Link className='text-blue underline' to='/imporlan/plans-chile'>Planes de Búsqueda</Link>.
                         </p>
                         <div className='col-12 text-center'>
                             <button className='btn bg-white'>
@@ -90,7 +91,7 @@ export default function Information() {
                                 <img src={ ListCheck } />
                             </div>
                             <div>
-                                Al contratar un <a>Plan de Búsqueda</a>, un agente de ImporLan se contactará con usted a la brevedad para comenzar  trabajar en su requerimiento.
+                                Al contratar un <Link to='/imporlan/plans-chile' className='text-white underline'>Plan de Búsqueda</Link>, un agente de ImporLan se contactará con usted a la brevedad para comenzar  trabajar en su requerimiento.
                             </div>
                         </li>
                     </ul>

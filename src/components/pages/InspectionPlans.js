@@ -16,8 +16,8 @@ export default function PlansChile() {
         {
             id: 0,
             name: 'Ready To GO',
-            actualPrice: '',
-            oldPrice: '949.000',
+            actualPrice: '949.000',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco',
@@ -37,8 +37,8 @@ export default function PlansChile() {
         {
             id: 1,
             name: 'Compra + Envío',
-            actualPrice: '',
-            oldPrice: '660.000',
+            actualPrice: '660.000',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco',
@@ -56,8 +56,8 @@ export default function PlansChile() {
         {
             id: 2,
             name: 'Compra',
-            actualPrice: '',
-            oldPrice: '319.000',
+            actualPrice: '319.000',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco',
@@ -74,8 +74,8 @@ export default function PlansChile() {
         {
             id: 3,
             name: 'Inspección Base',
-            actualPrice: '',
-            oldPrice: '319.000',
+            actualPrice: '319.000',
+            oldPrice: '',
             content: [
 
                 'Inspección Casco',
