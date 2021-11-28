@@ -11,59 +11,73 @@ import Notification from './Notification';
 
 export default function Navbar(props) {
 
-    const [ user, setUser ] = useState('');
+    //const { user } = props;
+    const [ user, setUser ] = useState({})
     const [ show, setShow ] = useState(false);
-    const [ notifications, setNotifications ] = useState({});
+    const [ notifications, setNotifications ] = useState('');
+    const [ counter, setCounter ] = useState(0);
 
     const styles = {
 
         navbar: {
 
             display: typeof(user) === 'object' ? 'flex' : 'none',
+            left: '0px',
             position: 'fixed',
             top: '0px',
             width: '100%',
-            zIndex: '999999999999'
+            zIndex: '999999999'
 
         }
 
     }
 
-    useEffect(() => {
+    const noWatchNotifications = (notifications) => {
 
-        if(sessionStorage.getItem('user')){
+        notifications.map(notification => {
 
-            setUser(JSON.parse(sessionStorage.getItem('user')));
+            if(notification.view === 0){
 
-            let data = {
-
-                token: sessionStorage.getItem('token'),
-                id: props.user.id
+                setCounter( counter => counter + 1)
 
             }
-            setTimeout(() => {
 
-                axios.get(URL + 'notifications/' + data.id, {
-                    headers : {
-                       "Authorization" : `Bearer ${ data.token } `
-                    }
-                })
-                .then(res => {
-    
-                    setNotifications(res.data);
-    
-                })
-                .catch(err => {
-    
-                    console.log(err.response);
-    
-                })
+        })
 
-            }, 1000)
+    }
 
+    const getNotifications = () => {
+
+        setUser(JSON.parse(sessionStorage.getItem('user')));
+        console.log(JSON.parse(sessionStorage.getItem('user')));
+        if(user){
+
+            console.log(user.id);
+            //setUser(JSON.parse(sessionStorage.getItem('user')));
+            axios.get(URL + 'notifications/' + user.id, {
+                headers : {
+                   "Authorization" : `Bearer ${ sessionStorage.getItem('token') } `
+                }
+              })
+              .then(res => {
+          
+                setNotifications(res.data);
+                noWatchNotifications(res.data);
+          
+              })
+              .catch(err => {
+          
+                console.log(err.response);
+          
+            })
         }
+    }
 
-    }, [ ]);
+    useEffect(() => {
+
+        getNotifications();
+
+    }, [ setNotifications ]);
 
     const showDropdown = (e)=>{
         setShow(!show);
@@ -79,12 +93,13 @@ export default function Navbar(props) {
         let data = {
 
             token: sessionStorage.getItem('token'),
-            id: props.user.id
+            id: user.id
 
         }
         axios.post(URL + 'notifications/saw', data)
         .then(res => {
 
+            noWatchNotifications(notifications);
             $('li a').css('fontWeight', 'italic');
 
         })
@@ -119,13 +134,13 @@ export default function Navbar(props) {
         <div style={ styles.navbar } className='navbar-expand border-bottom-dark bg-main-white align-items-center justify-content-end'>
             <div className='col-auto position-relative' id='notificationsContainer'>
                 <button className='btn' id='bell' onClick={ showNotifications }>
-                    <span className='text-white d-flex align-items-center justify-content-center bg-danger' style={{ 'borderRadius': '50px', 'height': '25px', 'position': 'absolute', 'fontSize': '10px', 'top': '0', 'right': '10px', 'width': '25px' }}>1</span>
+                    <span className='text-white d-flex align-items-center justify-content-center bg-danger' style={{ 'borderRadius': '50px', 'height': '25px', 'position': 'absolute', 'fontSize': '10px', 'top': '0', 'right': '10px', 'width': '25px' }}>{ counter }</span>
                     <img src={ NotificationBell } id='img-bell' alt='Notifications' />
                 </button>
-                <div id='notifications' className='position-absolute p-2 d-none bg-main-white' style={{ 'fontSize': '12px', 'minWidth': '150px', 'width': '200px' }}>
+                <div id='notifications' className='position-absolute py-2 d-none bg-main-white' style={{ 'fontSize': '12px', 'maxHeight': '250px', 'minWidth': '150px', 'overflowY': 'auto', 'width': '250px' }}>
                     <ul>
                         {
-                            notifications.forEach(notification => <Notification notification={ notification } key={ notification.id } />)
+                            typeof(notifications) === 'object' ? notifications.map(notification => <Notification notification={ notification } key={ notification.id } />) : ''
                             
                         }
                     </ul>

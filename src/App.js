@@ -410,42 +410,44 @@ function App() {
             ''
 
           }
-          <div className='fixed-top bg-blue-primary' style={{ 'height': '6px' }} id='pageSize'>
+          <div className='fixed-top bg-blue-primary' style={{ 'height': '6px', 'zIndex': 999 }} id='pageSize'>
           </div>
           <Router>
             <Header />
             
             <Navbar />
-            <NavbarAdmin user={ JSON.parse(sessionStorage.getItem('user')) } />
 
             <LateralMenu />
 
             <div id='content' className='container bg-main-white mt-5 border-gray border-radius py-3 px-sm-5'>
-              <Switch>
                 {
                   sessionStorage.getItem('token') ?
-
+                    
                     <>
-                      <Route exact path='/imporlan/dashboard'>
-                        <DashBoardIndex token={ sessionStorage.getItem('token') } user={ JSON.parse(sessionStorage.getItem('user')) } />
-                      </Route>
-                      <Route exact path='/imporlan/dashboard/new-testimony'>
+                      <NavbarAdmin />
+                      <Switch>
+                        <Route exact path='/imporlan/dashboard'>
+                          <DashBoardIndex token={ sessionStorage.getItem('token') } user={ JSON.parse(sessionStorage.getItem('user')) } />
+                        </Route>
+                        <Route exact path='/imporlan/dashboard/new-testimony'>
                           <Testimonys res={ handleRes } />
-                      </Route>
-                      <Route exact path='/imporlan/dashboard/update-profile'>
+                        </Route>
+                        <Route exact path='/imporlan/dashboard/update-profile'>
                           <UpdateProfile res={ handleRes } />
-                      </Route>
-                      <Route exact path='/imporlan/dashboard/support'>
-                        <Support res={ handleRes } />
-                      </Route>
-                      <Route exact path='/imporlan/dashboard/plans'>
-                        <Plans res={ handleRes } />
-                      </Route>
-                      <MenuMobile />
+                        </Route>
+                        <Route exact path='/imporlan/dashboard/support'>
+                          <Support res={ handleRes } />
+                        </Route>
+                        <Route exact path='/imporlan/dashboard/plans'>
+                          <Plans res={ handleRes } />
+                        </Route>
+                        <MenuMobile />
+                      </Switch>
                     </>
 
                   :
 
+                  <Switch>
                   <>
                     <Route exact path='/imporlan/' component={ Index } />
                     <Route exact path='/imporlan/dashboard/new-testimony' component={ FormTestimony } />
@@ -487,10 +489,10 @@ function App() {
                     <Route exact path='/imporlan/delete-fake-user/:email'>
                       <DeleteFakeUser res={ handleRes } />
                     </Route>
-                  </>
+                  </>  
+                </Switch>
 
                 }
-              </Switch>
               <button className='bg-main-white border-0 d-none align-items-center justify-content-center text-blue-primary' style={{ 'height': '40px', 'position': 'fixed', 'WebkitTransform': 'rotate(45deg)', 'top': '8rem', 'right': '4rem', 'width': '40px', 'zIndex': 99999 }} onClick={ goUp } id='topButton'>
                 <FontAwesomeIcon style={{ 'WebkitTransform': 'rotate(-45deg)' }} icon={ faArrowUp } />
               </button>

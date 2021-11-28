@@ -23,7 +23,7 @@ export default function LateralMenu() {
             position: 'fixed',
             top: '0',
             width: '10vw',
-            zIndex: '9999999999999'
+            zIndex: '999999999999999'
 
         }
 

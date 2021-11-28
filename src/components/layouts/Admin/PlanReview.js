@@ -34,7 +34,7 @@ export default function PlanReview(props){
 
         <div className='d-flex flex-wrap border-bottom'>
             <div className='col-12 d-flex align-items-center py-3 justify-content-between'>
-                <div className='col-auto'>
+                <div className='col-12 col-md-6'>
                     <strong>{ plan.plan.name }</strong>
                     <span className='d-block' style={{ 'fontSize': '10px' }}>
                         <strong>Fecha de ingreso: </strong>
@@ -43,13 +43,13 @@ export default function PlanReview(props){
                         }
                     </span>
                 </div>
-                <div>
+                <div className='col-12 text-center col-md-4 col-xl-4'>
                     <strong>Precio: </strong>
                     {
                         '$' + plan.plan.price
                     }
                 </div>
-                <div>
+                <div className='col-12 text-center col-md-2'>
                     <Link to='#' className='underline d-flex align-items-center'>
                         Ver más <FontAwesomeIcon className='ml-2' icon={ faChevronRight } />
                     </Link>

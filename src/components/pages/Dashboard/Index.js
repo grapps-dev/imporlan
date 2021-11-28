@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Load from '../../layouts/Load';
 import PlanReview from '../../layouts/Admin/PlanReview';
 
 import { URL_LOCAL_BACKEND as URL } from '../../../const';
+
+import { faFrown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Index(props){
 
@@ -23,6 +28,7 @@ export default function Index(props){
 
             setLoading(false);
             setPlans(res.data);
+            res.data.length > 0 ? $('#titleActivePlans').removeClass('d-none') :  $('#titleActivePlans').addClass('d-none');
 
         })
         .catch(err => {
@@ -69,13 +75,34 @@ export default function Index(props){
                 <div className='col-12'>
                     <h3>Planes de Cliente</h3>
                     <p>
-                        Visualiza todos los planes y servicios que se encuentren en pleno desarrollo, a fin de tener el máximo control sobre sus embarcaciones.
+                        Visualiza todos los planes y servicios que se encuentren en pleno desarrollo, a fin de tener el máximo control sobre tus embarcaciones.
                     </p>
                     <div className='col-12 col-md-10 mx-auto'>
-                        <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-2 pb-md-5 shadow'>
+                        <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-3 shadow'>
+                            <h5 id='titleActivePlans' className='d-none'>
+                                Planes Activos
+                            </h5>
                             {
-                                plans.map(plan => <PlanReview plan={ plan } key={ plan.id } />)
+                                plans.length > 0 ?
+                                    plans.map(plan => <PlanReview plan={ plan } key={ plan.id } />)
+                                :
+
+                                    <>
+                                        <h5>
+                                            No has contratado ningún Plan. <FontAwesomeIcon icon={ faFrown } />
+                                        </h5>
+                                        <span className='d-block text-center'>
+                                            <Link to='/imporlan/dashboard/plans' className='strong underline'>¡Contrata uno ya!</Link> Y vive junto a nosotros la mejor experiencia que puedes imaginar.
+                                        </span>
+                                    </>
                             }
+                        </div>
+                        <div className='col-12 px-0 mt-5'>
+                            <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-3 shadow'>
+                                <h5>
+                                    Planes Culminados
+                                </h5>  
+                            </div>
                         </div>
                     </div>
                 </div>
