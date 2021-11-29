@@ -11,7 +11,7 @@ export default function Load() {
 
     return(
 
-        <div className='d-flex align-items-center justify-content-center' style={{ 'height': height }}>
+        <div className='d-flex align-items-center justify-content-center' style={{ 'minHeight': height, 'minWidth': '100%' }}>
             <div className='spinner-border'>
                 <span className='sr-only'>
                     Cargando...

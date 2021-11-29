@@ -15,6 +15,7 @@ import Header from './components/layouts/Header';
 import Navbar from './components/layouts/Navbar';
 import Footer from './components/layouts/Footer';
 import Load from './components/layouts/LoadComplete';
+import ServicesContacts from './components/layouts/ServicesContacts';
 
 import NavbarAdmin from './components/layouts/Admin/Navbar';
 import LateralMenu from './components/layouts/Admin/LateralMenu';
@@ -37,6 +38,8 @@ import SignIn from './components/pages/SignIn';
 import Testimonys from './components/pages/Testimonys';
 import LostPass from './components/pages/LostPass';
 import DeleteFakeUser from './components/pages/DeleteFakeUser';
+
+import QuickAsk from './components/pages/Admin/QuickAsk';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
@@ -121,6 +124,7 @@ function App() {
       getAuthenticatedUser(res.data.token);
       sessionStorage.setItem('token', res.data.token);
       setLoading(true)
+      $('.spinner-border').addClass('d-none');
 
     })
     .catch(err => {
@@ -149,6 +153,7 @@ function App() {
       getAuthenticatedAdmin(res.data.token);
       sessionStorage.setItem('token', res.data.token);
       setLoading(true)
+      $('.spinner-border').addClass('d-none');
 
     })
     .catch(err => {
@@ -385,6 +390,19 @@ function App() {
   
       }
 
+      if(window.location.pathname === '/imporlan/dashboard/admin/quick-ask'){
+
+        $('#content').removeClass('px-sm-5');
+        $('#content').removeClass('py-3');
+        $('#content div').addClass('position-relative');
+
+      } else {
+
+        $('#content').addClass('px-sm-5');
+        $('#content').addClass('py-3');
+
+      }
+
     }, 500)
 
   })
@@ -403,14 +421,14 @@ function App() {
         <div id='main' className='container pt-4'>
           { res ? 
 
-            <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'left': '5rem', 'position': 'fixed', 'top': '20px', "zIndex": 999999999999, 'padding': '10px 20px' }}>{ res }</div>
+            <div style={{ 'background': msgColor, 'borderRadius': '10px', 'color': 'white', 'left': '5rem', 'position': 'fixed', 'top': '20px', "zIndex": 99999999999999999, 'padding': '10px 20px' }}>{ res }</div>
 
             :
 
             ''
 
           }
-          <div className='fixed-top bg-blue-primary' style={{ 'height': '6px', 'zIndex': 999 }} id='pageSize'>
+          <div className='fixed-top bg-blue-primary' style={{ 'height': '6px', 'zIndex': 9999999 }} id='pageSize'>
           </div>
           <Router>
             <Header />
@@ -441,6 +459,12 @@ function App() {
                         <Route exact path='/imporlan/dashboard/plans'>
                           <Plans res={ handleRes } />
                         </Route>
+
+
+
+                        <Route exact path='/imporlan/dashboard/admin/quick-ask'>
+                          <QuickAsk res={ handleRes } />
+                        </Route>
                         <MenuMobile />
                       </Switch>
                     </>
@@ -449,6 +473,9 @@ function App() {
 
                   <Switch>
                   <>
+                    <Route exact path='/imporlan/dashboard/admin/quick-ask'>
+                          <QuickAsk res={ handleRes } />
+                        </Route>
                     <Route exact path='/imporlan/' component={ Index } />
                     <Route exact path='/imporlan/dashboard/new-testimony' component={ FormTestimony } />
                     <Route exact path='/imporlan/information' component={ Information } />
@@ -488,6 +515,9 @@ function App() {
                     </Route>
                     <Route exact path='/imporlan/delete-fake-user/:email'>
                       <DeleteFakeUser res={ handleRes } />
+                    </Route>
+                    <Route exact path='/imporlan/contact/:service'>
+                      <ServicesContacts res={ handleRes } />
                     </Route>
                   </>  
                 </Switch>

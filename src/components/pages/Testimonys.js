@@ -83,7 +83,7 @@ export default function Testimonys(props) {
                     </div>
                     <div className='col-12'>
                         {
-                            user ?
+                            user.length > 0 ?
 
                                 <div className='col-12 text-center mt-3'>
                                     <em>

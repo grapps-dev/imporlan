@@ -40,7 +40,7 @@ export default function ServicesIndex() {
         {
             id: 4,
             title: "Registro",
-            description: "Inscripción Realizamos la inscripción de su embarcación, en pocos días, liberándolo de burocracia.",
+            description: "Realizamos la inscripción de su embarcación, en pocos días, liberándolo de burocracia.",
             img: IconRegistration
         },
         {

@@ -31,3 +31,10 @@ button:hover{
     color: white;
 
 }
+
+.btn-gray {
+
+    background-color: var(--gray-primary);
+    color: white;
+
+}
