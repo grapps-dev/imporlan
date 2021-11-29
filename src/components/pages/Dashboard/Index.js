@@ -71,7 +71,7 @@ export default function Index(props){
 
             :
 
-            <div className='row'>
+            <div className='row mx-0 mx-lg-3'>
                 <div className='col-12'>
                     <h3>Planes de Cliente</h3>
                     <p>
@@ -82,20 +82,22 @@ export default function Index(props){
                             <h5 id='titleActivePlans' className='d-none'>
                                 Planes Activos
                             </h5>
-                            {
-                                plans.length > 0 ?
-                                    plans.map(plan => <PlanReview plan={ plan } key={ plan.id } />)
-                                :
+                            <div style={{ 'maxHeight': '300px', 'overflowY': 'auto' }}>
+                                {
+                                    plans.length > 0 ?
+                                        plans.map(plan => <PlanReview plan={ plan } key={ plan.id } />)
+                                    :
 
-                                    <>
-                                        <h5>
-                                            No has contratado ningún Plan. <FontAwesomeIcon icon={ faFrown } />
-                                        </h5>
-                                        <span className='d-block text-center'>
-                                            <Link to='/imporlan/dashboard/plans' className='strong underline'>¡Contrata uno ya!</Link> Y vive junto a nosotros la mejor experiencia que puedes imaginar.
-                                        </span>
-                                    </>
-                            }
+                                        <>
+                                            <h5>
+                                                No has contratado ningún Plan. <FontAwesomeIcon icon={ faFrown } />
+                                            </h5>
+                                            <span className='d-block text-center'>
+                                                <Link to='/imporlan/dashboard/plans' className='strong underline'>¡Contrata uno ya!</Link> Y vive junto a nosotros la mejor experiencia que puedes imaginar.
+                                            </span>
+                                        </>
+                                }
+                            </div>
                         </div>
                         <div className='col-12 px-0 mt-5'>
                             <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-3 shadow'>

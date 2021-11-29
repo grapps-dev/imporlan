@@ -62,6 +62,12 @@ a:hover{
 
 }
 
+#content {
+
+    min-height: calc(100vh - 1.5rem - 134px - 2rem - 72px - 48px - 16px - 243px);
+
+}
+
 #pageSize {
 
     z-index: 9999999999;
@@ -78,5 +84,12 @@ a:hover{
 #lateralMenu a:hover{
 
     text-decoration: underline white;
+
+}
+
+.thumbs {
+
+    text-align: center;
+    overflow-x: auto;
 
 }

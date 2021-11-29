@@ -15,7 +15,7 @@ export default function MenuMobile() {
 
             bottom: '0px',
             borderTop: '2px solid black',
-            display: 'grid',
+            display: 'none',
             gridTemplateColumns: 'repeat(5, 1fr)',
             height: '60px',
             left: '0px',
@@ -29,7 +29,7 @@ export default function MenuMobile() {
 
     return(
 
-        <div className='bg-blue-primary d-none text-blue-primary' id='containerMenuMobile' style={ styles.container }>
+        <div className='bg-blue-primary text-blue-primary' id='containerMenuMobile' style={ styles.container }>
             <div className='d-flex align-items-center justify-content-center'>
                 <img src={ WhiteBoat } className='menu-icon' />
             </div>

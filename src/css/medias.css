@@ -7,6 +7,19 @@
 
     }
 
+    .thumb {
+
+        width: 80px !important;
+
+    }
+
+    .carousel .slide iframe{
+
+        margin: 0px !important;
+        width: calc(100% - 40px) !important;
+
+    }
+
 }
 
 @media (max-width: 1024px){
@@ -171,7 +184,7 @@
     #content{
 
         margin-left: 0 !important;
-        /*width: 100vw !important;*/
+        width: auto !important;
 
     }
 

@@ -38,6 +38,7 @@ import SignIn from './components/pages/SignIn';
 import Testimonys from './components/pages/Testimonys';
 import LostPass from './components/pages/LostPass';
 import DeleteFakeUser from './components/pages/DeleteFakeUser';
+import QuickAsks from './components/pages/QuickAsks';
 
 import QuickAsk from './components/pages/Admin/QuickAsk';
 
@@ -125,11 +126,14 @@ function App() {
       sessionStorage.setItem('token', res.data.token);
       setLoading(true)
       $('.spinner-border').addClass('d-none');
+      $('#submit span').removeClass('d-none');
 
     })
     .catch(err => {
 
-      console.log(err.response.data);
+      handleRes('Usuario y/o contraseña incorrectos', 'red');
+      $('.spinner-border').addClass('d-none');
+      $('#submit span').removeClass('d-none');
 
     })
 
@@ -154,11 +158,14 @@ function App() {
       sessionStorage.setItem('token', res.data.token);
       setLoading(true)
       $('.spinner-border').addClass('d-none');
+      $('#submit span').removeClass('d-none');
 
     })
     .catch(err => {
 
       handleRes('Usuario y/o contraseña incorrectos', 'red');
+      $('.spinner-border').addClass('d-none');
+      $('#submit span').removeClass('d-none');
 
     })
 
@@ -465,8 +472,8 @@ function App() {
                         <Route exact path='/imporlan/dashboard/admin/quick-ask'>
                           <QuickAsk res={ handleRes } />
                         </Route>
-                        <MenuMobile />
                       </Switch>
+                      <MenuMobile />
                     </>
 
                   :
@@ -519,6 +526,7 @@ function App() {
                     <Route exact path='/imporlan/contact/:service'>
                       <ServicesContacts res={ handleRes } />
                     </Route>
+                    <Route exact path='/imporlan/quick-asks' component={ QuickAsks } />
                   </>  
                 </Switch>
 

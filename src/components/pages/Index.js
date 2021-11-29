@@ -72,6 +72,7 @@ export default function Index() {
             oldPrice: '142.900',
             content: [
 
+                'Monitoreo por 14 días',
                 '1 requerimiento específico',
                 '9 propuestas/cotizaciones',
                 'Análisis de ofertas y recomendaciones'
@@ -454,9 +455,9 @@ export default function Index() {
                                             <img src={ BuyUSA } className='img-fluid' />
                                         </div>
                                         <div style={{ 'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
-                                            <h2 className='text-dark d-block mt-auto'>
+                                            <h4 className='text-dark d-block mt-auto'>
                                                 Compra USA
-                                            </h2>
+                                            </h4>
                                         </div>
                                     </div>
                                 </Link>
@@ -468,9 +469,9 @@ export default function Index() {
                                             <img src={ InfoChile } className='img-fluid' />
                                         </div>
                                         <div style={{ 'textOverflow': 'ellipsis', 'overflow': 'hidden' }}>
-                                            <h2 className='text-dark d-block mt-auto'>
+                                            <h4 className='text-dark d-block mt-auto'>
                                                 Info ImporLan
-                                            </h2>
+                                            </h4>
                                         </div>
                                     </div>
                                 </Link>

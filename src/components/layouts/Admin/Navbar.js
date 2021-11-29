@@ -34,11 +34,11 @@ export default function Navbar(props) {
 
     const noWatchNotifications = (notifications) => {
 
-        notifications.map(notification => {
+        notifications.forEach(notification => {
 
-            if(notification.view === 0){
+            if(!notification.view){
 
-                setCounter( counter => counter + 1)
+                setCounter(counter => counter + 1)
 
             }
 
@@ -49,10 +49,8 @@ export default function Navbar(props) {
     const getNotifications = () => {
 
         setUser(JSON.parse(sessionStorage.getItem('user')));
-        console.log(JSON.parse(sessionStorage.getItem('user')));
         if(user){
 
-            console.log(user.id);
             //setUser(JSON.parse(sessionStorage.getItem('user')));
             axios.get(URL + 'notifications/' + user.id, {
                 headers : {
@@ -75,9 +73,28 @@ export default function Navbar(props) {
 
     useEffect(() => {
 
-        getNotifications();
+        setInterval(() => {
 
-    }, [ setNotifications ]);
+            getNotifications();
+
+        }, 500)
+        if(notifications.length > 0){
+
+            noWatchNotifications(notifications);
+
+        }
+
+    }, [  ]);
+
+    /*$(document).ready(() => {
+
+        setInterval(() => {
+
+            noWatchNotifications();
+
+        }, 500)
+
+    })*/
 
     const showDropdown = (e)=>{
         setShow(!show);
@@ -100,7 +117,8 @@ export default function Navbar(props) {
         .then(res => {
 
             noWatchNotifications(notifications);
-            $('li a').css('fontWeight', 'italic');
+            $('li span').css('fontWeight', 'italic');
+            setCounter(0)
 
         })
         .catch(err => {

@@ -52,14 +52,15 @@ export default function Testimonys(props) {
         if(sessionStorage.getItem('user')){
 
             setUser(JSON.parse(sessionStorage.getItem('user')));
+            alert(user.length)
 
         } else {
 
-            setUser([]);
+            setUser(false);
 
         }
 
-    }, [ setTestimonys ])
+    }, [ setTestimonys, setUser ])
 
     return(
 
@@ -83,7 +84,7 @@ export default function Testimonys(props) {
                     </div>
                     <div className='col-12'>
                         {
-                            user.length > 0 ?
+                            user ?
 
                                 <div className='col-12 text-center mt-3'>
                                     <em>

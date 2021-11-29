@@ -76,7 +76,9 @@ export default function Footer() {
                         </span>
                     </div>
                     <div className='col-12 d-flex align-items-center bg-white border-radius p-3 text-center mt-3' style={{ 'height': '70%' }}>
-                        <img src={ WebPay } className='img-fluid' />
+                        <Link className='w-100 h-100' to='/imporlan/bank-transfer'>
+                            <img src={ WebPay } className='img-fluid' />
+                        </Link>
                     </div>
                 </div>  
             </div>
@@ -105,7 +107,9 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className='my-3'>
-                                COMPARTE TU TESTIMONIO
+                                <Link to='/imporlan/testimonys'>
+                                    TESTIMONIOS
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -131,7 +135,9 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li className='my-3'>
-                                PREGUNTAS FRECUENTES
+                                <Link to='/imporlan/quick-asks'>
+                                    PREGUNTAS FRECUENTES
+                                </Link>
                             </li>
                             <li className='my-3'>
                                 <Link to='/imporlan/bank-transfer'>

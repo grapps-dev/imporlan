@@ -43,6 +43,7 @@ export default function SignIn(props) {
 
         e.preventDefault();
         $('.spinner-border').removeClass('d-none');
+        $('#submit span').addClass('d-none');
         props.login(data);
 
     }
@@ -93,7 +94,7 @@ export default function SignIn(props) {
                     </div>
                     <div className='col-12 px-0 px-md-3'>
                         <div className='col-12 d-flex justify-content-center justify-content-md-end'>
-                            <button className='btn text-gray' type='submit' style={ styles.inputs }>
+                            <button id='submit' className='btn text-gray' type='submit' style={ styles.inputs }>
                                 <span>{ btnText }</span>
                                 <div className='spinner-border d-none'>
                                     <span className='sr-only'>Cargando...</span>

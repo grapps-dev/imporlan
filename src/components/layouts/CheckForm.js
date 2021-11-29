@@ -32,7 +32,7 @@ export default function CheckForm() {
                         <form>
                             <div className='form-group'>
                                 <h4 className='w-100 text-center my-4'>
-                                    Where do you want the boat?
+                                    ¿Dónde quieres la embarcación?
                                 </h4>
                                 <div className='w-100 mt-3'>
                                     <select className='form-control'>
