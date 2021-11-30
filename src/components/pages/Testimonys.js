@@ -26,6 +26,48 @@ export default function Testimonys(props) {
 
     }
 
+    const re = [
+
+        {
+            user: {
+
+                photo: "andy-marquez.jpg",
+                name: "Andy Márquez",
+
+            },
+            content: "El servicio de Imporlan es sorprendente. Muy feliz con mi compra!"
+        },
+        {
+            user: {
+
+                photo: "alberto-lathrop.jpg",
+                name: "Alberto Lathrop",
+
+            },
+            content: "Velero ya en Talcahuano y listo para navegar. Muy agredecido por la gestión de Imporlan, Gracias !"
+        },
+        {
+            user: {
+
+                photo: "eduardo-a.jpg",
+                name: "Eduardo A.",
+
+            },
+            content: "Muy buena atención, todo resultó sin problemas. Plenamente satisfecho, Gracias IMPORLAN!"
+        },
+        {
+            user: {
+
+                photo: "bruno-nordio.jpg",
+                name: "Bruno Nordio",
+                location: "Lago Rapel - Chile"
+
+            },
+            content: "Gracias a Imporlan por la gestión prestada. Todo en tiempo y forma, Gracias totales!"
+        }
+
+    ]
+
     const getTestimonys = async() => {
 
         setLoading(true);
@@ -105,6 +147,9 @@ export default function Testimonys(props) {
                         <div className='col-12 d-flex flex-wrap px-0 mt-4 text-center'>
                             {
                                 testimonys.map(testimony => <Testimony testimony={ testimony } key={ testimony.id } />)
+                            }
+                            {
+                                re.map(testimony => <Testimony testimony={ testimony } key={ testimony.id } />)
                             }
                         </div>
                     </div>

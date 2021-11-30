@@ -19,6 +19,38 @@ export default function Reviews() {
     const [ count, setCount ] = useState(0);
     const [ loading, setLoading ] = useState(true);
 
+    const re = [
+
+        {
+            user: {
+
+                photo: "andy-marquez.jpg",
+                name: "Andy Márquez",
+
+            },
+            content: "El servicio de Imporlan es sorprendente. Muy feliz con mi compra!"
+        },
+        {
+            user: {
+
+                photo: "alberto-lathrop.jpg",
+                name: "Alberto Lathrop",
+
+            },
+            content: "Velero ya en Talcahuano y listo para navegar. Muy agredecido por la gestión de Imporlan, Gracias !"
+        },
+        {
+            user: {
+
+                photo: "eduardo-a.jpg",
+                name: "Eduardo A.",
+
+            },
+            content: "Muy buena atención, todo resultó sin problemas. Plenamente satisfecho, Gracias IMPORLAN!"
+        }
+
+    ]
+
     const getReviews = async() => {
 
         await axios.get(URL + 'testimonys')
@@ -27,19 +59,6 @@ export default function Reviews() {
             setReviews(res.data);
             let testimonys_count = res.data.length;
             setLoading(false);
-            if(testimonys_count <= 2){
-
-                $('#slider').css('width', '100%');
-                $('.review').css('width', '50%');
-                setCount(1);
-
-            } else if(testimonys_count > 2 && testimonys_count <= 4){
-
-                $('#slider').css('width', '200%');
-                $('.review').css('width', '25%');
-                setCount(2);
-
-            }
 
         })
         .catch(err => {
@@ -52,7 +71,21 @@ export default function Reviews() {
 
     useEffect(() => {
 
-        getReviews();
+        let count = re.length;
+        if(count <= 2){
+
+            $('#slider').css('width', '100%');
+            $('.review').css('width', '50%');
+            setCount(1);
+
+        } else if(count > 2 && count <= 4){
+
+            $('#slider').css('width', '200%');
+            $('.review').css('width', '50%');
+            setCount(2);
+
+        }
+        setLoading(false);
 
     }, [  ])
 
@@ -129,14 +162,14 @@ export default function Reviews() {
                     </h2>
                 </div>
                 <div className='w-100 mt-5 overflow-hidden' style={{ 'whiteSpace': 'nowrap' }}>
-                    <div className='d-flex align-items-center' style={{ 'transitionDuration': '500ms' }} id='slider'>
+                    <div className='d-flex align-items-center' style={{ 'transitionDuration': '500ms', 'width': '200%' }} id='slider'>
                         {
-                            reviews.map(review => <Review review={ review } key={ review.id } />)
+                            re.map(review => <Review review={ review } key={ review.id } />)
                         }
                         <div className='review text-center'>
                             <Link to='/imporlan/testimonys' type='button' className='btn btn-gray'>
                                 Ver más
-                            </Link>
+                            </Link> 
                         </div>
                     </div>
                 </div>

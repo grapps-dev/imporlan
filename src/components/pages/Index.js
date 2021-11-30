@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import $ from 'jquery';
 
 import CheckForm from '../layouts/CheckForm';
 import Plans from '../layouts/Plans';
@@ -28,11 +30,35 @@ import InfoChile from '../../assets/img/info-chile.png';
 import InfoImporlanDoc from '../../assets/docs/info-imporlan.pdf';
 import BuyUSADoc from '../../assets/docs/buy-usa.pdf';
 
+import { URL_LOCAL_BACKEND as URL } from '../../const';
+
 export default function Index() {
+
+    const [ articles, setArticles ] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+
+        getArticles();
+
+    }, [ setArticles ])
+
+    const getArticles = async() => {
+
+        await axios.get(URL + 'articles')
+        .then(res => {
+
+            console.log(res.data);
+            setArticles(res.data);
+
+        })
+        .catch(err => {
+
+            console.log(err.response);
+
+        })
+
+    }
 
     const styles = {
 
@@ -523,7 +549,7 @@ export default function Index() {
                 <Plans plans={ plans } />
                 <ServicesIndex />
                 <Reviews />
-                <ArticlesIndex />
+                <ArticlesIndex articles={ articles } />
             </div>
         </>
     )

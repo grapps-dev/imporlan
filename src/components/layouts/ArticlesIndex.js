@@ -8,7 +8,9 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import ArticleIndex from "./ArticleIndex";
 
-export default function ArticlesIndex() {
+export default function ArticlesIndex(props) {
+
+    const { articles } = props;
 
     const news = [
 
@@ -108,20 +110,20 @@ export default function ArticlesIndex() {
                     Lastest News
                 </h2>
                 <div className='w-100 mt-5 overflow-hidden' style={{ 'whiteSpace': 'nowrap' }}>
-                <div style={{ 'width': '200%', 'transitionDuration': '500ms' }} id='sliderArticles'>
+                <div className='d-flex justify-content-between' style={{ 'width': '100%', 'transitionDuration': '500ms' }} id='sliderArticles'>
                     {
-                        news.map(article => <ArticleIndex article={ article } key={ article.id } />)
+                        articles.map(article => <ArticleIndex article={ article } key={ article.id } />)
                     }
                 </div>
             </div>
-            <div className='w-100 justify-content-center d-flex mt-3'>
+            {/*<div className='w-100 justify-content-center d-flex mt-3'>
                 <button className='btn bg-white mr-2 border-circle'>
                     <FontAwesomeIcon icon={ faArrowLeft } onClick={ moveLeft } />
                 </button>
                 <button className='btn bg-white ml-2 border-circle'>
                     <FontAwesomeIcon icon={ faArrowRight } onClick={ moveRight } />
                 </button>
-            </div>
+                </div>*/}
             </div>
         </div>
 

@@ -14,7 +14,7 @@ export default function Testimony(props) {
                         </div>
                         <div>
                             <strong className='text-purple d-block'>{ testimony.user.name }</strong>
-                            <strong className='text-gray' style={{ 'fontSize': '12px' }}>{ testimony.user.post + ' - ' + testimony.user.enterprise }</strong>
+                            <strong className='text-gray' style={{ 'fontSize': '12px' }}>{ testimony.user.post ? testimony.user.post : '' + ' - ' + testimony.user.enterprise ? testimony.user.enterprise : testimony.user.location }</strong>
                         </div>
                     </div>
                     <hr />
