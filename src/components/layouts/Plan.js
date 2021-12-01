@@ -49,6 +49,7 @@ export default function Plan(props) {
 
                 $('#responseContainer').removeClass('d-none');
                 setRes(res.data);
+                console.log(res.data)
                 setTimeout(() => {
 
                     $('#responseContainer').addClass('d-none');

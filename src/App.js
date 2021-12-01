@@ -40,7 +40,9 @@ import LostPass from './components/pages/LostPass';
 import DeleteFakeUser from './components/pages/DeleteFakeUser';
 import QuickAsks from './components/pages/QuickAsks';
 
+import IndexAdmin from './components/pages/Admin/Index';
 import QuickAsk from './components/pages/Admin/QuickAsk';
+import FormArticle from './components/pages/Admin/FormArticle';
 
 import FormTestimony from './components/pages/Dashboard/FormTestimony';
 import DashBoardIndex from './components/pages/Dashboard/Index';
@@ -254,10 +256,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'admin');
-        window.location.href = window.location.origin + '/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/admin/dashboard';
         setTimeout(() => {
 
-          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/admin/dashboard'){
             setLoading(false);
             refreshMain();
           }
@@ -268,10 +270,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'inspector');
-        window.location.href = window.location.origin + '/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/admin/dashboard/';
         setTimeout(() => {
 
-          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/admin/dashboard/'){
             setLoading(false);
           }
 
@@ -281,10 +283,10 @@ function App() {
 
         sessionStorage.setItem('user', JSON.stringify(res.data.user));
         sessionStorage.setItem('profile', 'transportista');
-        window.location.href = window.location.origin + '/imporlan/dashboard';
+        window.location.href = window.location.origin + '/imporlan/admin/dashboard/';
         setTimeout(() => {
 
-          if(window.location.href === window.location.origin + '/imporlan/dashboard'){
+          if(window.location.href === window.location.origin + '/imporlan/admin/dashboard/'){
             setLoading(false);
           }
 
@@ -469,8 +471,14 @@ function App() {
 
 
 
+                        <Route exact path='/imporlan/admin/dashboard/'>
+                          <IndexAdmin token={ sessionStorage.getItem('token') } user={ JSON.parse(sessionStorage.getItem('user')) } />
+                        </Route>
                         <Route exact path='/imporlan/dashboard/admin/quick-ask'>
                           <QuickAsk res={ handleRes } />
+                        </Route>
+                        <Route exact path='/imporlan/dashboard/admin/new-article'>
+                          <FormArticle res={ handleRes } />
                         </Route>
                       </Switch>
                       <MenuMobile />

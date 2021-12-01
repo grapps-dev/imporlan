@@ -7,6 +7,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 export default function PlanReview(props){
 
     const [ date, setDate ] = useState({});
+    const [ profile, setProfile ] = useState('');
     const { plan } = props;
 
     useEffect(() => {
@@ -19,6 +20,8 @@ export default function PlanReview(props){
             d += inDate[i];
 
         }
+
+        setProfile(sessionStorage.getItem('profile'));
 
         setDate({
 
@@ -34,8 +37,8 @@ export default function PlanReview(props){
 
         <div className='d-flex flex-wrap border-bottom'>
             <div className='col-12 d-flex flex-wrap align-items-center py-3 justify-content-between'>
-                <div className='col-12 col-md-6'>
-                    <strong>{ plan.plan.name }</strong>
+                <div className='col-12 col-md-5'>
+                    <strong>{ profile !== 'client' ? plan.user.name : plan.plan.name }</strong>
                     <span className='d-block' style={{ 'fontSize': '10px' }}>
                         <strong>Fecha de ingreso: </strong>
                         {
@@ -43,7 +46,7 @@ export default function PlanReview(props){
                         }
                     </span>
                 </div>
-                <div className='col-12 d-flex justify-content-between col-md-4 col-xl-4'>
+                <div className='col-12 d-flex justify-content-between col-md-5 col-xl-5 px-0'>
                     <div>
                         <strong>Paso: </strong>
                         {
@@ -51,13 +54,29 @@ export default function PlanReview(props){
                         }
                     </div>
                     <div>
-                        <strong>Precio: </strong>
                         {
-                            '$' + plan.plan.price
+                            profile === 'client' ? 
+
+                                <>
+                                    <strong>Precio: </strong>
+                                    {
+                                        '$' + plan.plan.price
+                                    }
+                                </>
+
+                            :
+
+                                <>
+                                    <strong>Plan: </strong>
+                                    {
+                                        plan.plan.name.replace('Plan ', '')
+                                    }
+                                </>
+
                         }
                     </div>
                 </div>
-                <div className='col-12 d-flex justify-content-end justify-content-lg-center col-md-2'>
+                <div className='col-12 d-flex justify-content-end px-0 justify-content-lg-center col-md-2'>
                     <Link to='#' className='underline d-flex align-items-center'>
                         Ver más <FontAwesomeIcon className='ml-2' icon={ faChevronRight } />
                     </Link>

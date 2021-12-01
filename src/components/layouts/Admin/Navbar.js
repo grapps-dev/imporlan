@@ -77,7 +77,7 @@ export default function Navbar(props) {
 
             getNotifications();
 
-        }, 500)
+        }, 10000)
         if(notifications.length > 0){
 
             noWatchNotifications(notifications);
