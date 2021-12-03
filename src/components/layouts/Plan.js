@@ -10,7 +10,7 @@ export default function Plan(props) {
 
     const [ response, setRes ] = useState('');
 
-    const { plan, col, user} = props;
+    const { plan, col, user } = props;
 
     var classname='col-lg-'+ col +' mb-5 mb-lg-0';
     var buttonTop = '-4.5rem';

@@ -105,6 +105,84 @@ export default function Support(props) {
 
     ]
 
+    const plansInspection = [
+
+        {
+            id: 7,
+            name: 'Ready To Go',
+            actualPrice: '949.000',
+            oldPrice: '949.000',
+            content: [
+
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Envío lugar requerido',
+                'Inspección final',
+                'Registro Gob. Marítima'
+
+            ]
+        },
+        {
+            id: 8,
+            name: 'Compra + Envío',
+            actualPrice: '660.000',
+            oldPrice: '',
+            content: [
+
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra',
+                'Envío lugar requerido'
+
+            ]
+        },
+        {
+            id: 9,
+            name: 'Compra',
+            actualPrice: '319.000',
+            oldPrice: '',
+            content: [
+
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación',
+                'Negociación',
+                'Revisión de documentos',
+                'Tramitación de compra'
+
+            ]
+        },
+        {
+            id: 10,
+            name: 'Inspección Base',
+            actualPrice: '319.000',
+            oldPrice: '',
+            content: [
+
+                'Inspección Casco',
+                'Inspección motor',
+                'Test Drive Directo',
+                'Reporte detallado (PDF)',
+                'Recomendación'
+
+            ]
+        },
+
+    ]
+
     const changeContent = e => {
 
         if(e.target.id === 'chile'){
@@ -114,6 +192,19 @@ export default function Support(props) {
         } else if(e.target.id === 'usa') {
 
             setPage('usa');
+
+        } else if(e.target.id === 'inspection'){
+
+            setPage('inspection')
+
+        } else if(e.target.id === 'search'){
+
+            alert(page)
+            setPage('inspection')
+
+        } else if(e.target.id === 'import'){
+
+            setPage('inspection')
 
         }
 
@@ -148,6 +239,17 @@ export default function Support(props) {
                     </div>
                 </div>
                 <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-2 pb-md-5 shadow' id='supportContent'>
+                    <div className='col-12 d-flex align-items-center border-blue-primary border-bottom mb-2'>
+                        <div className='col-4 text-center p-2 border-blue-primary border-right'>
+                            <button id='search' className='btn w-100 p-0 strong' onClick={ changeContent }>Búsqueda</button>
+                        </div>
+                        <div className='col-4 text-center p-2'>
+                            <button id='inspection' className='btn w-100 p-0 strong' onClick={ changeContent }>Inspección</button>
+                        </div>
+                        <div className='col-4 text-center p-2 border-blue-primary border-left'>
+                            <button id='import' className='btn w-100 p-0 strong' onClick={ changeContent }>Importación</button>
+                        </div>
+                    </div>
                     {
                         
                         page === 'chile' ?
@@ -173,7 +275,22 @@ export default function Support(props) {
                                 </h2>
                                 <div className='col-12 px-0'>
                                     <div className='row col-12 justify-content-center mx-0'>
-                                        { plansUSA.map(plan => <Plan col='6' plan={ plan } key={ plan.id } response={ props.res } />) }
+                                        { plansUSA.map(plan => <Plan col='6' plan={ plan } key={ plan.id } user={ user } response={ props.res } />) }
+                                    </div>
+                                </div>
+                            </div>
+
+                        :
+
+                        page === 'inspection' ?
+
+                            <div className='col-12 mt-5 px-0 mt-md-0'>
+                                <h2 className='text-gradient-blue text-center mt-2 mb-4'>
+                                    Planes de Inspección
+                                </h2>
+                                <div className='col-12 px-0'>
+                                    <div className='row col-12 justify-content-center mx-0'>
+                                        { plansInspection.map(plan => <Plan col='6' plan={ plan } key={ plan.id } user={ user } response={ props.res } />) }
                                     </div>
                                 </div>
                             </div>

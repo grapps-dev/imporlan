@@ -100,3 +100,9 @@
     border-right: 1px solid white;
 
 }
+
+.border-blue-primary {
+
+    border-color: var(--blue-primary) !important;
+
+}

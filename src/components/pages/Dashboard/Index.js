@@ -77,7 +77,7 @@ export default function Index(props){
                     <p>
                         Visualiza todos los planes y servicios que se encuentren en pleno desarrollo, a fin de tener el máximo control sobre tus embarcaciones.
                     </p>
-                    <div className='col-12 col-md-10 mx-auto'>
+                    <div className='col-12 col-xl-10 mx-auto'>
                         <div className='col-12 bg-main-white text-blue-primary border-radius px-md-4 py-3 shadow'>
                             <h5 id='titleActivePlans' className='d-none'>
                                 Planes Activos
@@ -92,8 +92,8 @@ export default function Index(props){
                                             <h5>
                                                 No has contratado ningún Plan. <FontAwesomeIcon icon={ faFrown } />
                                             </h5>
-                                            <span className='d-block text-center'>
-                                                <Link to='/imporlan/dashboard/plans' className='strong underline'>¡Contrata uno ya!</Link> Y vive junto a nosotros la mejor experiencia que puedes imaginar.
+                                            <span className='d-block text-center mt-3'>
+                                                <Link to='/imporlan/dashboard/plans' className='strong underline'>¡Contrata uno ya!</Link> Y vive junto a nosotros la mejor experiencia que puedas imaginar.
                                             </span>
                                         </>
                                 }

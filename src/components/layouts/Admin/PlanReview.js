@@ -8,6 +8,7 @@ export default function PlanReview(props){
 
     const [ date, setDate ] = useState({});
     const [ profile, setProfile ] = useState('');
+    const [ planTitle, setTitle ] = useState('');
     const { plan } = props;
 
     useEffect(() => {
@@ -21,24 +22,31 @@ export default function PlanReview(props){
 
         }
 
-        setProfile(sessionStorage.getItem('profile'));
-
         setDate({
 
             ...date,
             in: d
 
         })
+        if(sessionStorage.getItem('profile') === 'cliente') {
+
+            setTitle(plan.plan.name)
+
+        } else {
+
+            setTitle(plan.user.name);
+
+        }
         
 
-    }, [ setDate ])
+    }, [ setDate, setProfile ])
 
     return(
 
         <div className='d-flex flex-wrap border-bottom'>
             <div className='col-12 d-flex flex-wrap align-items-center py-3 justify-content-between'>
                 <div className='col-12 col-md-5'>
-                    <strong>{ profile !== 'client' ? plan.user.name : plan.plan.name }</strong>
+                    <strong>{ planTitle }</strong>
                     <span className='d-block' style={{ 'fontSize': '10px' }}>
                         <strong>Fecha de ingreso: </strong>
                         {
@@ -55,7 +63,7 @@ export default function PlanReview(props){
                     </div>
                     <div>
                         {
-                            profile === 'client' ? 
+                            sessionStorage.getItem('profile') === 'cliente' ? 
 
                                 <>
                                     <strong>Precio: </strong>
